@@ -1,0 +1,11 @@
+{
+  "name": "egoist.sh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:egoist/egoist.sh.git",
+  "author": "EGOIST <0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "saber": "^0.2.3"
+  }
+}
