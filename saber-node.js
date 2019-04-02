@@ -37,16 +37,6 @@ exports.afterGenerate = async function() {
         })
     )
   )
-  await this.utils.fs.remove('.saber/public/_saber/js')
-}
-
-exports.getDocument = html => {
-  if (process.env.NODE_ENV === 'production') {
-    // We don't need js in prodution build
-    return html.replace(/<script(.+)><\/script>/gm, '')
-  }
-
-  return html
 }
 
 const cache = new Map()
