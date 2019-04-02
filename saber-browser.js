@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import 'tippy.js/themes/light.css'
+import 'prismjs/themes/prism.css'
 import './css/global.css'
+import './css/markdown.css'
 
 export default ({ rootOptions }) => {
 

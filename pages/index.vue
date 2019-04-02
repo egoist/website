@@ -292,8 +292,6 @@ section.welcome {
 .section {
   @apply px-5 py-20 text-gray-200;
 
-  font-family: 'Open Sans', serif;
-
   @screen md {
     @apply py-56;
   }

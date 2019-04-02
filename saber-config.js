@@ -2,6 +2,9 @@ module.exports = {
   css: {
     extract: process.env.NODE_ENV === 'production'
   },
+  markdown: {
+    highlighter: 'prism'
+  },
   plugins: [
     {
       resolve: 'saber-plugin-google-analytics',
