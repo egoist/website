@@ -4833,10 +4833,10 @@ saber-utils@^0.0.4:
   resolved "http://registry.npm.taobao.org/saber-utils/download/saber-utils-0.0.4.tgz#15b5e3458445a2ef097cc2505dc3bbcbbdf32c9a"
   integrity sha1-FbXjRYRFou8JfMJQXcO7y73zLJo=
 
-saber@^0.3.4:
-  version "0.3.4"
-  resolved "http://registry.npm.taobao.org/saber/download/saber-0.3.4.tgz#e2c870a4e8d12635a705cb5e58e321c3308a20bb"
-  integrity sha1-4shwpOjRJjWnBcteWOMhwzCKILs=
+saber@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.npmjs.org/saber/-/saber-0.3.5.tgz#5d909e87a85069f6a77d355b5443e6f6875add5b"
+  integrity sha512-FEmE90a7EWfjwtf2hdjnxyP5psKOgdpAn1DMQkfbmRRc85lSDKrnktawcS+2Y8PD6FW7QfYWy5jeKGyGoC7ZNA==
   dependencies:
     "@babel/core" "^7.2.2"
     "@babel/plugin-proposal-object-rest-spread" "^7.2.0"
