@@ -15,6 +15,36 @@ exports.onCreatePages = async function() {
   }
 }
 
+exports.afterGenerate = async function() {
+  const critical = require('critical')
+  const files = await this.utils.glob('**/*.html', {
+    cwd: '.saber/public',
+    absolute: true
+  })
+  await Promise.all(
+    files.map(file =>
+      critical
+        .generate({
+          inline: true,
+          src: file
+        })
+        .then(html => {
+          return this.utils.fs.outputFile(file, html)
+        })
+    )
+  )
+  await this.utils.fs.remove('.saber/public/_saber/js')
+}
+
+exports.getDocument = html => {
+  if (process.env.NODE_ENV === 'production') {
+    // We don't need js in prodution build
+    return html.replace(/<script(.+)><\/script>/gm, '')
+  }
+
+  return html
+}
+
 const cache = new Map()
 
 async function getPinnedRepos() {
