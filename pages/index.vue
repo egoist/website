@@ -235,7 +235,9 @@ export default {
     jumpTo(hash) {
       const el = hash && document.getElementById(hash.slice(1))
       if (el) {
-        jump(el)
+        jump(el, {
+          duration: 0
+        })
       }
     }
   },
