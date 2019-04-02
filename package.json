@@ -10,12 +10,14 @@
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "in-view": "^0.6.1",
     "jump.js": "^1.0.2",
     "node-fetch": "^2.3.0",
     "postcss-preset-env": "^6.6.0",
     "saber": "^0.3.6",
     "saber-plugin-google-analytics": "^0.0.3",
     "tailwindcss": "^1.0.0-beta.4",
+    "tippy.js": "^4.2.1",
     "vue-feather-icons": "^4.10.0"
   },
   "devDependencies": {

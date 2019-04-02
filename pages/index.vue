@@ -1,6 +1,8 @@
 <template>
   <div class="homepage">
-    <section class="welcome">
+    <HomeNavigator/>
+
+    <section id="welcome" class="welcome">
       <div class="card">
         <div class="title">
           <span>EGOIST</span>
@@ -19,7 +21,7 @@
       </div>
     </section>
 
-    <section class="section bg-gray-900">
+    <section id="repos" class="section bg-gray-900">
       <div class="container mx-auto">
         <div class="section-inner">
           <div class="section-title">Repos</div>
@@ -100,7 +102,7 @@
       </div>
     </section>
 
-    <section class="section bg-blue-400">
+    <section id="links" class="section bg-blue-400">
       <div class="container mx-auto">
         <div class="section-inner">
           <div class="section-title">Links</div>
@@ -123,7 +125,6 @@
 </template>
 
 <script>
-import jump from 'jump.js'
 import {
   TwitterIcon,
   MusicIcon,
@@ -133,6 +134,9 @@ import {
   MessageSquareIcon,
   MailIcon
 } from 'vue-feather-icons'
+import inView from 'in-view'
+import { jumpTo } from '../utils'
+import HomeNavigator from '../components/HomeNavigator.vue'
 
 export default {
   components: {
@@ -142,7 +146,8 @@ export default {
     SmileIcon,
     HeartIcon,
     MessageSquareIcon,
-    MailIcon
+    MailIcon,
+    HomeNavigator
   },
 
   props: ['page'],
@@ -246,14 +251,7 @@ export default {
       this.showPreviousSupporters = !this.showPreviousSupporters
     },
 
-    jumpTo(hash) {
-      const el = hash && document.getElementById(hash.slice(1))
-      if (el) {
-        jump(el, {
-          duration: 0
-        })
-      }
-    }
+    jumpTo
   },
 
   computed: {
@@ -272,6 +270,11 @@ export default {
 
   mounted() {
     this.jumpTo(this.$route.hash)
+
+    inView.threshold(0.5)
+    inView('.homepage section').on('enter', el => {
+      this.$store.homeSection = el.id
+    })
   }
 }
 </script>

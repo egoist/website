@@ -1,6 +1,9 @@
+import Vue from 'vue'
+import 'tippy.js/themes/light.css'
 import './css/global.css'
 
 export default ({ rootOptions }) => {
+
   rootOptions.head = function () {
     return {
       link: [
@@ -11,4 +14,14 @@ export default ({ rootOptions }) => {
       ]
     }
   }
+
+  const store = Vue.observable({
+    homeSection: null
+  })
+
+  Vue.mixin({
+    beforeCreate() {
+      this.$store = store
+    }
+  })
 }
