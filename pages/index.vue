@@ -132,7 +132,8 @@ import {
   SmileIcon,
   HeartIcon,
   MessageSquareIcon,
-  MailIcon
+  MailIcon,
+  Edit3Icon
 } from 'vue-feather-icons'
 import inView from 'in-view'
 import { jumpTo } from '../utils'
@@ -147,6 +148,7 @@ export default {
     HeartIcon,
     MessageSquareIcon,
     MailIcon,
+    Edit3Icon,
     HomeNavigator
   },
 
@@ -185,6 +187,11 @@ export default {
           icon: 'MessageSquareIcon',
           link: 'https://discord.gg/KFrDE8Z',
           text: 'My Discord Chat'
+        },
+        {
+          icon: 'Edit3Icon',
+          link: 'https://egoist.moe',
+          text: 'My Chinese Blog'
         },
         {
           icon: 'MailIcon',
