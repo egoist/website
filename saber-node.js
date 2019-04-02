@@ -1,6 +1,10 @@
 const fetch = require('node-fetch')
 
 exports.onCreatePages = async function() {
+  if (!process.env.GH_TOKEN) {
+    throw new Error(`Please set GitHub access token as environment variable: GH_TOKEN`)
+  }
+
   const [recentRepos, pinnedRepos] = await Promise.all([
     getRecentRepos(),
     getPinnedRepos()
