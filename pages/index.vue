@@ -129,7 +129,8 @@ import {
   MusicIcon,
   GithubIcon,
   SmileIcon,
-  HeartIcon
+  HeartIcon,
+  MessageSquareIcon
 } from 'vue-feather-icons'
 
 export default {
@@ -138,7 +139,8 @@ export default {
     MusicIcon,
     GithubIcon,
     SmileIcon,
-    HeartIcon
+    HeartIcon,
+    MessageSquareIcon
   },
 
   props: ['page'],
@@ -171,6 +173,11 @@ export default {
           icon: 'SmileIcon',
           link: 'https://anilist.co/user/egoistlily/',
           text: 'My Anime & Manga List'
+        },
+        {
+          icon: 'MessageSquareIcon',
+          link: 'https://discord.gg/KFrDE8Z',
+          text: 'My Discord Chat'
         }
       ],
       currentSupporters: [
