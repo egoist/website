@@ -159,7 +159,7 @@ export default {
         {
           icon: 'TwitterIcon',
           link: 'https://twitter.com/_egoistlily',
-          text: 'Follow me on Twitter'
+          text: 'Follow Me on Twitter'
         },
         {
           icon: 'GithubIcon',
