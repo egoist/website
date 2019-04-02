@@ -109,7 +109,7 @@
               <a
                 class="inline-flex items-center text-xl text-gray-100 hover:text-gray-300"
                 :href="link.link"
-                target="_blank"
+                :target="/^mailto:/.test(link.link) ? '_self' : '_blank'"
               >
                 <component :is="link.icon" class="mr-2 w-5 h-5"/>
                 {{ link.text }}
@@ -130,7 +130,8 @@ import {
   GithubIcon,
   SmileIcon,
   HeartIcon,
-  MessageSquareIcon
+  MessageSquareIcon,
+  MailIcon
 } from 'vue-feather-icons'
 
 export default {
@@ -140,7 +141,8 @@ export default {
     GithubIcon,
     SmileIcon,
     HeartIcon,
-    MessageSquareIcon
+    MessageSquareIcon,
+    MailIcon
   },
 
   props: ['page'],
@@ -178,6 +180,11 @@ export default {
           icon: 'MessageSquareIcon',
           link: 'https://discord.gg/KFrDE8Z',
           text: 'My Discord Chat'
+        },
+        {
+          icon: 'MailIcon',
+          link: 'mailto:0x142857@gmail.com',
+          text: 'Shot Me an Email'
         }
       ],
       currentSupporters: [
