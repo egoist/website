@@ -6517,6 +6517,11 @@ saber-markdown@^0.0.3:
   resolved "http://registry.npm.taobao.org/saber-markdown/download/saber-markdown-0.0.3.tgz#342a905040178cdd17766841c855c5152d120a2f"
   integrity sha1-NCqQUEAXjN0XdmhByFXFFS0SCi8=
 
+saber-plugin-google-analytics@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/saber-plugin-google-analytics/-/saber-plugin-google-analytics-0.0.3.tgz#173dc9e7501cbfbc46e577422492038e0a189f1e"
+  integrity sha512-wqXIQPbx6KJzzUvJ2pfoRp7+cqIe3FsLlq05e6NP+wtKhOMvuY2/v6mGxJ/BpRikJSv0Q8ln9r0fRqFJicvubg==
+
 saber-utils@^0.0.4:
   version "0.0.4"
   resolved "http://registry.npm.taobao.org/saber-utils/download/saber-utils-0.0.4.tgz#15b5e3458445a2ef097cc2505dc3bbcbbdf32c9a"
