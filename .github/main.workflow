@@ -1,6 +1,6 @@
 workflow "Deploy Site" {
-  on = "push"
   resolves = ["Build and Deploy Saber"]
+  on = "push"
 }
 
 action "Build and Deploy Saber" {
