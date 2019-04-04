@@ -1,8 +1,8 @@
 const fetch = require('node-fetch')
 
 exports.onCreatePages = async function() {
-  if (!process.env.GH_TOKEN) {
-    throw new Error(`Please set GitHub access token as environment variable: GH_TOKEN`)
+  if (!process.env.GITHUB_TOKEN) {
+    throw new Error(`Please set GitHub access token as environment variable: GITHUB_TOKEN`)
   }
 
   const [recentRepos, pinnedRepos] = await Promise.all([
@@ -47,7 +47,7 @@ async function getPinnedRepos() {
   const { data } = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
-      Authorization: `bearer ${process.env.GH_TOKEN}`
+      Authorization: `bearer ${process.env.GITHUB_TOKEN}`
     },
     body: JSON.stringify({
       query: `query {
@@ -87,7 +87,7 @@ async function getRecentRepos() {
   const { data } = await fetch('https://api.github.com/graphql', {
     method: 'POST',
     headers: {
-      Authorization: `bearer ${process.env.GH_TOKEN}`
+      Authorization: `bearer ${process.env.GITHUB_TOKEN}`
     },
     body: JSON.stringify({
       query: `query {
