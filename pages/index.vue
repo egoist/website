@@ -288,6 +288,10 @@ export default {
 
 
 <style scoped>
+.homepage {
+  overflow-y: hidden;
+}
+
 section.welcome {
   height: 100vh;
   width: 100vw;
