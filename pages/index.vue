@@ -333,7 +333,7 @@ section.welcome {
 
 .title {
   font-size: 2.4rem;
-  font-family: 'Frank Ruhl Libre', cursive;
+  font-family: 'Frank Ruhl Libre', helvetica, sans-serif;
   position: relative;
   text-align: center;
   font-weight: 300;
