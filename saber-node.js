@@ -11,10 +11,8 @@ exports.onCreatePages = async function() {
   ])
   for (const page of this.pages.values()) {
     if (page.attributes.permalink === '/') {
-      this.pages.extendPageProp(page.internal.id, {
-        recentRepos,
-        pinnedRepos
-      })
+      page.recentRepos = recentRepos
+      page.pinnedRepos = pinnedRepos
     }
   }
 }

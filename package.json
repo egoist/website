@@ -15,11 +15,14 @@
     "jump.js": "^1.0.2",
     "node-fetch": "^2.3.0",
     "postcss-preset-env": "^6.6.0",
-    "saber": "^0.3.6",
-    "saber-highlighter-prism": "^0.1.2",
+    "prismjs": "^1.16.0",
+    "saber": "^0.6.7",
     "saber-plugin-google-analytics": "^0.0.3",
+    "saber-plugin-prismjs": "^0.2.1",
     "tailwindcss": "^1.0.0-beta.4",
     "tippy.js": "^4.2.1",
+    "typeface-frank-ruhl-libre": "^0.0.72",
+    "typeface-open-sans": "^0.0.54",
     "vue-feather-icons": "^4.10.0"
   },
   "devDependencies": {

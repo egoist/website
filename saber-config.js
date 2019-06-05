@@ -1,11 +1,11 @@
 module.exports = {
-  css: {
-    extract: process.env.NODE_ENV === 'production'
-  },
-  markdown: {
-    highlighter: 'prism'
+  build: {
+    extractCSS: process.env.NODE_ENV === 'production'
   },
   plugins: [
+    {
+      resolve: 'saber-plugin-prismjs'
+    },
     {
       resolve: 'saber-plugin-google-analytics',
       options: {

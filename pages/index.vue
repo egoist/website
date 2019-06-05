@@ -333,9 +333,10 @@ section.welcome {
 
 .title {
   font-size: 2.4rem;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Frank Ruhl Libre', cursive;
   position: relative;
   text-align: center;
+  font-weight: 300;
 
   &:before {
     content: '';
@@ -367,7 +368,6 @@ section.welcome {
 
 .intro {
   font-size: 1.2rem;
-  font-family: 'Open Sans', serif;
 
   & a {
     color: rgba(22, 146, 90, 0.8);
