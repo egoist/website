@@ -20,7 +20,7 @@ exports.onCreatePages = async function() {
 exports.afterGenerate = async function() {
   const critical = require('critical')
   const files = await this.utils.glob('**/*.html', {
-    cwd: '.saber/public',
+    cwd: 'public',
     absolute: true
   })
   await Promise.all(
