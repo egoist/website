@@ -1,14 +1,41 @@
-@tailwind base;
-
-@tailwind components;
-
-@tailwind utilities;
+:root {
+  --gray: #747474;
+  --border-color: var(--gray);
+}
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px;
+}
+
 body {
   margin: 0;
-  font: 16px/1.6 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.7;
+  font-family: 'Rubik', 'Helvetica Neue', sans-serif;
+  background-color: #272727;
+  color: rgb(214, 214, 214);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+a {
+  color: inherit;
+}
+
+.app {
+  padding: 40px 0;
+}
+
+.box {
+  box-shadow: 0px 0px 1px 1px rgba(82, 82, 82, 0.8);
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid #000;
 }
