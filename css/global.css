@@ -1,14 +1,97 @@
-@tailwind base;
-
-@tailwind components;
-
-@tailwind utilities;
+:root {
+  --gray: #747474;
+  --border-color: rgb(54, 54, 54);
+}
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px;
+}
+
 body {
   margin: 0;
-  font: 16px/1.6 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.7;
+  font-family: 'Rubik', 'Helvetica Neue', sans-serif;
+  background-color: #272727;
+  color: rgb(214, 214, 214);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+a {
+  color: inherit;
+}
+
+.app {
+  padding: 40px 0;
+}
+
+.box {
+  box-shadow: inset 0px 0px 1px 1px rgba(82, 82, 82, 0.8), 0px 0px 4px 3px #151414;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.page-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.page-content > *:first-child {
+  margin-top: 0;
+}
+
+.form {
+  & label {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.input, .textarea {
+  background: transparent;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 8px 10px;
+  width: 240px;
+  max-width: 100%;
+  box-shadow: inset 0px 0px 1px 1px rgba(82, 82, 82, 0.8), 0px 0px 0px 1px #000;
+  color: inherit;
+
+  &:focus {
+    box-shadow: inset 0 0 2px rgba(67,90,111,.14), inset 0 0 0 1px #579ad9, 0 0 0 3px rgba(16,112,202,.14);
+  }
+}
+
+.is-block {
+  width: 100%;
+}
+
+.button {
+  border: none;
+  border-radius: 3px;
+  padding: 8px 18px;
+  font-size: .875rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.627);
+  transition: background-color .3s ease-in-out;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.827);
+  }
 }
