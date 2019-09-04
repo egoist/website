@@ -7,6 +7,7 @@
       netlify-honeypot="bot-field"
       data-netlify="true"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div class="hidden">
         <label>Don’t fill this out if you're human:</label>
         <input name="bot-field" />
