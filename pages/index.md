@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 ---
 
 I am a web developer helping make the world a better place through implementing ideas with JavaScript and Swift.

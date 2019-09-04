@@ -2,6 +2,9 @@ module.exports = {
   siteConfig: {
     title: 'EGOIST'
   },
+  permalinks: {
+    page: '/:slug'
+  },
   plugins: [
     {
       resolve: 'saber-plugin-google-analytics',
