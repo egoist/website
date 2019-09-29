@@ -2,13 +2,13 @@
   <nav class="nav">
     <ul>
       <li>
-        <saber-link to="/">Home</saber-link>
+        <a href="/">Home</a>
       </li>
       <li>
-        <saber-link to="/blog">Blog</saber-link>
+        <a href="/blog">Blog</a>
       </li>
       <li>
-        <saber-link to="/contact">Contact</saber-link>
+        <a href="/contact">Contact</a>
       </li>
     </ul>
   </nav>

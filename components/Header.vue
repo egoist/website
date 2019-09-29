@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <h1 class="site-title">
-      <saber-link to="/">
+      <a href="/">
         <saber-image :blendIn="false" class="avatar" src="@/assets/images/avatar.jpg" alt="egoist's avatar" />
         <span>EGOIST</span>
-      </saber-link>
+      </a>
     </h1>
   </header>
 </template>
