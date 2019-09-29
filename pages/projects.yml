@@ -1,0 +1,47 @@
+- name: Evangelion title card generator
+  desc: Shinji doesn't want this
+  url: https://eva-card.egoist.sh
+  repo: egoist/eva-card
+
+- name: JSX live editor
+  desc: Wonder what React/Vue JSX is compiled to?
+  url: https://jsx.egoist.sh
+  repo: egoist/jsx-editor
+
+- name: SVG to Vue component
+  url: https://svg2vue.egoist.sh
+  repo: egoist/svg2vue
+
+- name: Version badge
+  desc: An SVG badge for showing the version of your project
+  url: https://version-badge.egoist.sh
+  repo: egoist/version-badge
+
+- name: InstaSave
+  desc: Download Instagram photos
+  url: https://instasave.egoist.sh
+  repo: egoist/instasave
+
+- name: Logo Maker
+  desc: A Nintendo-style logo maker
+  url: https://logo-maker.egoist.sh
+  repo: egoist/logo-maker
+
+- name: Open Graph Image generator
+  url: https://ogi.egoist.sh
+  repo: egoist/ogi
+
+- name: Slogan
+  desc: Generate logo in CSS-is-Awesome style
+  url: https://slogan.egoist.sh
+  repo: egoist/slogan
+
+- name: Unlinkable
+  desc: "Prevent Twitter from auto-converting URL and @mention, #hashtag into links."
+  url: https://unlinkable.egoist.sh
+  repo: egoist/unlinkable
+
+- name: Video2gif
+  desc: Convert short video to GIF
+  url: video2gif.egoist.sh
+  repo: egoist/video2gif
