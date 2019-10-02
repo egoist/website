@@ -43,5 +43,10 @@
 
 - name: Video2gif
   desc: Convert short video to GIF
-  url: video2gif.egoist.sh
+  url: https://video2gif.egoist.sh
   repo: egoist/video2gif
+
+- name: Emoji searcher
+  desc: Unfancy emoji searcher
+  url: https://emoji.js.org
+  repo: egoist/emoji
