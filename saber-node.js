@@ -72,3 +72,10 @@ exports.onCreatePages = async function() {
   // blogPage.posts = groupPostsByYear(posts)
   // this.pages.createPage(blogPage)
 }
+
+exports.getDocumentData = documentData => {
+  if (process.env.NODE_ENV === 'production') {
+    documentData.bodyScript = ''
+  }
+  return documentData
+}
