@@ -8,12 +8,10 @@
   },
   "repository": "git@github.com:egoist/egoist.sh.git",
   "author": "EGOIST <0x142857@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "modern-normalize": "^0.5.0",
+  "license": "unlicensed",
+  "devDependencies": {
     "postcss-preset-env": "^6.7.0",
     "saber": "^0.10.4",
-    "saber-plugin-google-analytics": "^0.2.1",
-    "saber-plugin-image": "^0.2.2"
+    "dayjs": "^1.8.16"
   }
 }

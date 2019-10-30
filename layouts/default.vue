@@ -1,9 +1,8 @@
 <template>
   <div class="app">
     <div class="container">
-      <Header />
       <Nav />
-      <main class="box">
+      <main>
         <div class="page-content">
           <slot></slot>
         </div>

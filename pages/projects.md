@@ -1,9 +1,8 @@
 ---
 layout: default
 title: Projects
+wrap: true
 ---
-
-Only the online services I made are listed here, for the rest of my projects please head over to [GitHub](https://github.com/egoist).
 
 <div class="projects">
   <div class="project" v-for="project in projects" :key="project.name">
@@ -32,23 +31,18 @@ export default {
 
 <style scoped>
 .projects {
-  margin-left: -20px;
-  width: calc(100% + 40px);
-  border-bottom: 1px solid var(--border-color);
+
 }
 
 .project {
-  background: rgba(0, 0, 0, 0.12);
-  padding: 20px;
-  border-top: 1px solid var(--border-color);
+  padding-bottom: 20px;
 }
 
 .project-name {
-  font-size: 1rem;
+  font-weight: bold;
 }
 
 .project-desc {
-  font-size: .7rem;
   font-style: italic;
   color: #969696;
 }
@@ -56,19 +50,19 @@ export default {
 .project-links {
   display: flex;
   margin-top: 15px;
-  font-size: .6rem;
+  font-size: .8rem;
 }
 
 .project-links a {
-  border: 1px solid var(--border-color);
+  border: 1px solid #ccc;
   text-decoration: none;
-  padding: 5px 15px;
+  padding: 2px 6px;
   display: flex;
   align-items: center;
   border-radius: 3px;
 
   &:hover {
-    background: #131313;
+    background: #f0f0f0;
   }
 
   & svg {

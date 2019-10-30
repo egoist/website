@@ -2,8 +2,7 @@
   <header class="header">
     <h1 class="site-title">
       <a href="/">
-        <saber-image :blendIn="false" class="avatar" src="@/assets/images/avatar.jpg" alt="egoist's avatar" />
-        <span>EGOIST</span>
+        EGOIST
       </a>
     </h1>
   </header>
@@ -12,21 +11,17 @@
 <style scoped>
 .header {
   margin-bottom: 40px;
-  text-align: center;
 }
 
 .site-title {
-  font-size: 2.4rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 500;
   margin: 0;
   width: 100%;
   line-height: 1;
 
   & a {
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 

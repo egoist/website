@@ -1,12 +1,7 @@
 <template>
   <nav class="nav">
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/blog">Blog</a>
-      </li>
+    <h1><a href="/">{{ $siteConfig.title }}</a></h1>
+    <ul class="menu">
       <li>
         <a href="/projects">Projects</a>
       </li>
@@ -19,15 +14,17 @@
 
 <style scoped>
 .nav {
+  padding-bottom: 30px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(48, 48, 48, 0.18);
 }
 
 ul {
   display: flex;
   list-style: none;
   padding: 0;
-  text-align: center;
-  justify-content: center;
 }
 
 li {
@@ -38,10 +35,16 @@ li {
 
 a {
   text-decoration: none;
-  color: #999;
+  display: block;
+  position: relative;
+  color: var(--gray);
 
   &.router-link-exact-active {
-    color: inherit;
+    color: #000;
+  }
+
+  &:hover {
+    color: #333;
   }
 }
 </style>

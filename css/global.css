@@ -1,5 +1,5 @@
 :root {
-  --gray: #747474;
+  --gray: #999;
   --border-color: rgb(54, 54, 54);
 }
 
@@ -8,53 +8,58 @@
 }
 
 html {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 body {
   margin: 0;
   line-height: 1.7;
-  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #1F232B;
-  color: rgb(214, 214, 214);
+  font-family: avenir next, avenir, 'Open Sans', sans-serif;
 }
 
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0 10px;
 }
 
 a {
   color: inherit;
+  text-decoration: underline;
+}
+
+hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 1px dashed rgba(48, 48, 48, 0.18);
 }
 
 .app {
-  padding: 40px 0;
+  padding: 100px 0;
+
+  @media (max-width: 768px) {
+    padding: 20px 0;
+  }
 }
 
-.box {
-  box-shadow: inset 0px 0px 1px 1px rgba(82, 82, 82, 0.8), 0px 0px 4px 3px #151414;
-  border-radius: 6px;
-  padding: 20px;
+.section {
+  padding: 20px 0;
+}
+
+.section-title {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 10px;
 }
 
 .hidden {
   display: none;
 }
 
-.page-content > *:last-child {
-  margin-bottom: 0;
-}
-
-.page-content > *:first-child {
-  margin-top: 0;
-}
-
 .form {
   & label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
 }
 
@@ -70,7 +75,8 @@ a {
   padding: 8px 10px;
   width: 240px;
   max-width: 100%;
-  box-shadow: inset 0px 0px 1px 1px rgba(82, 82, 82, 0.8), 0px 0px 0px 1px #000;
+  border: 1px solid #e2e2e2;
+  background: #f9f9f9;
   color: inherit;
 
   &:focus {
@@ -90,8 +96,14 @@ a {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.627);
   transition: background-color .3s ease-in-out;
+  border: 1px solid #e2e2e2;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.827);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 2px rgba(67,90,111,.14), inset 0 0 0 1px #579ad9, 0 0 0 3px rgba(16,112,202,.14);
   }
 }
