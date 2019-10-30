@@ -10,8 +10,9 @@
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "unlicensed",
   "devDependencies": {
+    "dayjs": "^1.8.16",
     "postcss-preset-env": "^6.7.0",
     "saber": "^0.10.4",
-    "dayjs": "^1.8.16"
+    "saber-plugin-google-analytics": "^0.2.1"
   }
 }
