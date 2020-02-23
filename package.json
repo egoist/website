@@ -12,7 +12,7 @@
   "devDependencies": {
     "dayjs": "^1.8.16",
     "postcss-preset-env": "^6.7.0",
-    "saber": "^0.11.0",
+    "saber": "^0.11.5",
     "saber-plugin-google-analytics": "^0.2.1"
   }
 }
