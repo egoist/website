@@ -4,7 +4,7 @@ module.exports = {
   },
   permalinks: {
     page: '/:slug',
-    post: '/blog/:year/:slug'
+    post: '/:slug'
   },
   plugins: [
     {
