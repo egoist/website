@@ -11,6 +11,8 @@
   "license": "unlicensed",
   "devDependencies": {
     "dayjs": "^1.8.16",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
     "postcss-preset-env": "^6.7.0",
     "saber": "^0.11.5",
     "saber-plugin-google-analytics": "^0.2.1"
