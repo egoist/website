@@ -107,6 +107,18 @@ exports.onCreatePages = async function () {
 
   const sponsors = await fetchSponsors()
   let groupedSponsors = _.groupBy(sponsors, 'tier.monthlyPriceInDollars')
+
+  const extra = {
+    sponsor: {
+      name: `Wrathagom`,
+      login: `wrathagom`,
+    },
+  }
+  if (!groupedSponsors[100]) {
+    groupedSponsors[100] = []
+  }
+  groupedSponsors[100].unshift(extra)
+
   groupedSponsors = Object.keys(groupedSponsors)
     .map((v) => Number(v))
     .sort((a, b) => (a > b ? -1 : 1))
