@@ -1,7 +1,7 @@
 - name: Evangelion title card generator
   desc: Shinji doesn't want this
   url: https://eva-card.egoist.sh
-  repo: egoist/eva-card
+  repo: egoist/evangelion-card
 
 - name: JSX live editor
   desc: Wonder what React/Vue JSX is compiled to?
