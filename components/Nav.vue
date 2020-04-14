@@ -8,9 +8,6 @@
       <li>
         <a href="/thanks">Supporters</a>
       </li>
-      <li>
-        <a href="/contact">Contact</a>
-      </li>
     </ul>
   </nav>
 </template>
