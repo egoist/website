@@ -11,6 +11,15 @@
   margin-top: 0;
 }
 
-.page-content p {
+.page-content > * {
   margin: 20px 0;
+}
+
+.page-content h2 {
+  font-size: 2rem;
+}
+
+.page-content ul {
+  list-style: disc;
+  list-style-position: inside;
 }
