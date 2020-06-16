@@ -46,3 +46,5 @@ jobs:
         publish_branch: master
         external_repository: egoist/egoist.github.io
         publish_dir: public
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
