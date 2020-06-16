@@ -40,6 +40,7 @@ export default {
 
 .project-name {
   font-weight: bold;
+  color: var(--active-fg);
 }
 
 .project-desc {

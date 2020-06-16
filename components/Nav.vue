@@ -1,6 +1,8 @@
 <template>
   <nav class="nav">
-    <h1><a href="/">{{ $siteConfig.title }}</a></h1>
+    <h1>
+      <a href="/">{{ $siteConfig.title }}</a>
+    </h1>
     <ul class="menu">
       <li>
         <a href="/projects">Projects</a>
@@ -34,17 +36,15 @@ li {
 }
 
 a {
-  text-decoration: none;
   display: block;
-  position: relative;
   color: var(--gray);
+}
 
-  &.router-link-exact-active {
-    color: #000;
-  }
-
-  &:hover {
-    color: #333;
+.menu {
+  & a {
+    &.router-link-exact-active {
+      color: var(--active-fg);
+    }
   }
 }
 </style>
