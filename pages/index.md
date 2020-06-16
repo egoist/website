@@ -9,4 +9,4 @@ I am an indie developer who loves contributing to Open Source to help people get
 
 You should follow me on [Twitter](https://twitter.com/_egoistlily) and [GitHub](https://github.com/egoist). I'm also on [Telegram](https://t.me/kevintitor), feel free to message me or drop me an email (get it on my GitHub profile).
 
-[查看我的中文博客。](https://koyuki.me)
+[查看我的中文博客](https://koyuki.me)。
