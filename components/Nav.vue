@@ -20,7 +20,7 @@
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px dashed rgba(48, 48, 48, 0.18);
+  border-bottom: 1px dashed var(--border-color);
 }
 
 ul {
@@ -37,13 +37,13 @@ li {
 
 a {
   display: block;
-  color: var(--gray);
+  color: var(--nav-link-color);
 }
 
 .menu {
   & a {
     &.router-link-exact-active {
-      color: var(--active-fg);
+      color: var(--nav-link-active-color);
     }
   }
 }

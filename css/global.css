@@ -1,10 +1,30 @@
 :root {
   --gray: #777;
   --azure: #6f92ba;
-  --border-color: rgb(54, 54, 54);
+  --border-color: rgb(214, 214, 214);
   --link-color: var(--azure);
   --fg: var(--gray);
-  --active-fg: #000;
+  --secondary-fg: rgb(172, 172, 172);
+  --active-fg: #333;
+  --active-bg: #f0f0f0;
+
+  --nav-link-color: var(--fg);
+  --nav-link-active-color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: rgb(224, 224, 224);
+    --bg: #272727;
+    --secondary-fg: #555;
+    --border-color: rgb(87, 87, 87);
+
+    --active-fg: #fff;
+    --active-bg: #000;
+    --nav-link-color: rgb(219, 219, 219);
+    --nav-link-active-color: #fff;
+    --link-color: rgb(87, 132, 190);
+  }
 }
 
 * {
@@ -13,7 +33,9 @@
 
 html {
   font-size: 18px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Microsoft YaHei New', 'Microsoft Yahei',
+    '微软雅黑', 宋体, SimSun, STXihei, '华文细黑', sans-serif;
 }
 
 @media screen and (min-width: 1440px) {
@@ -26,6 +48,7 @@ body {
   margin: 0;
   line-height: 1.7;
   color: var(--fg);
+  background-color: var(--bg);
 }
 
 .container {
@@ -81,7 +104,8 @@ hr {
   margin-bottom: 20px;
 }
 
-.input, .textarea {
+.input,
+.textarea {
   background: transparent;
   outline: none;
   border: none;
@@ -94,7 +118,8 @@ hr {
   color: inherit;
 
   &:focus {
-    box-shadow: inset 0 0 2px rgba(67,90,111,.14), inset 0 0 0 1px #579ad9, 0 0 0 3px rgba(16,112,202,.14);
+    box-shadow: inset 0 0 2px rgba(67, 90, 111, 0.14), inset 0 0 0 1px #579ad9,
+      0 0 0 3px rgba(16, 112, 202, 0.14);
   }
 }
 
@@ -106,10 +131,10 @@ hr {
   border: none;
   border-radius: 3px;
   padding: 8px 18px;
-  font-size: .875rem;
+  font-size: 0.875rem;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.627);
-  transition: background-color .3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
   border: 1px solid #e2e2e2;
 
   &:hover {
@@ -118,6 +143,7 @@ hr {
 
   &:focus {
     outline: none;
-    box-shadow: inset 0 0 2px rgba(67,90,111,.14), inset 0 0 0 1px #579ad9, 0 0 0 3px rgba(16,112,202,.14);
+    box-shadow: inset 0 0 2px rgba(67, 90, 111, 0.14), inset 0 0 0 1px #579ad9,
+      0 0 0 3px rgba(16, 112, 202, 0.14);
   }
 }

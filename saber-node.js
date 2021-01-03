@@ -6,11 +6,11 @@ const _ = require('lodash')
  * @param {Date} date
  * @return {string}
  */
-const formateDate = (date) => {
+const formateDate = date => {
   return dayjs(date).format('MMM DD')
 }
 
-const groupPostsByYear = (posts) => {
+const groupPostsByYear = posts => {
   const result = {}
   for (const post of posts) {
     const date = new Date(post.createdAt)
@@ -26,7 +26,7 @@ const groupPostsByYear = (posts) => {
 const fetchSponsors = async () => {
   const data = await fetch(`https://api.github.com/graphql`, {
     headers: {
-      Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+      Authorization: `bearer ${process.env.GITHUB_TOKEN}`
     },
     method: 'POST',
     body: JSON.stringify({
@@ -44,20 +44,20 @@ const fetchSponsors = async () => {
             }
           }
         }
-      }`,
-    }),
+      }`
+    })
   })
-    .then((res) => {
+    .then(res => {
       if (!res.ok) {
         throw new Error(res.statusText)
       }
       return res.json()
     })
     .then(
-      (res) => {
+      res => {
         return res.data.viewer.sponsorshipsAsMaintainer.nodes
       },
-      (err) => {
+      err => {
         console.error(err)
         process.exit(1)
       }
@@ -66,16 +66,16 @@ const fetchSponsors = async () => {
   return data
 }
 
-exports.onCreatePages = async function () {
+exports.onCreatePages = async function() {
   const posts = [...this.pages.values()]
-    .filter((page) => page.type === 'post')
+    .filter(page => page.type === 'post')
     .sort((a, b) => {
       return a.createdAt - b.createdAt
     })
-  const firstFivePosts = posts.slice(0, 5).map((post) => ({
+  const firstFivePosts = posts.slice(0, 5).map(post => ({
     title: post.title,
     date: formateDate(post.createdAt),
-    permalink: post.permalink,
+    permalink: post.permalink
   }))
 
   let homePage
@@ -96,23 +96,23 @@ exports.onCreatePages = async function () {
     homePage = {
       type: 'page',
       internal: {
-        id: 'internal__egoist__home',
+        id: 'internal__egoist__home'
       },
-      permalink: '/',
+      permalink: '/'
     }
   }
   homePage.layout = 'home'
   homePage.posts = firstFivePosts
   homePage.totalPostsCount = posts.length
 
-  const sponsors = await fetchSponsors()
+  const sponsors = process.env.GITHUB_TOKEN ? await fetchSponsors() : []
   let groupedSponsors = _.groupBy(sponsors, 'tier.monthlyPriceInDollars')
 
   const extra = {
     sponsor: {
       name: `Wrathagom`,
-      login: `wrathagom`,
-    },
+      login: `wrathagom`
+    }
   }
   if (!groupedSponsors[100]) {
     groupedSponsors[100] = []
@@ -120,12 +120,12 @@ exports.onCreatePages = async function () {
   groupedSponsors[100].unshift(extra)
 
   groupedSponsors = Object.keys(groupedSponsors)
-    .map((v) => Number(v))
+    .map(v => Number(v))
     .sort((a, b) => (a > b ? -1 : 1))
-    .map((key) => {
+    .map(key => {
       return {
         tier: key,
-        sponsors: groupedSponsors[key],
+        sponsors: groupedSponsors[key]
       }
     }, {})
 

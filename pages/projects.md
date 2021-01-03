@@ -55,7 +55,7 @@ export default {
 }
 
 .project-links a {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   text-decoration: none;
   padding: 2px 6px;
   display: flex;
@@ -63,7 +63,7 @@ export default {
   border-radius: 3px;
 
   &:hover {
-    background: #f0f0f0;
+    background: var(--active-bg);
   }
 
   & svg {

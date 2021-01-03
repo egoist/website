@@ -33,8 +33,9 @@ export default {
 <style scoped>
 .post-date {
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-style: italic;
+  color: var(--secondary-fg);
 }
 
 .page-content {
