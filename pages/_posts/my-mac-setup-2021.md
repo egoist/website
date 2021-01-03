@@ -48,3 +48,7 @@ I used to use Gmail web client a lot with the [Simplify Gmail](https://simpl.fyi
 - [Skitch](https://evernote.com/products/skitch): Quickly adding some annotations to an image.
 - [Raindrop.io](https://raindrop.io/): Web bookmark manager.
 - [1Password](https://1password.com/): A password manager I can't live without.
+
+## My Thoughts
+
+Overall moving to an M1 Mac has been a pleasant experience, it's incredibly fast, for example building Node.js from source only took 744 seconds. As for compatibility, every app I use can run perfectly on the new Mac, Rosetta 2 works incredibly well for Intel-based apps too. There're a few bugs (WiFi and Bluetooth related) in macOS but I reckon they're mostly software problems instead of hardware problems, I hope they will be fixed in the upcoming macOS update.
