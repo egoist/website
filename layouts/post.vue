@@ -22,28 +22,28 @@ export default {
 
   head() {
     const title = this.page.title
-        ? `${this.page.title} - ${this.$siteConfig.title}`
-        : this.$siteConfig.title,
+      ? `${this.page.title} - ${this.$siteConfig.title}`
+      : this.$siteConfig.title
     return {
       title,
-        meta: [
-          {
-            name: 'twitter:card',
-            content: 'summary'
-          },
-          {
-            name: 'twitter:site',
-            content: '@_egoistlily'
-          },
-          {
-            name: 'twitter:title',
-            content: title
-          },
-          {
-            name: 'twiter:description',
-            content: this.page.excerpt.replace(/(<([^>]+)>)/gi, "")
-          }
-        ]
+      meta: [
+        {
+          name: 'twitter:card',
+          content: 'summary'
+        },
+        {
+          name: 'twitter:site',
+          content: '@_egoistlily'
+        },
+        {
+          name: 'twitter:title',
+          content: title
+        },
+        {
+          name: 'twiter:description',
+          content: this.page.excerpt.replace(/(<([^>]+)>)/gi, '')
+        }
+      ]
     }
   }
 }
