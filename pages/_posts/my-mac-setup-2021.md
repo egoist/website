@@ -14,7 +14,7 @@ One downside of running iOS apps on Mac is that you have to Force Quit (Command-
 
 ## The Browser
 
-Safari is extremely fast now, actually a lot faster than Chromium-based browsers according to [Speedometer score](https://browserbench.org/Speedometer2.0/), so it is naturally my first choice for general web browsing, however I don't really enjoy the experience of Safari devtools, and Chrome devtools is arguably the best developer tool for web developers, that's why I also use the Chromium-based Microsft Edge to develop web apps, it also feels a bit faster than Google Chrome.
+Safari is extremely fast now, actually a lot faster than Chromium-based browsers according to [Speedometer score](https://browserbench.org/Speedometer2.0/), so it is naturally my first choice for general web browsing, however I don't really enjoy the experience of Safari devtools, and Chrome devtools is arguably the best developer tool for web developers, that's why I also use the Chromium-based Microsoft Edge to develop web apps, it also feels a bit faster than Google Chrome.
 
 ## The Editor
 
