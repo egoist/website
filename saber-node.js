@@ -70,7 +70,7 @@ exports.onCreatePages = async function() {
   const posts = [...this.pages.values()]
     .filter(page => page.type === 'post')
     .sort((a, b) => {
-      return a.createdAt - b.createdAt
+      return a.createdAt > b.createdAt ? -1 : 1
     })
   const firstFivePosts = posts.slice(0, 5).map(post => ({
     title: post.title,
