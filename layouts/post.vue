@@ -40,7 +40,7 @@ export default {
           content: title
         },
         {
-          name: 'twiter:description',
+          name: 'twitter:description',
           content: this.page.excerpt.replace(/(<([^>]+)>)/gi, '')
         }
       ]
