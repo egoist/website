@@ -6,6 +6,7 @@
       <div class="page-content">
         <slot></slot>
       </div>
+      <section class="comments" ref="comments"></section>
     </main>
   </default-layout>
 </template>
@@ -45,6 +46,29 @@ export default {
         }
       ]
     }
+  },
+
+  mounted() {
+    const attrs = {
+      repo: 'egoist/website',
+      'issue-term': 'pathname',
+      label: 'comment',
+      theme: 'preferred-color-scheme',
+      crossorigin: 'anonymous'
+    }
+    const script = (this.$commentScript = document.createElement('script'))
+    script.src = `https://utteranc.es/client.js`
+    script.async = true
+    for (const key of Object.keys(attrs)) {
+      script.setAttribute(key, attrs[key])
+    }
+    this.$refs.comments.append(script)
+  },
+
+  beforeDestroy() {
+    if (this.$commentScript) {
+      this.$commentScript.parentNode.removeChild(this.$commentScript)
+    }
   }
 }
 </script>
@@ -59,5 +83,11 @@ export default {
 
 .page-content {
   padding: 20px 0;
+}
+
+.comments {
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px dashed var(--border-color);
 }
 </style>
