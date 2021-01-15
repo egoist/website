@@ -37,9 +37,17 @@ const fetchSponsors = async () => {
               tier {
                 monthlyPriceInDollars
               }
-              sponsor {
-                login
-                name
+              sponsorEntity {
+                ... on User {
+                  login
+                  avatarUrl
+                  bio
+                }
+                ... on Organization {
+                  login
+                  avatarUrl
+                  description
+                }
               }
             }
           }
@@ -55,6 +63,9 @@ const fetchSponsors = async () => {
     })
     .then(
       res => {
+        if (res.errors) {
+          throw new Error(res.errors[0].message)
+        }
         return res.data.viewer.sponsorshipsAsMaintainer.nodes
       },
       err => {
@@ -62,7 +73,6 @@ const fetchSponsors = async () => {
         process.exit(1)
       }
     )
-
   return data
 }
 
@@ -109,9 +119,10 @@ exports.onCreatePages = async function() {
   let groupedSponsors = _.groupBy(sponsors, 'tier.monthlyPriceInDollars')
 
   const extra = {
-    sponsor: {
+    sponsorEntity: {
       name: `Wrathagom`,
-      login: `wrathagom`
+      login: `wrathagom`,
+      description: `My long-time Patreon supporter, thank you!`
     }
   }
   if (!groupedSponsors[100]) {
