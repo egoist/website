@@ -16,5 +16,9 @@
     "postcss-preset-env": "^6.7.0",
     "saber": "^0.11.5",
     "saber-plugin-google-analytics": "^0.2.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "storyblok-js-client": "^3.3.1"
   }
 }

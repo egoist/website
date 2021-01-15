@@ -1,6 +1,17 @@
 const dayjs = require('dayjs')
 const fetch = require('node-fetch')
 const _ = require('lodash')
+const StoryblokClient = require('storyblok-js-client')
+
+// init with access token
+/** @type {StoryblokClient.default} */
+const sb = new StoryblokClient({
+  accessToken: process.env.STORYBLOK_TOKEN,
+  cache: {
+    clear: 'auto',
+    type: 'memory'
+  }
+})
 
 /**
  * @param {Date} date
@@ -159,4 +170,31 @@ exports.onCreatePages = async function() {
   // blogPage.layout = 'blog'
   // blogPage.posts = groupPostsByYear(posts)
   // this.pages.createPage(blogPage)
+
+  const stories = await sb
+    .get('cdn/stories', {
+      starts_with: 'posts/',
+      per_page: 100,
+      cv: `${Date.now()}`
+    })
+    .then(res => res.data.stories)
+  for (const story of stories) {
+    this.pages.createPage({
+      title: story.name,
+      createdAt: new Date(story.first_published_at),
+      updatedAt: new Date(story.published_at),
+      formatedDate: dayjs(story.first_published_at).format('MMM DD, YYYY'),
+      slug: story.slug,
+      layout: 'post',
+      type: 'post',
+      permalink: `/${story.slug}`,
+      contentType: 'markdown',
+      content: story.content.content,
+      // TODO: fix this in Saber, it should be optional
+      excerpt: '',
+      internal: {
+        id: story.uuid
+      }
+    })
+  }
 }
