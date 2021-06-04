@@ -5131,6 +5131,11 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   dependencies:
     aproba "^1.1.1"
 
+saber-highlight-css@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/saber-highlight-css/-/saber-highlight-css-0.1.2.tgz#787dc812be425603e1b81fc6a21d061d87e6d85a"
+  integrity sha512-aScwPM80mBkTZVqbOyHh4MK4i2RuzwK/3/e2jjlaGTeEbrnK1I6fmmMWlaaB74l2KtZ+cy1yYWaI8AQGN7+7AA==
+
 saber-log@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/saber-log/-/saber-log-0.3.1.tgz#412c19554d163eb4f88e3b9040a492c0513cb556"

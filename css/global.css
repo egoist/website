@@ -147,3 +147,18 @@ hr {
       0 0 0 3px rgba(16, 112, 202, 0.14);
   }
 }
+
+.saber-highlight {
+  background-color: #22313e;
+}
+
+.saber-highlight-code {
+  overflow: auto;
+}
+
+:not(pre) > code {
+  background-color: #22313e;
+  font-size: 13px;
+  padding: 3px 4px;
+  border-radius: 4px;
+}
