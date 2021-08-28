@@ -21,6 +21,9 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px dashed var(--border-color);
+  position: sticky;
+  top: 0;
+  background-color: var(--bg);
 }
 
 ul {
