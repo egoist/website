@@ -1,6 +1,6 @@
 # egoist.sh
 
-The homepage for EGOIST, built with [Saber.js](https://saberjs.org).
+The homepage for EGOIST, built with [Saber.js](https://saber.land/).
 
 ## License
 
