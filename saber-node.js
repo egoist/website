@@ -9,19 +9,19 @@ const sb = new StoryblokClient({
   accessToken: process.env.STORYBLOK_TOKEN,
   cache: {
     clear: 'auto',
-    type: 'memory'
-  }
+    type: 'memory',
+  },
 })
 
 /**
  * @param {Date} date
  * @return {string}
  */
-const formateDate = date => {
+const formateDate = (date) => {
   return dayjs(date).format('MMM DD')
 }
 
-const groupPostsByYear = posts => {
+const groupPostsByYear = (posts) => {
   const result = {}
   for (const post of posts) {
     const date = new Date(post.createdAt)
@@ -37,7 +37,7 @@ const groupPostsByYear = posts => {
 const fetchSponsors = async () => {
   const data = await fetch(`https://api.github.com/graphql`, {
     headers: {
-      Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+      Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
     },
     method: 'POST',
     body: JSON.stringify({
@@ -63,23 +63,23 @@ const fetchSponsors = async () => {
             }
           }
         }
-      }`
-    })
+      }`,
+    }),
   })
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         throw new Error(res.statusText)
       }
       return res.json()
     })
     .then(
-      res => {
+      (res) => {
         if (res.errors) {
           throw new Error(res.errors[0].message)
         }
         return res.data.viewer.sponsorshipsAsMaintainer.nodes
       },
-      err => {
+      (err) => {
         console.error(err)
         process.exit(1)
       }
@@ -87,15 +87,15 @@ const fetchSponsors = async () => {
   return data
 }
 
-exports.onCreatePages = async function() {
+exports.onCreatePages = async function () {
   // Fetching posts from Storyblok
   const stories = await sb
     .get('cdn/stories', {
       starts_with: 'posts/',
       per_page: 100,
-      cv: `${Date.now()}`
+      cv: `${Date.now()}`,
     })
-    .then(res => res.data.stories)
+    .then((res) => res.data.stories)
   for (const story of stories) {
     this.pages.createPage({
       title: story.name,
@@ -111,20 +111,20 @@ exports.onCreatePages = async function() {
       // TODO: fix this in Saber, it should be optional
       excerpt: '',
       internal: {
-        id: story.uuid
-      }
+        id: story.uuid,
+      },
     })
   }
 
   const posts = [...this.pages.values()]
-    .filter(page => page.type === 'post')
+    .filter((page) => page.type === 'post')
     .sort((a, b) => {
       return a.createdAt > b.createdAt ? -1 : 1
     })
-  const firstFivePosts = posts.slice(0, 5).map(post => ({
+  const firstFivePosts = posts.slice(0, 5).map((post) => ({
     title: post.title,
     date: formateDate(post.createdAt),
-    permalink: post.permalink
+    permalink: post.permalink,
   }))
 
   let homePage
@@ -145,9 +145,9 @@ exports.onCreatePages = async function() {
     homePage = {
       type: 'page',
       internal: {
-        id: 'internal__egoist__home'
+        id: 'internal__egoist__home',
       },
-      permalink: '/'
+      permalink: '/',
     }
   }
   homePage.layout = 'home'
@@ -157,25 +157,13 @@ exports.onCreatePages = async function() {
   const sponsors = process.env.GITHUB_TOKEN ? await fetchSponsors() : []
   let groupedSponsors = _.groupBy(sponsors, 'tier.monthlyPriceInDollars')
 
-  const extra = {
-    sponsorEntity: {
-      name: `Wrathagom`,
-      login: `wrathagom`,
-      description: `My long-time Patreon supporter, thank you!`
-    }
-  }
-  if (!groupedSponsors[100]) {
-    groupedSponsors[100] = []
-  }
-  groupedSponsors[100].unshift(extra)
-
   groupedSponsors = Object.keys(groupedSponsors)
-    .map(v => Number(v))
+    .map((v) => Number(v))
     .sort((a, b) => (a > b ? -1 : 1))
-    .map(key => {
+    .map((key) => {
       return {
         tier: key,
-        sponsors: groupedSponsors[key]
+        sponsors: groupedSponsors[key],
       }
     }, {})
 
