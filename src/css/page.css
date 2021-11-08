@@ -4,18 +4,10 @@
   color: var(--active-fg);
 }
 
-.page-content {
-  color: #ccc;
-}
-
 .page-content > *:last-child {
   margin-bottom: 0;
 }
 
 .page-content > *:first-child {
   margin-top: 0;
-}
-
-.page-content > * {
-  margin: 20px 0;
 }

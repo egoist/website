@@ -9,6 +9,7 @@ specifiers:
   '@types/webpack': ^5.28.0
   axios: ^0.21.1
   chokidar: ^3.5.2
+  clsx: ^1.1.1
   dayjs: ^1.8.16
   devalue: ^2.0.1
   fast-glob: ^3.2.7
@@ -28,6 +29,7 @@ specifiers:
 dependencies:
   '@mdx-js/react': 1.6.22_react@17.0.2
   axios: 0.21.4
+  clsx: 1.1.1
   next: 12.0.3_react-dom@17.0.2+react@17.0.2
   prism-react-renderer: 1.2.1_react@17.0.2
   storyblok-js-client: 3.3.1_axios@0.21.4
@@ -1127,6 +1129,11 @@ packages:
 
   /classnames/2.2.6:
     resolution: {integrity: sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==}
+    dev: false
+
+  /clsx/1.1.1:
+    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+    engines: {node: '>=6'}
     dev: false
 
   /collapse-white-space/1.0.6:

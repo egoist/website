@@ -38,28 +38,17 @@ export default function ({ frontmatter, children }) {
         <main>
           <h1 className="page-title">{frontmatter.title}</h1>
           {isPost && (
-            <div className="post-date">{frontmatter.dateFormatted}</div>
+            <div className="text-gray-500 text-sm italic">
+              {frontmatter.dateFormatted}
+            </div>
           )}
-          <div className="page-content">{children}</div>
-          <section className="comments" ref={commentsSection}></section>
+          <div>{children}</div>
+          <section
+            className="border-t border-border border-dashed mt-20 pt-5"
+            ref={commentsSection}
+          ></section>
         </main>
       </DefaultLayout>
-      <style jsx>{`
-        .post-date {
-          font-weight: 500;
-          font-size: 0.875rem;
-          font-style: italic;
-          color: var(--secondary-fg);
-        }
-        .page-content {
-          padding: 20px 0;
-        }
-        .comments {
-          margin-top: 50px;
-          padding-top: 50px;
-          border-top: 1px dashed var(--border-color);
-        }
-      `}</style>
     </>
   )
 }

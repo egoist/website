@@ -8,8 +8,8 @@ export default function ({ children }) {
     <>
       <DefaultLayout title={siteConfig.title}>
         {children}
-        <section className="section">
-          <div className="section-title">Blog Posts</div>
+        <section className="section border-t border-border mt-10">
+          <div className="text-sm mt-8 mb-3 text-gray-400">Recent Posts</div>
           <div className="posts">
             {pages
               .filter((page) => page.layout === 'post')
@@ -17,7 +17,7 @@ export default function ({ children }) {
                 return (
                   <div key={page.slug} className="box post">
                     <Link href={page.permalink}>
-                      <a className="post-title">
+                      <a className="text-link hover:underline">
                         <h2>{page.title}</h2>
                       </a>
                     </Link>
@@ -27,13 +27,6 @@ export default function ({ children }) {
           </div>
         </section>
       </DefaultLayout>
-      <style jsx>
-        {`
-          .post-title h2 {
-            font-size: 1rem;
-          }
-        `}
-      </style>
     </>
   )
 }

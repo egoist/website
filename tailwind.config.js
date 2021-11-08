@@ -9,6 +9,13 @@ module.exports = {
       colors: {
         ...colors,
       },
+      textColor: {
+        fg: 'var(--fg)',
+        link: 'var(--link-color)',
+      },
+      borderColor: {
+        border: 'var(--border-color)',
+      },
     },
   },
   variants: {

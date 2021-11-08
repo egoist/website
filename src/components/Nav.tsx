@@ -1,49 +1,50 @@
 import Link from 'next/link'
 import siteConfig from '$siteConfig'
+import { useRouter } from 'next/router'
+import clsx from 'clsx'
 
 export const Nav = () => {
+  const router = useRouter()
+  const links = [
+    {
+      href: '/thanks',
+      text: 'Supporters',
+    },
+  ]
   return (
     <>
-      <nav className="nav mb-8">
+      <nav className="nav mb-8 border-b border-border">
         <div className="container">
-          <div className="flex justify-between py-2">
+          <div className="flex justify-between h-12 items-center">
             <h1>
               <Link href="/">
-                <a>{siteConfig.title}</a>
+                <a className="hover:text-white">{siteConfig.title}</a>
               </Link>
             </h1>
-            <ul className="menu">
-              <li>
-                <Link href="/thanks">
-                  <a>Supporters</a>
-                </Link>
-              </li>
+            <ul className="text-sm h-full">
+              {links.map((link) => {
+                const isActive = router.asPath === link.href
+                return (
+                  <li key={link.text} className="h-full">
+                    <Link href={link.href}>
+                      <a
+                        className={clsx(
+                          `flex items-center h-full border-b-2 border-transparent`,
+                          isActive
+                            ? `border-yellow-500 cursor-default`
+                            : `hover:text-white`
+                        )}
+                      >
+                        {link.text}
+                      </a>
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
       </nav>
-      <style jsx>{`
-        .nav {
-          display: flex;
-          justify-content: space-between;
-          border-bottom: 1px solid var(--border-color);
-        }
-
-        ul {
-          display: flex;
-          list-style: none;
-          padding: 0;
-        }
-
-        li:not(:first-child) {
-          margin-left: 20px;
-        }
-
-        a {
-          display: block;
-          color: var(--nav-link-color);
-        }
-      `}</style>
     </>
   )
 }

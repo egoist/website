@@ -90,6 +90,7 @@ export default function ({ groupedSponsors }: Props) {
       title={`Supporters - ${siteConfig.title}`}
       description="Help me become a full-time open-source maintainer"
     >
+      <h1 className="page-title">Thanks!</h1>
       <p>
         I’m truly grateful to all the wonderful humans and companies supporting
         my open source work on{' '}

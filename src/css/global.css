@@ -1,13 +1,11 @@
 :root {
-  --fg: rgb(224, 224, 224);
+  --fg: #ccc;
   --bg: #272727;
   --secondary-fg: #555;
   --border-color: rgb(56, 56, 56);
 
   --active-fg: #fff;
   --active-bg: #000;
-  --nav-link-color: rgb(219, 219, 219);
-  --nav-link-active-color: #fff;
   --link-color: rgb(110, 169, 245);
 }
 
@@ -41,28 +39,10 @@ body {
   padding: 0 10px;
 }
 
-a {
-  color: var(--link-color);
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 hr {
   margin: 40px 0;
   border: none;
   border-top: 1px dashed rgba(48, 48, 48, 0.18);
-}
-
-.section {
-  padding: 20px 0;
-}
-
-.section-title {
-  font-size: 1rem;
-  color: var(--gray);
-  margin-bottom: 10px;
 }
 
 .hidden {

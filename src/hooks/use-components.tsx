@@ -10,21 +10,31 @@ export const useComponents = (Component) => {
 
   return {
     wrapper: Wrapper,
-    pre: (props) => <div {...props} />,
+    pre: (props) => <div {...props} className="my-5" />,
+    p: (props) => <p {...props} className="my-5" />,
     code: CodeBlock,
-    h2: (props) => <h1 {...props} className="text-2xl text-gray-100" />,
-    ul: (props) => <ul {...props} className="list-disc pl-5" />,
-    ol: (props) => <ol {...props} className="list-decimal pl-5" />,
+    h2: (props) => <h1 {...props} className="my-5 text-2xl text-gray-100" />,
+    ul: (props) => <ul {...props} className="my-5 list-disc pl-5" />,
+    ol: (props) => <ol {...props} className="my-5 list-decimal pl-5" />,
     a: ({ href, ...props }) => {
       const isExternal = /^https?:\/\//.test(href) || /^mailto:/.test(href)
+
+      const className = `text-link hover:underline`
+
       if (isExternal) {
         return (
-          <a {...props} href={href} target="_blank" rel="noopener noreferrer" />
+          <a
+            {...props}
+            className={className}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         )
       }
       return (
         <Link href={href}>
-          <a {...props} />
+          <a className={className} {...props} />
         </Link>
       )
     },
