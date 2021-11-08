@@ -8,7 +8,7 @@ export default function ({ children }) {
     <>
       <DefaultLayout title={siteConfig.title}>
         {children}
-        <section className="section border-t border-border mt-10">
+        <section className="section border-t border-dashed border-border mt-10">
           <div className="text-sm mt-8 mb-3 text-gray-400">Recent Posts</div>
           <div className="posts">
             {pages

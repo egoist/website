@@ -91,19 +91,20 @@ export default function ({ groupedSponsors }: Props) {
       description="Help me become a full-time open-source maintainer"
     >
       <h1 className="page-title">Thanks!</h1>
-      <p>
+      <p className="my-5">
         I’m truly grateful to all the wonderful humans and companies supporting
         my open source work on{' '}
         <a
           target="_blank"
           rel="nofollow noopener"
+          className="text-link hover:underline"
           href="https://github.com/sponsors/egoist"
         >
           GitHub Sponsors
         </a>
         .
       </p>
-      <p>
+      <p className="my-5">
         <Image src={thanksGif} />
       </p>
       {groupedSponsors.map((group) => {
