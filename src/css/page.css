@@ -11,3 +11,7 @@
 .page-content > *:first-child {
   margin-top: 0;
 }
+
+.page-content {
+  @apply leading-relaxed;
+}
