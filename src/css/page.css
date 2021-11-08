@@ -2,6 +2,8 @@
   font-size: 1.8rem;
   font-weight: bold;
   color: var(--active-fg);
+  @apply leading-tight;
+  @apply mb-2;
 }
 
 .page-content > *:last-child {

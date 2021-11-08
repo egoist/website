@@ -1,15 +1,12 @@
 import Link from 'next/link'
+import { Layout } from 'src/components/Layout'
 import CodeBlock from '../components/CodeBlock'
 
 export const useComponents = (Component) => {
   if (!Component.isMDXComponent) return {}
 
-  const Wrapper = Component.frontmatter.layout
-    ? require(`../layouts/${Component.frontmatter.layout}`).default
-    : undefined
-
   return {
-    wrapper: Wrapper,
+    wrapper: Layout,
     pre: (props) => <div {...props} className="my-5" />,
     p: (props) => <p {...props} className="my-5" />,
     code: CodeBlock,

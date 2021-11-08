@@ -25,20 +25,11 @@ module.exports = {
       use: [
         options.defaultLoaders.babel,
         {
-          loader: require.resolve('./scripts/frontmatter-loader'),
-          options: {
-            type: 'post',
-          },
-        },
-        {
           loader: require.resolve('@mdx-js/loader'),
           options: {},
         },
         {
           loader: require.resolve('./scripts/frontmatter-loader'),
-          options: {
-            type: 'pre',
-          },
         },
       ],
     })
