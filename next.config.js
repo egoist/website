@@ -5,6 +5,10 @@ require('sucrase/register')
 let buildPagesPromise
 
 module.exports = {
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US',
+  },
   pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
   webpack(config, options) {
     // Replace React with Preact in client production build
