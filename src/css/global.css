@@ -1,0 +1,85 @@
+:root {
+  --fg: rgb(224, 224, 224);
+  --bg: #272727;
+  --secondary-fg: #555;
+  --border-color: rgb(56, 56, 56);
+
+  --active-fg: #fff;
+  --active-bg: #000;
+  --nav-link-color: rgb(219, 219, 219);
+  --nav-link-active-color: #fff;
+  --link-color: rgb(87, 132, 190);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Microsoft YaHei New', 'Microsoft Yahei',
+    '微软雅黑', 宋体, SimSun, STXihei, '华文细黑', sans-serif;
+}
+
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+body {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 40px 0;
+  border: none;
+  border-top: 1px dashed rgba(48, 48, 48, 0.18);
+}
+
+.section {
+  padding: 20px 0;
+}
+
+.section-title {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+pre {
+  background-color: rgb(32, 32, 32) !important;
+  overflow: auto;
+  padding: 20px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+:not(pre) > code {
+  background-color: rgb(61, 61, 61);
+  font-size: 14px;
+  padding: 4px 5px;
+  border-radius: 4px;
+}
