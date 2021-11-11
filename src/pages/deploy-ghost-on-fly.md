@@ -37,7 +37,7 @@ processes = []
   destination="/var/lib/ghost/content"
 
 [env]
-  url="https://ghost-fly.fly.dev"
+  url="https://[app-name].fly.dev"
 
 [experimental]
   allowed_public_ports = []
@@ -76,7 +76,7 @@ You need to tweak the highlighted part to suit your needs:
 - Change the `app` name to something unique.
 - By default we use the `ghost:4-alpine` docker image.
 - We mount `/var/lib/ghost/content` to `ghost_content` [volume](https://fly.io/docs/reference/volumes/) to persistent data, `/var/lib/ghost/content` is the directory to store Ghost database (SQLite), themes and uploaded images, etc.
-- The `url` should be your production website URL.
+- The `url` should be your production website URL, you can add custom domain on [Fly.io dashboard](https://fly.io/apps/).
 
 ## Persistent Data
 
@@ -88,6 +88,10 @@ fly volumes create ghost_content --region nrt
 ```
 
 There's many other [regions](https://fly.io/docs/reference/regions/) you can choose too.
+
+## Deploy
+
+To actually deploy the project, run `fly deploy` in the project directory. After that, you should be able to access your Ghost blog at `https://[app-name].fly.dev/ghost` or your custom domain name.
 
 ## Using MySQL
 
