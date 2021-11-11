@@ -9,8 +9,7 @@ const { title, description } = defineProps({
   description: String,
 })
 
-const getDesc = (str: string) =>
-  str.replace(/<[^>]*>/g, '').slice(0, 100) + '...'
+const getDesc = (str = '') => str.replace(/<[^>]*>/g, '').slice(0, 100) + '...'
 
 useHead({
   title: computed(() => title),
