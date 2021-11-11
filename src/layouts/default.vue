@@ -9,17 +9,21 @@ const { title, description } = defineProps({
   description: String,
 })
 
+const getDesc = (str: string) =>
+  str.replace(/<[^>]*>/g, '').slice(0, 100) + '...'
+
 useHead({
   title: computed(() => title),
   meta: computed(() => {
+    const desc = getDesc(description)
     return [
       {
         name: 'description',
-        content: description,
+        content: desc,
       },
       {
         name: 'twitter:description',
-        content: description,
+        content: desc,
       },
       {
         name: 'twitter:card',
