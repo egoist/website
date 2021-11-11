@@ -5,6 +5,7 @@ import { getSponsors } from './scripts/get-sponsors'
 export default defineConfig({
   siteConfig: {
     title: 'EGOIST',
+    description: `The coolest anime fan`,
     twitter: '_egoistlily',
   },
   permalinks(page) {

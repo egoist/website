@@ -9,7 +9,10 @@ defineProps({
 </script>
 
 <template>
-  <DefaultLayout :title="siteConfig.title">
+  <DefaultLayout
+    :title="siteConfig.title"
+    :description="siteConfig.description"
+  >
     <component :is="Component" />
     <section class="section border-t border-dashed border-border mt-10">
       <div class="text-sm mt-8 mb-3 text-gray-400">Recent Posts</div>
