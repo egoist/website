@@ -100,10 +100,10 @@ By default this docker image uses SQLite as the database, it's perfectly fine fo
 ```bash
 fly secrets set \
   database__client=mysql \
-  database__connection__host: db \
-  database__connection__user: root \
-  database__connection__password: example \
-  database__connection__database: ghost
+  database__connection__host=db \
+  database__connection__user=root \
+  database__connection__password=example \
+  database__connection__database=ghost
 ```
 
 These secrets will be available as environment variables at runtime.
