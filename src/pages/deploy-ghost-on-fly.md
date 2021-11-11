@@ -1,5 +1,5 @@
 ---
-title: Deploy A Ghost Blog on Fly.io
+title: Deploy a Ghost Blog on Fly.io
 createdAt: 2021-11-11T09:19:44.050Z
 layout: post
 type: post
