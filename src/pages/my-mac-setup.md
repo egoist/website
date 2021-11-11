@@ -1,7 +1,8 @@
 ---
 title: My Mac Setup
-date: 2021-01-03T12:56:00.000Z
+createdAt: 2021-01-03T12:56:00.000Z
 layout: post
+type: post
 description: I got a new Mac Mini M1, here's how I set it up.
 ---
 

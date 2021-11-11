@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,9 +16,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "$siteConfig": ["./site.config.json"]
+      "$src/*": ["./src/*"]
     }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "./public/**/*.ts"]
+  }
 }

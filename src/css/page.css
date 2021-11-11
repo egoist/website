@@ -6,14 +6,53 @@
   @apply mb-2;
 }
 
-.page-content > *:last-child {
+.saber-markdown > *:last-child {
   margin-bottom: 0;
 }
 
-.page-content > *:first-child {
+.saber-markdown > *:first-child {
   margin-top: 0;
 }
 
-.page-content {
+.saber-markdown {
   @apply leading-relaxed;
+}
+
+.saber-markdown h2 {
+  @apply my-5 text-2xl text-gray-100;
+}
+
+.saber-markdown p {
+  @apply my-5;
+}
+
+.saber-markdown ul {
+  @apply my-5 list-disc pl-5;
+}
+
+.saber-markdown ol {
+  @apply my-5 list-decimal pl-5;
+}
+
+.saber-markdown a {
+  @apply text-link hover:underline;
+}
+
+.saber-code .line-numbers {
+  background-color: rgb(32, 32, 32) !important;
+}
+
+pre {
+  background-color: rgb(32, 32, 32) !important;
+  overflow: auto;
+  padding: 20px;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
+:not(pre) > code {
+  background-color: rgb(61, 61, 61);
+  font-size: 14px;
+  padding: 4px 5px;
+  border-radius: 4px;
 }

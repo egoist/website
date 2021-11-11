@@ -48,18 +48,3 @@ hr {
 .hidden {
   display: none;
 }
-
-pre {
-  background-color: rgb(32, 32, 32) !important;
-  overflow: auto;
-  padding: 20px;
-  font-size: 15px;
-  border-radius: 6px;
-}
-
-:not(pre) > code {
-  background-color: rgb(61, 61, 61);
-  font-size: 14px;
-  padding: 4px 5px;
-  border-radius: 4px;
-}

@@ -1,7 +1,8 @@
 ---
 title: How Do I Install PNPM
-date: 2021-11-07T04:10:40.000Z
+createdAt: 2021-11-07T04:10:40.000Z
 layout: post
+type: post
 description: Here's my solution to switching Node.js version without losing globally installed packages.
 ---
 

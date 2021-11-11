@@ -1,4 +1,1 @@
-declare module '$pages' {
-  const pages: any[]
-  export default pages
-}
+/// <reference types="saber/env" />

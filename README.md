@@ -1,6 +1,6 @@
 # egoist.sh
 
-The homepage for EGOIST, built with Next.js and MDX.
+The homepage for EGOIST, built with Saber
 
 ## License
 
