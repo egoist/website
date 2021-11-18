@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import { siteConfig } from 'saber/config'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
+import TweetButton from '$src/components/TweetButton.vue'
 import DefaultLayout from './default.vue'
 
 const { page, Component } = defineProps({
@@ -29,6 +30,10 @@ onMounted(() => {
   }
   commentsSection.value.append(script)
 })
+
+const tweetText = computed(
+  () => `Check out "${page.title}" by @${siteConfig.twitter}`
+)
 </script>
 
 <template>
@@ -43,6 +48,12 @@ onMounted(() => {
       </div>
       <div class="mt-5">
         <component :is="Component" />
+        <div v-if="isPost" class="mt-10">
+          <TweetButton
+            :url="`${siteConfig.url}${page.permalink}`"
+            :text="tweetText"
+          />
+        </div>
       </div>
       <section
         class="border-t border-border border-dashed mt-20 pt-5"

@@ -7,6 +7,7 @@ export default defineConfig({
     title: 'EGOIST',
     description: `The coolest anime fan`,
     twitter: '_egoistlily',
+    url: 'https://egoist.sh',
   },
   permalinks(page) {
     if (page.type === 'post') {
