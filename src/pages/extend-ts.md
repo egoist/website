@@ -2,7 +2,7 @@
 title: Extending globalThis, window, process.env etc in TypeScript
 createdAt: 2021-11-18T04:09:38.959Z
 layout: post
---
+---
 
 Based on TypeScript 4.5
 
