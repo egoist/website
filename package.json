@@ -9,8 +9,13 @@
   "repository": "git@github.com:egoist/egoist.sh.git",
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "unlicensed",
+  "browserslist": [
+    "last 2 versions",
+    "not dead"
+  ],
   "devDependencies": {
     "@types/node": "^16.11.6",
+    "autoprefixer": "^10.4.0",
     "axios": "^0.21.1",
     "dayjs": "^1.8.16",
     "lodash": "^4.17.19",
