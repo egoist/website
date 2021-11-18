@@ -19,11 +19,11 @@
 }
 
 .saber-markdown h2 {
-  @apply my-5 text-2xl text-gray-100;
+  @apply my-8 text-2xl text-gray-100;
 }
 
 .saber-markdown p {
-  @apply my-5;
+  @apply my-4;
 }
 
 .saber-markdown ul {
@@ -36,6 +36,10 @@
 
 .saber-markdown a {
   @apply text-link hover:underline;
+}
+
+.saber-code {
+  margin: 0 0;
 }
 
 .saber-code .line-numbers {
@@ -52,7 +56,7 @@ pre {
 
 :not(pre) > code {
   background-color: rgb(61, 61, 61);
-  font-size: 14px;
+  font-size: 0.875em;
   padding: 4px 5px;
   border-radius: 4px;
 }
