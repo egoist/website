@@ -23,11 +23,15 @@ export default defineConfig({
           .filter((page) => page.type === 'post' && page.published !== false)
         for (const page of api.pages.find()) {
           if (page.permalink === '/') {
-            page.posts = posts.map((post) => ({
-              title: post.title,
-              permalink: post.permalink,
-              createdAt: post.createdAt,
-            }))
+            page.posts = posts
+              .map((post) => ({
+                title: post.title,
+                permalink: post.permalink,
+                createdAt: post.createdAt,
+              }))
+              .sort((a, b) => {
+                return a.createdAt > b.createdAt ? -1 : 1
+              })
           } else if (page.permalink === '/thanks') {
             page.groupedSponsors = await getSponsors()
           }
