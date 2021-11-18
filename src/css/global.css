@@ -36,7 +36,7 @@ body {
 .container {
   max-width: 780px;
   margin: 0 auto;
-  padding: 0 10px;
+  @apply px-5;
 }
 
 hr {
