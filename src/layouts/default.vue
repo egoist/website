@@ -41,7 +41,7 @@ useHead({
   <div class="app">
     <Nav />
     <div class="container">
-      <main>
+      <main class="mt-20">
         <div class="page-content"><slot></slot></div>
       </main>
     </div>

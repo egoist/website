@@ -10,7 +10,18 @@ const links = [
 </script>
 
 <template>
-  <nav class="nav mb-8 border-b border-border">
+  <nav
+    class="
+      nav
+      border-b border-border
+      fixed
+      left-0
+      right-0
+      top-0
+      backdrop-blur-lg
+      z-20
+    "
+  >
     <div class="container">
       <div class="flex justify-between h-12 items-center">
         <h1 class="">

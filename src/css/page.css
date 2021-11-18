@@ -40,22 +40,20 @@
 
 .saber-code {
   margin: 0 0;
+  background-color: var(--code-bg) !important;
+  @apply rounded-lg;
+}
+
+.saber-code:before {
+  @apply text-gray-600;
 }
 
 .saber-code .line-numbers {
-  background-color: rgb(32, 32, 32) !important;
-}
-
-pre {
-  background-color: rgb(32, 32, 32) !important;
-  overflow: auto;
-  padding: 20px;
-  font-size: 15px;
-  border-radius: 6px;
+  background-color: transparent !important;
 }
 
 :not(pre) > code {
-  background-color: rgb(61, 61, 61);
+  background-color: var(--code-bg);
   font-size: 0.875em;
   padding: 4px 5px;
   border-radius: 4px;

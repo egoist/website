@@ -1,8 +1,9 @@
 :root {
   --fg: #ccc;
-  --bg: #272727;
+  --bg: #000;
   --secondary-fg: #555;
-  --border-color: rgb(56, 56, 56);
+  --border-color: rgb(34, 34, 34);
+  --code-bg: rgb(15, 15, 15);
 
   --active-fg: #fff;
   --active-bg: #000;
