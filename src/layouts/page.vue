@@ -15,6 +15,7 @@ const isPost = page.type === 'post'
 const commentsSection = ref<HTMLDivElement | null>(null)
 
 onMounted(() => {
+  if (!commentsSection.value) return
   const attrs = {
     repo: 'egoist/website',
     'issue-term': 'pathname',
@@ -56,6 +57,7 @@ const tweetText = computed(
         </div>
       </div>
       <section
+        v-if="isPost"
         class="border-t border-border border-dashed mt-20 pt-5"
         ref="commentsSection"
       ></section>

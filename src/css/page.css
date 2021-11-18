@@ -22,6 +22,10 @@
   @apply my-8 text-2xl text-gray-100;
 }
 
+.saber-markdown h3 {
+  @apply my-7 text-xl text-gray-100;
+}
+
 .saber-markdown p {
   @apply my-4;
 }
@@ -57,4 +61,8 @@
   font-size: 0.875em;
   padding: 4px 5px;
   border-radius: 4px;
+}
+
+.saber-markdown figcaption {
+  @apply italic text-center text-xs -mt-2 text-gray-400;
 }

@@ -1,21 +1,26 @@
 <script setup lang="ts">
 import { siteConfig } from 'saber/config'
 import DefaultLayout from './default.vue'
+import { isLang } from '$src/hooks/isLang'
 
 defineProps({
   Component: null,
   page: null,
 })
+
+const isZH = isLang('zh')
 </script>
 
 <template>
   <DefaultLayout
-    :title="siteConfig.title"
+    :title="page.title || siteConfig.title"
     :description="siteConfig.description"
   >
     <component :is="Component" />
     <section class="section border-t border-dashed border-border mt-10">
-      <div class="text-sm mt-8 mb-3 text-gray-400">Recent Posts</div>
+      <div class="text-sm mt-8 mb-3 text-gray-400">
+        {{ isZH ? '最新文章' : 'Recent Posts' }}
+      </div>
       <div class="posts">
         <div v-for="post in page.posts" :key="post.slug" class="box post">
           <saber-link :to="post.permalink" class="text-link hover:underline">

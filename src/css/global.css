@@ -21,12 +21,6 @@ html {
     '微软雅黑', 宋体, SimSun, STXihei, '华文细黑', sans-serif;
 }
 
-@media screen and (min-width: 1440px) {
-  html {
-    font-size: 20px;
-  }
-}
-
 body {
   margin: 0;
   line-height: 1.7;

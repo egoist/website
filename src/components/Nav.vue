@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { siteConfig } from 'saber/config'
+import { isLang } from '$src/hooks/isLang'
+
+const isZH = isLang('zh')
 
 const links = [
   {
-    href: '/thanks',
-    text: 'Supporters',
+    href: isZH.value ? '/' : '/zh',
+    text: isZH.value ? 'English' : '中文博客',
+  },
+  {
+    href: isZH.value ? '/zh/thanks' : '/thanks',
+    text: isZH.value ? '赞助' : 'Supporters',
   },
 ]
 </script>
@@ -25,11 +32,11 @@ const links = [
     <div class="container">
       <div class="flex justify-between h-12 items-center">
         <h1 class="">
-          <saber-link to="/" class="hover:text-white">{{
+          <saber-link :to="isZH ? '/zh' : '/'" class="hover:text-white">{{
             siteConfig.title
           }}</saber-link>
         </h1>
-        <ul class="text-sm h-full">
+        <ul class="text-sm h-full flex items-center space-x-3 md:space-x-6">
           <li :key="link.text" v-for="link in links" class="h-full">
             <saber-link
               :to="link.href"
