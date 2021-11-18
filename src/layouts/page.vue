@@ -48,6 +48,19 @@ const tweetText = computed(
         {{ dayjs(page.createdAt).format('MMM DD, YYYY') }}
       </div>
       <div class="mt-5">
+        <div
+          v-if="page.translatedFrom"
+          class="mb-10 bg-yellow-300 bg-opacity-20 rounded-lg p-5"
+        >
+          本文译自
+          <a
+            target="_blank"
+            rel="nofollow noopener"
+            class="underline"
+            :href="page.translatedFrom"
+            >{{ page.translatedFrom }}</a
+          >, 所有版权归原作者所有。
+        </div>
         <component :is="Component" />
         <div v-if="isPost" class="mt-10">
           <TweetButton
