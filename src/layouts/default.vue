@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useHead } from 'saber/app'
 import { siteConfig } from 'saber/config'
 import Nav from '$src/components/Nav.vue'
+import Footer from '$src/components/Footer.vue'
 
 const { title, description } = defineProps({
   title: String,
@@ -45,5 +46,6 @@ useHead({
         <div class="page-content"><slot></slot></div>
       </main>
     </div>
+    <Footer />
   </div>
 </template>
