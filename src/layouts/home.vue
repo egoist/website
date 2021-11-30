@@ -17,7 +17,7 @@ useHead({
     {
       rel: 'alternate',
       type: 'application/atom+xml',
-      href: computed(() => (isZH.value ? '/zh/feed.xml' : '/feed.xml')),
+      href: computed(() => (isZH.value ? '/zh/atom.xml' : '/atom.xml')),
     },
   ],
 })

@@ -98,8 +98,8 @@ export default defineConfig({
             })
           }
         }
-        await fs.promises.writeFile('./out/feed.xml', en_feed.atom1())
-        await fs.promises.writeFile('./out/zh/feed.xml', zh_feed.atom1())
+        await fs.promises.writeFile('./out/atom.xml', en_feed.atom1())
+        await fs.promises.writeFile('./out/zh/atom.xml', zh_feed.atom1())
       },
     },
   ],
