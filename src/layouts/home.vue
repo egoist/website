@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useHead } from 'saber/app'
 import { siteConfig } from 'saber/config'
 import DefaultLayout from './default.vue'
 import { isLang } from '$src/hooks/isLang'
@@ -9,6 +11,16 @@ defineProps({
 })
 
 const isZH = isLang('zh')
+
+useHead({
+  link: [
+    {
+      rel: 'alternate',
+      type: 'application/atom+xml',
+      href: computed(() => (isZH.value ? '/zh/feed.xml' : '/feed.xml')),
+    },
+  ],
+})
 </script>
 
 <template>
