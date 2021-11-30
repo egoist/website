@@ -17,7 +17,14 @@ useHead({
     {
       rel: 'alternate',
       type: 'application/atom+xml',
-      href: computed(() => (isZH.value ? '/zh/atom.xml' : '/atom.xml')),
+      href: '/atom.xml',
+      title: `EGOIST's Blog`,
+    },
+    {
+      rel: 'alternate',
+      type: 'application/atom+xml',
+      href: '/zh/atom.xml',
+      title: `EGOIST 的中文博客`,
     },
   ],
 })
