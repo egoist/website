@@ -84,17 +84,20 @@ export default defineConfig({
           generator: 'Saber',
         })
         for (const post of posts) {
+          const permalink = url + post.permalink
           if (isZH(post)) {
             zh_feed.addItem({
               title: post.title,
-              link: url + post.permalink,
+              link: permalink,
               date: post.createdAt,
+              content: permalink,
             })
           } else {
             en_feed.addItem({
               title: post.title,
-              link: url + post.permalink,
+              link: permalink,
               date: post.createdAt,
+              content: permalink,
             })
           }
         }
