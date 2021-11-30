@@ -75,7 +75,7 @@ export default defineConfig({
         })
         const zh_feed = new Feed({
           id: url + '/zh',
-          title: 'EGOIST 张文博客',
+          title: 'EGOIST 中文博客',
           copyright: '© EGOIST',
           author: {
             name: 'EGOIST',
