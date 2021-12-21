@@ -18,7 +18,7 @@ const commentsSection = ref<HTMLDivElement | null>(null)
 const isZH = isLang('zh')
 
 onMounted(() => {
-  if (!commentsSection.value || import.meta.env.DEV) return
+  if (!commentsSection.value) return
   const attrs = {
     'data-repo': 'egoist/website',
     'data-repo-id': 'MDEwOlJlcG9zaXRvcnkxNTQ0OTcyNDQ=',

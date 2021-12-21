@@ -1,0 +1,4 @@
+{
+  "origins": ["https://egoist.sh"],
+  "originsRegex": ["http://localhost:[0-9]+"]
+}
