@@ -4,6 +4,7 @@ import { siteConfig } from 'saber/config'
 import { onMounted, ref, computed } from 'vue'
 import TweetButton from '$src/components/TweetButton.vue'
 import DefaultLayout from './default.vue'
+import { isLang } from '$src/hooks/isLang'
 
 const { page, Component } = defineProps({
   page: null,
@@ -14,17 +15,24 @@ const isPost = page.type === 'post'
 
 const commentsSection = ref<HTMLDivElement | null>(null)
 
+const isZH = isLang('zh')
+
 onMounted(() => {
-  if (!commentsSection.value) return
+  if (!commentsSection.value || import.meta.env.DEV) return
   const attrs = {
-    repo: 'egoist/website',
-    'issue-term': 'pathname',
-    label: 'comment',
-    theme: 'preferred-color-scheme',
+    'data-repo': 'egoist/website',
+    'data-repo-id': 'MDEwOlJlcG9zaXRvcnkxNTQ0OTcyNDQ=',
+    'data-category': 'Announcements',
+    'data-category-id': 'DIC_kwDOCTVw3M4CAX6w',
+    'data-mapping': 'pathname',
+    'data-reactions-enabled': '1',
+    'data-emit-metadata': '0',
+    'data-theme': 'dark',
+    'data-lang': isZH.value ? 'zh-CN' : 'en-US',
     crossorigin: 'anonymous',
   }
   const script = document.createElement('script')
-  script.src = `https://utteranc.es/client.js`
+  script.src = `https://giscus.app/client.js`
   script.async = true
   for (const key of Object.keys(attrs)) {
     script.setAttribute(key, attrs[key])
