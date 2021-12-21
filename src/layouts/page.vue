@@ -28,7 +28,7 @@ onMounted(() => {
     'data-reactions-enabled': '1',
     'data-emit-metadata': '0',
     'data-theme': 'dark',
-    'data-lang': isZH.value ? 'zh-CN' : 'en-US',
+    'data-lang': isZH.value ? 'zh-CN' : 'en',
     crossorigin: 'anonymous',
   }
   const script = document.createElement('script')

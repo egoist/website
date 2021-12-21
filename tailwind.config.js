@@ -1,14 +1,10 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.vue'],
+  content: ['./src/**/*.vue'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        ...colors,
-      },
       textColor: {
         fg: 'var(--fg)',
         link: 'var(--link-color)',
