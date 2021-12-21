@@ -22,7 +22,7 @@ onMounted(() => {
   const attrs = {
     'data-repo': 'egoist/website',
     'data-repo-id': 'MDEwOlJlcG9zaXRvcnkxNTQ0OTcyNDQ=',
-    'data-category': 'Announcements',
+    // 'data-category': 'Announcements',
     'data-category-id': 'DIC_kwDOCTVw3M4CAX6w',
     'data-mapping': 'pathname',
     'data-reactions-enabled': '1',
