@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "saber",
-    "build": "saber build"
+    "build": "saber build",
+    "replace-saber": "rm -rf node_modules/saber && cp -rf ../saber/packages/saber ./node_modules/saber"
   },
   "repository": "git@github.com:egoist/egoist.sh.git",
   "author": "EGOIST <0x142857@gmail.com>",
@@ -21,12 +22,12 @@
     "feed": "^4.2.2",
     "lodash": "^4.17.19",
     "node-fetch": "^3.0.0",
-    "saber": "^0.12.0-alpha.16",
+    "saber": "^0.12.0-alpha.17",
     "saber-code-css": "^0.1.1",
     "saber-plugin-shiki": "^0.0.3",
     "storyblok-js-client": "^3.3.1",
     "sucrase": "^3.20.3",
-    "tailwindcss": "^3.0.7",
+    "tailwindcss": "^3.0.11",
     "typescript": "^4.4.4",
     "vue": "^3.2.21"
   }
