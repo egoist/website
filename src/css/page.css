@@ -46,7 +46,7 @@
 }
 
 .saber-markdown a {
-  @apply underline;
+  @apply underline decoration-pink-500 decoration-2 hover:no-underline;
 }
 
 .saber-code {
