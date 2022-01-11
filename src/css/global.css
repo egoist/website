@@ -1,31 +1,14 @@
 :root {
-  --fg: #ccc;
-  --bg: #000;
-  --secondary-fg: #555;
-  --border-color: rgb(26, 26, 26);
-  --code-bg: rgb(15, 15, 15);
-
-  --active-fg: #fff;
-  --active-bg: #000;
-  --link-color: rgb(110, 169, 245);
-}
-
-* {
-  box-sizing: border-box;
+  --code-bg: theme('colors.zinc.100');
 }
 
 html {
   font-size: 18px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Microsoft YaHei New', 'Microsoft Yahei',
-    '微软雅黑', 宋体, SimSun, STXihei, '华文细黑', sans-serif;
 }
 
 body {
   margin: 0;
   line-height: 1.7;
-  color: var(--fg);
-  background-color: var(--bg);
 }
 
 .container {
@@ -38,8 +21,4 @@ hr {
   margin: 40px 0;
   border: none;
   border-top: 1px dashed rgba(48, 48, 48, 0.18);
-}
-
-.hidden {
-  display: none;
 }

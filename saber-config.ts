@@ -2,6 +2,7 @@ import fs from 'fs'
 import { defineConfig } from 'saber'
 import shiki from 'saber-plugin-shiki'
 import { Feed } from 'feed'
+import dayjs from 'dayjs'
 import { getSponsors } from './scripts/get-sponsors'
 
 export default defineConfig({
@@ -17,7 +18,9 @@ export default defineConfig({
     }
   },
   plugins: [
-    shiki(),
+    shiki({
+      theme: 'github-light',
+    }),
     {
       name: 'custom',
       async createPages({ api }) {
@@ -37,6 +40,7 @@ export default defineConfig({
                 title: post.title,
                 permalink: post.permalink,
                 createdAt: post.createdAt,
+                date: dayjs(post.createdAt).format('YYYY-MM-DD'),
               }))
           } else if (page.permalink === '/zh') {
             page.posts = posts
@@ -45,6 +49,7 @@ export default defineConfig({
                 title: post.title,
                 permalink: post.permalink,
                 createdAt: post.createdAt,
+                date: dayjs(post.createdAt).format('YYYY-MM-DD'),
               }))
           } else if (
             page.permalink === '/thanks' ||

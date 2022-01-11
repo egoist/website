@@ -36,15 +36,21 @@ useHead({
     :description="siteConfig.description"
   >
     <component :is="Component" />
-    <section class="section border-t border-dashed border-border mt-10">
-      <div class="text-sm mt-8 mb-3 text-gray-400">
-        {{ isZH ? '最新文章' : 'Recent Posts' }}
-      </div>
-      <div class="posts">
-        <div v-for="post in page.posts" :key="post.slug" class="box post">
-          <saber-link :to="post.permalink" class="text-link hover:underline">
-            <h2>{{ post.title }}</h2>
-          </saber-link>
+    <section class="section border-dashed border-border">
+      <div class="posts space-y-2">
+        <div v-for="post in page.posts" :key="post.permalink" class="box post">
+          <h2 class="flex flex-col md:flex-row">
+            <span class="mr-2 text-zinc-500 flex-shrink-0">{{
+              post.date
+            }}</span>
+            <div class="">
+              <saber-link
+                :to="post.permalink"
+                class="text-pink-500 hover:underline"
+                >{{ post.title }}</saber-link
+              >
+            </div>
+          </h2>
         </div>
       </div>
     </section>

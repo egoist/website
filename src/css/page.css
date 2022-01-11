@@ -1,9 +1,15 @@
 .page-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--active-fg);
-  @apply leading-tight;
   @apply mb-2;
+  @apply font-bold;
+  @apply text-2xl md:text-4xl;
+}
+
+.page-title span {
+  @apply bg-pink-500;
+  @apply text-white;
+  @apply px-2;
+  @apply py-1;
+  @apply leading-relaxed;
 }
 
 .saber-markdown > *:last-child {
@@ -19,11 +25,12 @@
 }
 
 .saber-markdown h2 {
-  @apply my-8 text-2xl text-gray-100;
+  @apply my-8 text-2xl;
+  @apply font-semibold;
 }
 
 .saber-markdown h3 {
-  @apply my-7 text-xl text-gray-100;
+  @apply my-7 text-xl;
 }
 
 .saber-markdown p {
@@ -39,17 +46,17 @@
 }
 
 .saber-markdown a {
-  @apply text-link hover:underline;
+  @apply underline;
 }
 
 .saber-code {
-  margin: 0 0;
   background-color: var(--code-bg) !important;
   @apply rounded-lg;
+  @apply my-5;
 }
 
 .saber-code:before {
-  @apply text-gray-600;
+  @apply text-zinc-300;
 }
 
 .saber-code .line-numbers {

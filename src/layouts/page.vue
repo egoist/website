@@ -27,7 +27,7 @@ onMounted(() => {
     'data-mapping': 'pathname',
     'data-reactions-enabled': '1',
     'data-emit-metadata': '0',
-    'data-theme': 'dark',
+    'data-theme': 'light',
     'data-lang': isZH.value ? 'zh-CN' : 'en',
     crossorigin: 'anonymous',
   }
@@ -51,7 +51,9 @@ const tweetText = computed(
     :description="page.excerpt"
   >
     <main>
-      <h1 class="page-title">{{ page.title }}</h1>
+      <h1 class="page-title">
+        <span>{{ page.title }}</span>
+      </h1>
       <div v-if="isPost" class="text-gray-500 text-sm italic">
         {{ dayjs(page.createdAt).format('MMM DD, YYYY') }}
       </div>

@@ -1,50 +1,32 @@
 <script setup lang="ts">
-import { siteConfig } from 'saber/config'
-import { isLang } from '$src/hooks/isLang'
-
-const isZH = isLang('zh')
-
 const links = [
   {
-    href: isZH.value ? '/' : '/zh',
-    text: isZH.value ? 'English' : '中文博客',
+    href: '/',
+    text: 'Home',
   },
+  { href: 'https://twitter.com/_egoistlily', text: 'Twitter' },
+  { href: 'https://github.com/egoist', text: 'GitHub' },
   {
-    href: isZH.value ? '/zh/thanks' : '/thanks',
-    text: isZH.value ? '赞助' : 'Supporters',
+    href: '/thanks',
+    text: 'Supporters',
   },
 ]
 </script>
 
 <template>
-  <nav
-    class="
-      nav
-      border-b border-border
-      fixed
-      left-0
-      right-0
-      top-0
-      backdrop-blur-lg
-      z-20
-    "
-  >
+  <nav class="nav left-0 right-0 top-0 backdrop-blur-lg z-20">
     <div class="container">
-      <div class="flex justify-between h-12 items-center">
-        <h1 class="">
-          <saber-link :to="isZH ? '/zh' : '/'" class="hover:text-white">{{
-            siteConfig.title
-          }}</saber-link>
-        </h1>
-        <ul class="text-sm h-full flex items-center space-x-3 md:space-x-6">
+      <h1 class="font-bold italic text-2xl md:text-4xl mt-10">
+        <saber-link to="/">egoist.sh</saber-link>
+      </h1>
+      <div class="flex justify-between mt-5 items-center text-zinc-500">
+        <ul class="h-full flex items-center space-x-3 md:space-x-6">
           <li :key="link.text" v-for="link in links" class="h-full">
             <saber-link
               :to="link.href"
               :class="[
-                `flex items-center h-full border-b-2 border-transparent`,
-                $route.path === link.href
-                  ? `border-yellow-500 cursor-default`
-                  : `hover:text-white`,
+                `flex items-center h-full border-b-2 border-transparent hover:underline`,
+                link.href === $route.path && 'text-black',
               ]"
             >
               {{ link.text }}

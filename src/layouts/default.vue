@@ -42,7 +42,7 @@ useHead({
   <div class="app">
     <Nav />
     <div class="container">
-      <main class="mt-20 pb-10">
+      <main class="mt-14 pb-10">
         <div class="page-content"><slot></slot></div>
       </main>
     </div>
