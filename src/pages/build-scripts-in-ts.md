@@ -17,12 +17,12 @@ import { defineConfig } from 'rollup'
 import esbuild from 'rollup-plugin-esbuild'
 
 export default defineConfig({
-	input: ['./src/index.ts'],
-	output: {
-		format: 'esm',
-		dir: './dist'
-	},
-  plugins: [esbuild()]
+  input: ['./src/index.ts'],
+  output: {
+    format: 'esm',
+    dir: './dist',
+  },
+  plugins: [esbuild()],
 })
 ```
 
@@ -55,23 +55,25 @@ const createMultipleConfigs = (options: Options[]): RollupOptions[] => {
   return [
     {
       //...
-    }
+    },
   ]
 }
 
 const main = async () => {
   const configs = createMultipleConfigs({})
-  await Promise.all(configs.map(async config => {
-    if (process.env\.argv.includes('--watch')) {
-      watch(config).on('...')
-    } else {
-      const bundle = await rollup(config)
-      await bundle.write(config.output)
-    }
-  }))
+  await Promise.all(
+    configs.map(async (config) => {
+      if (process.argv.includes('--watch')) {
+        watch(config).on('...')
+      } else {
+        const bundle = await rollup(config)
+        await bundle.write(config.output)
+      }
+    })
+  )
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error(error)
   process.exit(1)
 })
