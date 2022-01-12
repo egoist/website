@@ -63,7 +63,7 @@ const main = async () => {
   const configs = createMultipleConfigs({})
   await Promise.all(configs.map(async config => {
     if (process.env.argv.includes('--watch')) {
-      watch(createConfig).on('...')
+      watch(config).on('...')
     } else {
       const bundle = await rollup(config)
       await bundle.write(config.output)
