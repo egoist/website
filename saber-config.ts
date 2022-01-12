@@ -4,6 +4,7 @@ import shiki from 'saber-plugin-shiki'
 import { Feed } from 'feed'
 import dayjs from 'dayjs'
 import { getSponsors } from './scripts/get-sponsors'
+import { getVideos, Video } from './scripts/get-videos'
 
 export default defineConfig({
   siteConfig: {
@@ -32,6 +33,7 @@ export default defineConfig({
             return a.createdAt > b.createdAt ? -1 : 1
           })
         const groupedSponsors = await getSponsors()
+        const videos = await getVideos()
         for (const page of api.pages.find()) {
           if (page.permalink === '/') {
             page.posts = posts
@@ -42,6 +44,7 @@ export default defineConfig({
                 createdAt: post.createdAt,
                 date: dayjs(post.createdAt).format('YYYY-MM-DD'),
               }))
+            page.videos = videos
           } else if (page.permalink === '/zh') {
             page.posts = posts
               .filter((post) => isZH(post))
