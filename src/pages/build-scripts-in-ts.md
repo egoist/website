@@ -133,7 +133,7 @@ Now you can add the `scripts` package to other workspace packages using the `wor
     "release": "release"
   },
   "devDependencies": {
-    "scripts": "workspace:**"
+    "scripts": "workspace:*"
   }
 }
 ```
