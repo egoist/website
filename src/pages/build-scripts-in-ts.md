@@ -62,7 +62,7 @@ const createMultipleConfigs = (options: Options[]): RollupOptions[] => {
 const main = async () => {
   const configs = createMultipleConfigs({})
   await Promise.all(configs.map(async config => {
-    if (process.env.argv.includes('--watch')) {
+    if (process.env\.argv.includes('--watch')) {
       watch(config).on('...')
     } else {
       const bundle = await rollup(config)
