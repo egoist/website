@@ -9,7 +9,7 @@ I'm going to try building ViteKit in public in 14 days, what is ViteKit? you may
 
 > It's a framework for building web apps with React and Vue that run on Vercel, Cloudflare Workers, Node.js etc, it's built on top of Vite, since that's apparently what everything is built on nowadays.
 
-**Wait, isn't that Remix?** Yes in a sense! I've been wanting something like Remix for quite some time, I'm amazed by its `loader` and `action` API when I first saw it in its early days, I had some similar ideas ever since Next.js introduced `getServerSideProps`, I can't stop thinking about what if we can also suport `POST` and other types of requests in pages? Besides Remix I also draw insprations from Inertia.js, I was blown aways by how it allows you to build single-page apps **without building an API.**
+**Wait, isn't that Remix?** Yes in a sense! I've been wanting something like Remix for quite some time, I'm amazed by its `loader` and `action` API when I first saw it in its early days, I had some similar ideas ever since Next.js introduced `getServerSideProps`, I can't stop thinking about what if we can also suport `POST` and other types of requests in pages? Besides Remix I also draw insprations from Inertia.js, I was blown away by how it allows you to build single-page apps **without building an API.**
 
 Well, my initial idea might be similar to what Remix does, but Remix went much furthur than that, it also heavily adopted web standards in its API design, I won't go deeper into that since this is not Remix marketing post, in short, I like it.
 
