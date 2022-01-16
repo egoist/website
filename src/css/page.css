@@ -73,3 +73,7 @@
 .saber-markdown figcaption {
   @apply italic text-center text-xs -mt-2 text-gray-400;
 }
+
+.saber-markdown blockquote {
+  @apply border-l-4 px-4 text-zinc-500;
+}
