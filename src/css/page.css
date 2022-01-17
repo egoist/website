@@ -41,6 +41,11 @@
   @apply my-5 list-disc pl-5;
 }
 
+.saber-markdown li > ul {
+  @apply my-1;
+  list-style-type: square;
+}
+
 .saber-markdown ol {
   @apply my-5 list-decimal pl-5;
 }
