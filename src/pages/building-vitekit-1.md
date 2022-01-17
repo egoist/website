@@ -37,8 +37,7 @@ Yesterday is the first day of my [Building ViteKit in 14 Days](/building-vitekit
 
 ## Features Overview
 
-- **File-system based routing**. I will use `routes` directory instead of `pages`.
-  - Vue SFCs and files with a default export in `routes` directory will become _pages_, files exporting a `loader` function or an `action` function will become _endpoints_, `loader` and `action` will be used for handling GET requests and other requests respectively. Basically [Remix](https://remix.run/docs/en/v1/guides/data-loading).
+- **File-system based routing**. I will use `routes` directory instead of `pages`. Vue SFCs and files with a default export in `routes` directory will become _pages_, files exporting a `loader` function or an `action` function will become _endpoints_, `loader` and `action` will be used for handling GET requests and other requests respectively. Basically [Remix](https://remix.run/docs/en/v1/guides/data-loading).
 - **Server-side rendering**, I won't add SSG for the first version simply because I don't have enough time, that can always come later.
 - **Router**. I choose Vue as a start becuase we have `vue-router` which is optimized for SSR and is easy to extend, and Vue also has better support for SSR (including code splitting) than React 16 with less efforts. I tried React Router in one of my experiments but I ended up creating my own router. Btw I can also reuse my [@vueuse/head](https://github.com/vueuse/head) package for `<head/>` management.
 - **Plugins**. To add Vue support you install the plugin `@vitekit/framework-vue`, to deploy to Vercel you install `@vitekit/adapter-vercel`.
