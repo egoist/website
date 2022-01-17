@@ -67,4 +67,4 @@ Helpers and files exposed by plugins will be generated to `node_modules/.vitekit
 
 ---
 
-That's roughly what I did yesterday, I also fix a bug in `@vueuse/head` and watched the new episode of Attack on Titan. Tomorrow I'll share what I'm doing today.
+That's roughly what I did yesterday, I also fixed a bug in `@vueuse/head` and watched the new episode of Attack on Titan. Tomorrow I'll share what I'm doing today.
