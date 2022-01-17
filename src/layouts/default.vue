@@ -18,6 +18,10 @@ useHead({
     const desc = getDesc(description)
     return [
       {
+        name: 'twitter:title',
+        content: title,
+      },
+      {
         name: 'description',
         content: desc,
       },
