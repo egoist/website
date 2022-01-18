@@ -79,6 +79,61 @@ const tweetText = computed(
           />
         </div>
       </div>
+      <div
+        v-if="page.next || page.prev"
+        class="flex items-center justify-between mt-14 my-8"
+      >
+        <saber-link
+          v-if="page.next"
+          :to="page.next.permalink"
+          class="group relative inline-flex items-center border px-2 py-1 rounded-lg hover:bg-zinc-50"
+        >
+          <span
+            class="group-hover:block hidden absolute text-xs -top-6 left-4 text-zinc-400 italic"
+            >Newer Post</span
+          >
+          <svg
+            class="w-4 h-4 text-zinc-500 mr-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path></svg
+          >{{ page.next.title }}</saber-link
+        >
+        <span v-else></span>
+        <saber-link
+          v-if="page.prev"
+          :to="page.prev.permalink"
+          class="group relative inline-flex items-center border px-2 py-1 rounded-lg hover:bg-zinc-50"
+        >
+          <span
+            class="group-hover:block hidden absolute text-xs -top-6 right-4 text-zinc-400 italic"
+            >Older Post</span
+          >
+          {{ page.prev.title
+          }}<svg
+            class="w-4 h-4 text-zinc-500 ml-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path></svg
+        ></saber-link>
+        <span v-else></span>
+      </div>
       <section
         v-if="isPost"
         class="border-t border-border border-dashed mt-20 pt-5"

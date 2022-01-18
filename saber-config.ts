@@ -4,7 +4,28 @@ import shiki from 'saber-plugin-shiki'
 import { Feed } from 'feed'
 import dayjs from 'dayjs'
 import { getSponsors } from './scripts/get-sponsors'
-import { getVideos, Video } from './scripts/get-videos'
+import { getVideos } from './scripts/get-videos'
+
+const sortPages = (a: any, b: any) => {
+  return a.createdAt > b.createdAt ? -1 : 1
+}
+
+const setPrevAndNextPost = (posts: any[]) => {
+  const selectFields = (post: any) => {
+    return {
+      title: post.title,
+      permalink: post.permalink,
+    }
+  }
+  for (const [index, post] of posts.entries()) {
+    if (index > 0) {
+      post.next = selectFields(posts[index - 1])
+    }
+    if (index < posts.length - 1) {
+      post.prev = selectFields(posts[index + 1])
+    }
+  }
+}
 
 export default defineConfig({
   siteConfig: {
@@ -29,31 +50,32 @@ export default defineConfig({
         const posts = api.pages
           .find()
           .filter((page) => page.type === 'post' && page.published !== false)
-          .sort((a, b) => {
-            return a.createdAt > b.createdAt ? -1 : 1
-          })
+          .sort(sortPages)
         const groupedSponsors = await getSponsors()
         const videos = await getVideos()
+
+        const enPosts = posts.filter((post) => !isZH(post))
+        const zhPosts = posts.filter((post) => isZH(post))
+
+        setPrevAndNextPost(enPosts)
+        setPrevAndNextPost(zhPosts)
+
         for (const page of api.pages.find()) {
           if (page.permalink === '/') {
-            page.posts = posts
-              .filter((post) => !isZH(post))
-              .map((post) => ({
-                title: post.title,
-                permalink: post.permalink,
-                createdAt: post.createdAt,
-                date: dayjs(post.createdAt).format('YYYY-MM-DD'),
-              }))
+            page.posts = enPosts.map((post) => ({
+              title: post.title,
+              permalink: post.permalink,
+              createdAt: post.createdAt,
+              date: dayjs(post.createdAt).format('YYYY-MM-DD'),
+            }))
             page.videos = videos
           } else if (page.permalink === '/zh') {
-            page.posts = posts
-              .filter((post) => isZH(post))
-              .map((post) => ({
-                title: post.title,
-                permalink: post.permalink,
-                createdAt: post.createdAt,
-                date: dayjs(post.createdAt).format('YYYY-MM-DD'),
-              }))
+            page.posts = zhPosts.map((post) => ({
+              title: post.title,
+              permalink: post.permalink,
+              createdAt: post.createdAt,
+              date: dayjs(post.createdAt).format('YYYY-MM-DD'),
+            }))
           } else if (
             page.permalink === '/thanks' ||
             page.permalink === '/zh/thanks'
@@ -67,9 +89,7 @@ export default defineConfig({
         const posts = api.pages
           .find()
           .filter((page) => page.type === 'post' && page.published !== false)
-          .sort((a, b) => {
-            return a.createdAt > b.createdAt ? -1 : 1
-          })
+          .sort(sortPages)
         const url = 'https://egoist.sh'
         const en_feed = new Feed({
           id: url,
