@@ -81,15 +81,16 @@ const tweetText = computed(
       </div>
       <div
         v-if="page.next || page.prev"
-        class="flex items-center justify-between mt-14 my-8"
+        class="grid md:grid-cols-2 gap-3 mt-14 my-8"
       >
         <saber-link
           v-if="page.next"
           :to="page.next.permalink"
+          :title="page.next.title"
           class="group relative inline-flex items-center border px-2 py-1 rounded-lg hover:bg-zinc-50"
         >
           <span
-            class="group-hover:block hidden absolute text-xs -top-6 left-4 text-zinc-400 italic"
+            class="md:group-hover:block hidden absolute text-xs -top-6 left-4 text-zinc-400 italic"
             >Newer Post</span
           >
           <svg
@@ -105,20 +106,21 @@ const tweetText = computed(
               stroke-width="2"
               d="M15 19l-7-7 7-7"
             ></path></svg
-          >{{ page.next.title }}</saber-link
+          ><span class="truncate">{{ page.next.title }}</span></saber-link
         >
         <span v-else></span>
         <saber-link
           v-if="page.prev"
           :to="page.prev.permalink"
-          class="group relative inline-flex items-center border px-2 py-1 rounded-lg hover:bg-zinc-50"
+          :title="page.prev.title"
+          class="group relative inline-flex items-center justify-end border px-2 py-1 rounded-lg hover:bg-zinc-50"
         >
           <span
-            class="group-hover:block hidden absolute text-xs -top-6 right-4 text-zinc-400 italic"
+            class="md:group-hover:block hidden absolute text-xs -top-6 right-4 text-zinc-400 italic"
             >Older Post</span
           >
-          {{ page.prev.title
-          }}<svg
+          <span class="truncate">{{ page.prev.title }}</span
+          ><svg
             class="w-4 h-4 text-zinc-500 ml-1"
             fill="none"
             stroke="currentColor"
