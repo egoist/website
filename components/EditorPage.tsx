@@ -8,6 +8,12 @@ import {
   useUpdatePageMutation,
 } from "~/generated/graphql"
 
+const getInputDatetimeValue = (date: Date) => {
+  const isoString = date.toISOString()
+
+  return isoString.substring(0, ((isoString.indexOf("T") | 0) + 6) | 0)
+}
+
 export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
   const isUpdate = !!pageId
 
@@ -26,12 +32,14 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
     content: string
     slug: string
     published?: boolean | null
+    publishedAt: string
   }>({
     initialValues: {
       title: "",
       content: "",
       slug: "",
       published: false,
+      publishedAt: getInputDatetimeValue(new Date()),
     },
     async onSubmit(values) {
       const { error } = isUpdate
@@ -41,12 +49,14 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             content: values.content,
             slug: values.slug,
             published: values.published,
+            publishedAt: values.publishedAt,
           })
         : await createPostMutation({
             title: values.title,
             content: values.content,
             slug: values.slug,
             published: values.published,
+            publishedAt: values.publishedAt,
           })
       if (error) {
         alert(error.message)
@@ -67,6 +77,9 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
         content: getPageResult.data.getPage.content,
         slug: getPageResult.data.getPage.slug,
         published: getPageResult.data.getPage.published,
+        publishedAt: getInputDatetimeValue(
+          new Date(getPageResult.data.getPage.publishedAt || new Date())
+        ),
       })
     }
   }, [getPageResult.fetching])
@@ -124,6 +137,14 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             />{" "}
             Published
           </label>
+        </div>
+        <div>
+          <input
+            name="publishedAt"
+            type="datetime-local"
+            value={form.values.publishedAt}
+            onChange={form.handleChange}
+          />
         </div>
         <div>
           <button type="submit">{isUpdate ? "Update" : "Create"} Post</button>

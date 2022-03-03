@@ -17,6 +17,9 @@ export class CreatePageArgs {
 
   @Field({ nullable: true })
   published?: boolean
+
+  @Field({ nullable: true })
+  publishedAt?: string
 }
 
 @ArgsType()
@@ -35,6 +38,9 @@ export class UpdatePageArgs {
 
   @Field({ nullable: true })
   published?: boolean
+
+  @Field({ nullable: true })
+  publishedAt?: string
 }
 
 @ObjectType({ simpleResolvers: true })

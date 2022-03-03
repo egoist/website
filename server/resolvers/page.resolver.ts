@@ -39,7 +39,7 @@ export default class PostResolver {
         type: args.type,
       },
       orderBy: {
-        createdAt: args.order,
+        publishedAt: args.order,
       },
     })
   }
@@ -78,6 +78,7 @@ export default class PostResolver {
         content: args.content,
         slug,
         published: args.published,
+        publishedAt: args.publishedAt ? new Date(args.publishedAt) : new Date(),
         user: {
           connect: {
             id: guard.user.id,
@@ -116,6 +117,7 @@ export default class PostResolver {
         content: args.content,
         slug: args.slug,
         published: args.published,
+        publishedAt: args.publishedAt && new Date(args.publishedAt),
       },
     })
 

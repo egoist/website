@@ -4,6 +4,7 @@ mutation updatePage(
   $content: String
   $slug: String
   $published: Boolean
+  $publishedAt: String
 ) {
   updatePage(
     id: $id
@@ -11,6 +12,7 @@ mutation updatePage(
     content: $content
     slug: $slug
     published: $published
+    publishedAt: $publishedAt
   ) {
     id
   }
