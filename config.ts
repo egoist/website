@@ -6,4 +6,5 @@ export const site = {
   twitter: "_egoistlily",
   author: "EGOIST",
   email: "hi@egoist.sh",
+  disableSignup: true,
 }

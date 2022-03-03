@@ -6,6 +6,7 @@ import { LoginArgs, SignupArgs } from "./auth.types"
 import { setAuthCookie } from "../auth"
 import { getJWT } from "../jwt"
 import { type Context, GqlContext } from "../decorators"
+import { site } from "~/config"
 
 @Resolver()
 export default class AuthResolver {
@@ -16,6 +17,12 @@ export default class AuthResolver {
 
   @Mutation((returns) => Boolean)
   async signup(@GqlContext() ctx: Context, @Args() args: SignupArgs) {
+    const count = await prisma.user.count()
+
+    if (count > 0 && site.disableSignup) {
+      throw new ApolloError("Signup is disabled")
+    }
+
     const password = await hash(args.password)
     const existing = await prisma.user.findUnique({
       where: {
