@@ -1,7 +1,21 @@
+import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { Layout } from "~/components/Layout"
-import { useGetPostsForListingQuery } from "~/generated/graphql"
-import { withUrql } from "~/lib/urql-client"
+import {
+  GetPostsForListingDocument,
+  useGetPostsForListingQuery,
+} from "~/generated/graphql"
+import { createUrqlClient, withUrql } from "~/lib/urql-client"
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { client, ssrCache } = createUrqlClient()
+  await client.query(GetPostsForListingDocument).toPromise()
+  return {
+    props: {
+      urqlState: ssrCache.extractData(),
+    },
+  }
+}
 
 function Home() {
   const [getPostsResult] = useGetPostsForListingQuery()
@@ -36,4 +50,4 @@ function Home() {
   )
 }
 
-export default withUrql(Home, { ssr: true })
+export default withUrql(Home)

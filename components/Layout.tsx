@@ -10,8 +10,16 @@ const navLinks = [
     href: "/",
   },
   {
+    text: "Twitter",
+    href: `https://twitter.com/${site.twitter}`,
+  },
+  {
     text: "GitHub",
     href: "https://github.com/egoist",
+  },
+  {
+    text: "Supporters",
+    href: "/thanks",
   },
 ]
 

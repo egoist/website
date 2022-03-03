@@ -1,4 +1,8 @@
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from "next"
 import { Giscus } from "@giscus/react"
 
 import { Layout } from "~/components/Layout"
@@ -13,9 +17,24 @@ import { TweetButton } from "~/components/TweetButton"
 import { site } from "~/config"
 import { useMemo } from "react"
 import { useRouter } from "next/router"
-import { withUrql } from "~/lib/urql-client"
+import { createUrqlClient, withUrql } from "~/lib/urql-client"
 
 const getDesc = (str = "") => str.replace(/<[^>]*>/g, "").slice(0, 100) + "..."
+
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+  const slug = params!.page as string
+  const { client, ssrCache } = createUrqlClient()
+  await client
+    .query<GetPageQuery, GetPageQueryVariables>(GetPageDocument, {
+      slugOrId: slug,
+    })
+    .toPromise()
+  return {
+    props: {
+      urqlState: ssrCache.extractData(),
+    },
+  }
+}
 
 function Page() {
   const router = useRouter()
@@ -68,4 +87,4 @@ function Page() {
   )
 }
 
-export default withUrql(Page, { ssr: true })
+export default withUrql(Page)
