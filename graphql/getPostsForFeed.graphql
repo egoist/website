@@ -1,0 +1,9 @@
+query getPostsForFeed {
+  getPages(type: "post") {
+    id
+    title
+    slug
+    createdAt
+    contentHTML
+  }
+}

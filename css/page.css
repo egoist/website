@@ -1,0 +1,78 @@
+.page-title {
+  @apply mb-2;
+  @apply font-bold;
+  @apply text-2xl md:text-4xl;
+}
+
+.page-title span {
+  @apply bg-pink-500;
+  @apply text-white;
+  @apply px-2;
+  @apply py-1;
+  @apply leading-relaxed;
+}
+
+.prose > *:last-child {
+  margin-bottom: 0;
+}
+
+.prose > *:first-child {
+  margin-top: 0;
+}
+
+.prose {
+  @apply leading-relaxed;
+  @apply text-lg;
+}
+
+.prose h2 {
+  @apply my-8 text-2xl;
+  @apply font-semibold;
+}
+
+.prose h3 {
+  @apply my-7 text-xl;
+}
+
+.prose p {
+  @apply my-4;
+}
+
+.prose ul {
+  @apply my-5 list-disc pl-5;
+}
+
+.prose li > ul {
+  @apply my-1;
+  list-style-type: square;
+}
+
+.prose ol {
+  @apply my-5 list-decimal pl-5;
+}
+
+.prose a {
+  @apply underline decoration-pink-500 decoration-2 hover:no-underline;
+}
+
+.prose pre {
+  @apply bg-zinc-100;
+  @apply rounded-lg;
+  @apply p-5;
+  @apply text-base;
+}
+
+:not(pre) > code {
+  @apply p-1;
+  @apply rounded-md;
+  @apply bg-zinc-100;
+  @apply text-sm;
+}
+
+.prose figcaption {
+  @apply italic text-center text-xs -mt-2 text-gray-400;
+}
+
+.prose blockquote {
+  @apply border-l-4 px-4 text-zinc-500;
+}

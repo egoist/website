@@ -1,0 +1,16 @@
+mutation createPost(
+  $title: String!
+  $content: String!
+  $slug: String!
+  $published: Boolean
+) {
+  createPage(
+    type: "post"
+    title: $title
+    content: $content
+    slug: $slug
+    published: $published
+  ) {
+    id
+  }
+}

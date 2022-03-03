@@ -1,0 +1,17 @@
+mutation updatePage(
+  $id: String!
+  $title: String
+  $content: String
+  $slug: String
+  $published: Boolean
+) {
+  updatePage(
+    id: $id
+    title: $title
+    content: $content
+    slug: $slug
+    published: $published
+  ) {
+    id
+  }
+}

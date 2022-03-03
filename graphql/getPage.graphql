@@ -1,0 +1,10 @@
+query getPage($slugOrId: String!) {
+  getPage(slugOrId: $slugOrId) {
+    id
+    title
+    slug
+    type
+    contentHTML
+    createdAt: dateFormatted(format: "YYYY-MM-DD", field: "createdAt")
+  }
+}

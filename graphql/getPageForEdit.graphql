@@ -1,0 +1,10 @@
+query getPageForEdit($slugOrId: String!) {
+  getPage(slugOrId: $slugOrId) {
+    id
+    title
+    slug
+    content
+    published
+    publishedAt
+  }
+}

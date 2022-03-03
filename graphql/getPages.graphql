@@ -1,0 +1,8 @@
+query getPages($type: String!, $includeDrafts: Boolean, $order: Order) {
+  getPages(type: $type, includeDrafts: $includeDrafts, order: $order) {
+    id
+    slug
+    title
+    contentHTML
+  }
+}
