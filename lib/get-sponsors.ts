@@ -44,6 +44,7 @@ const fetchSponsors = async () => {
 export const getSponsors = async () => {
   const sponsors = token ? await fetchSponsors() : []
   let groupedSponsors = groupBy(sponsors, "tier.monthlyPriceInDollars")
+  // @ts-expect-error
   groupedSponsors = Object.keys(groupedSponsors)
     .map((v) => Number(v))
     .sort((a, b) => (a > b ? -1 : 1))
