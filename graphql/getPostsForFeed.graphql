@@ -3,7 +3,7 @@ query getPostsForFeed {
     id
     title
     slug
-    createdAt
+    publishedAt
     contentHTML
   }
 }

@@ -42,7 +42,9 @@ export default function Home({
               return (
                 <div key={post.id}>
                   <h3>
-                    <span className="text-zinc-500 mr-3">{post.createdAt}</span>
+                    <span className="text-zinc-500 mr-3">
+                      {post.publishedAt}
+                    </span>
                     <Link href={`/${post.slug}`}>
                       <a className="text-pink-500 hover:underline">
                         {post.title}

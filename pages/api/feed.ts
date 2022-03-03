@@ -36,7 +36,7 @@ const handler: NextApiHandler = async (req, res) => {
       title: post.title,
       link: `${site.url}/${post.slug}`,
       content: post.contentHTML,
-      date: new Date(post.createdAt),
+      date: new Date(post.publishedAt),
     })
   }
 

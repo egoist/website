@@ -138,12 +138,12 @@ export type GetPagesQuery = { __typename?: 'Query', getPages: Array<{ __typename
 export type GetPostsForFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsForFeedQuery = { __typename?: 'Query', getPages: Array<{ __typename?: 'Page', id: string, title: string, slug: string, createdAt: any, contentHTML: string }> };
+export type GetPostsForFeedQuery = { __typename?: 'Query', getPages: Array<{ __typename?: 'Page', id: string, title: string, slug: string, publishedAt?: any | null | undefined, contentHTML: string }> };
 
 export type GetPostsForListingQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsForListingQuery = { __typename?: 'Query', getPages: Array<{ __typename?: 'Page', id: string, title: string, slug: string, createdAt: string }> };
+export type GetPostsForListingQuery = { __typename?: 'Query', getPages: Array<{ __typename?: 'Page', id: string, title: string, slug: string, publishedAt: string }> };
 
 export type LoginMutationVariables = Exact<{
   email: Scalars['String'];
@@ -194,12 +194,12 @@ export const GetPagesDocument = {"kind":"Document","definitions":[{"kind":"Opera
 export function useGetPagesQuery(options: Omit<Urql.UseQueryArgs<GetPagesQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetPagesQuery>({ query: GetPagesDocument, ...options });
 };
-export const GetPostsForFeedDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPostsForFeed"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getPages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"type"},"value":{"kind":"StringValue","value":"post","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"createdAt"}},{"kind":"Field","name":{"kind":"Name","value":"contentHTML"}}]}}]}}]} as unknown as DocumentNode;
+export const GetPostsForFeedDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPostsForFeed"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getPages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"type"},"value":{"kind":"StringValue","value":"post","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"contentHTML"}}]}}]}}]} as unknown as DocumentNode;
 
 export function useGetPostsForFeedQuery(options: Omit<Urql.UseQueryArgs<GetPostsForFeedQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetPostsForFeedQuery>({ query: GetPostsForFeedDocument, ...options });
 };
-export const GetPostsForListingDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPostsForListing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getPages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"type"},"value":{"kind":"StringValue","value":"post","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","alias":{"kind":"Name","value":"createdAt"},"name":{"kind":"Name","value":"dateFormatted"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"format"},"value":{"kind":"StringValue","value":"YYYY-MM-DD","block":false}},{"kind":"Argument","name":{"kind":"Name","value":"field"},"value":{"kind":"StringValue","value":"createdAt","block":false}}]}]}}]}}]} as unknown as DocumentNode;
+export const GetPostsForListingDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getPostsForListing"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"getPages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"type"},"value":{"kind":"StringValue","value":"post","block":false}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}},{"kind":"Field","alias":{"kind":"Name","value":"publishedAt"},"name":{"kind":"Name","value":"dateFormatted"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"format"},"value":{"kind":"StringValue","value":"YYYY-MM-DD","block":false}},{"kind":"Argument","name":{"kind":"Name","value":"field"},"value":{"kind":"StringValue","value":"publishedAt","block":false}}]}]}}]}}]} as unknown as DocumentNode;
 
 export function useGetPostsForListingQuery(options: Omit<Urql.UseQueryArgs<GetPostsForListingQueryVariables>, 'query'> = {}) {
   return Urql.useQuery<GetPostsForListingQuery>({ query: GetPostsForListingDocument, ...options });
