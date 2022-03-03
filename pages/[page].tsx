@@ -6,47 +6,35 @@ import {
   GetPageDocument,
   GetPageQuery,
   GetPageQueryVariables,
+  useGetPageQuery,
 } from "~/generated/graphql"
 import { executeSchema, getGraphqlContext } from "~/server/graphql-schema"
 import { TweetButton } from "~/components/TweetButton"
 import { site } from "~/config"
 import { useMemo } from "react"
-
-export const getServerSideProps = async ({
-  query,
-  req,
-  res,
-}: GetServerSidePropsContext) => {
-  const context = await getGraphqlContext(req, res)
-  const getPageResult = await executeSchema<
-    GetPageQuery,
-    GetPageQueryVariables
-  >(context, GetPageDocument, {
-    slugOrId: query.page as string,
-  })
-  if (getPageResult.errors) {
-    throw new Error(getPageResult.errors[0].message)
-  }
-  const page = getPageResult.data?.getPage!
-  return {
-    props: {
-      page,
-    },
-  }
-}
+import { useRouter } from "next/router"
+import { withUrql } from "~/lib/urql-client"
 
 const getDesc = (str = "") => str.replace(/<[^>]*>/g, "").slice(0, 100) + "..."
 
-export default function Page({
-  page,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const description = getDesc(page.contentHTML)
+function Page() {
+  const router = useRouter()
+  const slug = router.query.page as string | undefined
+  const [getPageResult] = useGetPageQuery({
+    variables: {
+      slugOrId: slug!,
+    },
+    pause: !slug,
+  })
+  const page = getPageResult.data?.getPage
+  const description = page && getDesc(page.contentHTML)
 
   const tweetText = useMemo(
-    () => `Check out "${page.title}" by @${site.twitter}`,
-    [page.title]
+    () => `Check out "${page?.title}" by @${site.twitter}`,
+    [page?.title]
   )
 
+  if (!page) return null
   return (
     <Layout title={page.title} description={description}>
       <h2 className="page-title">
@@ -79,3 +67,5 @@ export default function Page({
     </Layout>
   )
 }
+
+export default withUrql(Page, { ssr: true })

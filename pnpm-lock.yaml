@@ -35,6 +35,7 @@ specifiers:
   nanoid: ^3.3.1
   next: ^12.1.0
   next-connect: ^0.12.2
+  next-urql: ^3.3.2
   postcss: ^8.4.7
   preact: ^10.6.6
   prisma: ^3.10.0
@@ -70,6 +71,7 @@ dependencies:
   nanoid: 3.3.1
   next: 12.1.0_react-dom@17.0.2+react@17.0.2
   next-connect: 0.12.2
+  next-urql: 3.3.2_react@17.0.2+urql@2.2.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   reflect-metadata: 0.1.13
@@ -3732,6 +3734,17 @@ packages:
       trouter: 3.2.0
     dev: false
 
+  /next-urql/3.3.2_react@17.0.2+urql@2.2.0:
+    resolution: {integrity: sha512-oXQHCFU0R3pIwXWtDqZDYOjKcD7SlNP7aove9YuukgKuItdtIR9CRUgo3qMOD5dSQ3wBBGfQ8zR6XtzqV5WiGg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      urql: ^2.0.0
+    dependencies:
+      react: 17.0.2
+      react-ssr-prepass: 1.5.0_react@17.0.2
+      urql: 2.2.0_graphql@15.8.0+react@17.0.2
+    dev: false
+
   /next/12.1.0_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-s885kWvnIlxsUFHq9UGyIyLiuD0G3BUC/xrH0CEnH5lHEWkwQcHOORgbDF0hbrW9vr/7am4ETfX4A7M6DjrE7Q==}
     engines: {node: '>=12.22.0'}
@@ -4175,6 +4188,14 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-ssr-prepass/1.5.0_react@17.0.2:
+    resolution: {integrity: sha512-yFNHrlVEReVYKsLI5lF05tZoHveA5pGzjFbFJY/3pOqqjGOmMmqx83N4hIjN2n6E1AOa+eQEUxs3CgRnPmT0RQ==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /react/17.0.2:

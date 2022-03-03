@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { useGetPagesQuery } from "~/generated/graphql"
+import { withUrql } from "~/lib/urql-client"
 
-export default function AdminPage() {
+export default withUrql(function AdminPage() {
   const [getPagesQuery] = useGetPagesQuery({
     variables: {
       type: "post",
@@ -28,4 +29,4 @@ export default function AdminPage() {
       })}
     </div>
   )
-}
+})

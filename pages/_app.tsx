@@ -1,13 +1,10 @@
 import "../css/tailwind.css"
 import "../css/page.css"
-import { Provider as UrqlProvider } from "urql"
-import { useUrqlClient } from "~/lib/urql-client"
 import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Progress from "@badrap/bar-of-progress"
 
 const App = ({ Component, pageProps }: any) => {
-  const urqlClient = useUrqlClient()
   const router = useRouter()
 
   useEffect(() => {
@@ -32,11 +29,7 @@ const App = ({ Component, pageProps }: any) => {
       router.events.off("routeChangeError", handleRouteFinish)
     }
   }, [])
-  return (
-    <UrqlProvider value={urqlClient}>
-      <Component {...pageProps} />
-    </UrqlProvider>
-  )
+  return <Component {...pageProps} />
 }
 
 export default App

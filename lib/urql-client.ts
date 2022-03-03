@@ -1,40 +1,19 @@
-import { useMemo } from "react"
-import {
-  Client,
-  createClient,
-  dedupExchange,
-  cacheExchange,
-  fetchExchange,
-  ssrExchange,
-} from "urql"
+import { withUrqlClient } from "next-urql"
+import React from "react"
 
-export const createUrqlClient = () => {
-  const ssr = ssrExchange({
-    isClient: process.browser,
-  })
-  return createClient({
-    url: `/api/graphql`,
-    fetchOptions: {
-      credentials: "same-origin",
+export const withUrql = (
+  Component: React.FC,
+  { ssr }: { ssr?: boolean } = {}
+) => {
+  return withUrqlClient(
+    () => {
+      return {
+        url:
+          process.env.NEXT_PUBLIC_GRAPHQL_API ||
+          "http://localhost:3000/api/graphql",
+        requestPolicy: "cache-and-network",
+      }
     },
-    requestPolicy: "cache-and-network",
-    exchanges: [dedupExchange, cacheExchange, ssr, fetchExchange],
-  })
-}
-
-let urqlClient: Client | undefined
-
-const initializeUrqlClient = () => {
-  const client = urqlClient ?? createUrqlClient()
-  if (!process.browser) {
-    return client
-  }
-  if (!urqlClient) {
-    urqlClient = client
-  }
-  return client
-}
-
-export const useUrqlClient = () => {
-  return useMemo(() => initializeUrqlClient(), [])
+    { ssr }
+  )(Component)
 }
