@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@badrap/bar-of-progress": "^0.1.2",
     "@giscus/react": "^1.1.2",
     "@node-rs/argon2": "^1.1.0",
     "@panva/hkdf": "^1.0.1",

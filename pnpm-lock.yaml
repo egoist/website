@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@badrap/bar-of-progress': ^0.1.2
   '@giscus/react': ^1.1.2
   '@graphql-codegen/cli': 2.3.1
   '@graphql-codegen/introspection': 2.1.1
@@ -47,6 +48,7 @@ specifiers:
   urql: ^2.2.0
 
 dependencies:
+  '@badrap/bar-of-progress': 0.1.2
   '@giscus/react': 1.1.2_react-dom@17.0.2+react@17.0.2
   '@node-rs/argon2': 1.1.0
   '@panva/hkdf': 1.0.1
@@ -689,6 +691,10 @@ packages:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
     dev: true
+
+  /@badrap/bar-of-progress/0.1.2:
+    resolution: {integrity: sha512-bCwx/HbgUfJEndzlubJF5FVQrFEcGX4HZsoCfoa+gSq37pjbJBvIyqMBLIGnb5y0ICovIrxJUxvlbmxeic0rSQ==}
+    dev: false
 
   /@endemolshinegroup/cosmiconfig-typescript-loader/3.0.2_c84a270c92bf6e8d30a9786dab5936e4:
     resolution: {integrity: sha512-QRVtqJuS1mcT56oHpVegkKBlgtWjXw/gHNWO3eL9oyB5Sc7HBoc2OLG/nYpVfT/Jejvo3NUrD0Udk7XgoyDKkA==}
