@@ -1,4 +1,5 @@
 import { useFormik } from "formik"
+import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
@@ -7,6 +8,7 @@ import {
   useGetPageForEditQuery,
   useUpdatePageMutation,
 } from "~/generated/graphql"
+import { Editor } from "./Editor"
 
 const getInputDatetimeValue = (date: Date) => {
   const isoString = date.toISOString()
@@ -89,7 +91,14 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
   }
 
   return (
-    <div className="max-w-md p-5 mx-auto">
+    <div className="max-w-screen-md p-5 mx-auto">
+      <Head>
+        <title>
+          {isUpdate
+            ? `Update "${getPageResult.data?.getPage.title}"`
+            : `New Page`}
+        </title>
+      </Head>
       <div className="mb-5">
         <Link href="/admin">
           <a className="text-blue-500">Back</a>
@@ -117,13 +126,9 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
           />
         </div>
         <div>
-          <textarea
-            name="content"
-            onChange={form.handleChange}
+          <Editor
             value={form.values.content}
-            className="w-full border rounded-lg p-3"
-            rows={10}
-            required
+            onChange={(value) => form.setFieldValue("content", value)}
           />
         </div>
         <div>

@@ -17,6 +17,10 @@
   "license": "ISC",
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.2",
+    "@codemirror/basic-setup": "^0.19.1",
+    "@codemirror/commands": "^0.19.8",
+    "@codemirror/lang-markdown": "^0.19.6",
+    "@codemirror/view": "^0.19.46",
     "@giscus/react": "^1.1.2",
     "@node-rs/argon2": "^1.1.0",
     "@panva/hkdf": "^1.0.1",
