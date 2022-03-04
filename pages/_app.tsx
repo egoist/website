@@ -3,6 +3,7 @@ import "../css/page.css"
 import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Progress from "@badrap/bar-of-progress"
+import Error from "next/error"
 
 const App = ({ Component, pageProps }: any) => {
   const router = useRouter()
@@ -29,6 +30,10 @@ const App = ({ Component, pageProps }: any) => {
       router.events.off("routeChangeError", handleRouteFinish)
     }
   }, [])
+
+  if (pageProps.statusCode) {
+    return <Error statusCode={pageProps.statusCode} />
+  }
   return <Component {...pageProps} />
 }
 

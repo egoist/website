@@ -55,7 +55,7 @@ export default class PostResolver {
       where,
     })
     if (!page) {
-      throw new ApolloError("Page not found")
+      throw new ApolloError("Page not found", "NOT_FOUND")
     }
     if (!page.published && !guard.hasEditorPermission()) {
       throw new ApolloError("not authorized")
@@ -102,7 +102,7 @@ export default class PostResolver {
     })
 
     if (!page) {
-      throw new ApolloError("Post not found")
+      throw new ApolloError("Post not found", "NOT_FOUND")
     }
 
     if (!guard.hasEditorPermission()) {

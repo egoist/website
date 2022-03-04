@@ -19,11 +19,21 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const slug = params!.page as string
   const { client, ssrCache } = createUrqlClient()
-  await client
+  const { error } = await client
     .query<GetPageQuery, GetPageQueryVariables>(GetPageDocument, {
       slugOrId: slug,
     })
     .toPromise()
+  if (error) {
+    const statusCode =
+      error.graphQLErrors[0].extensions.code === "NOT_FOUND" ? 404 : 500
+    res.statusCode = statusCode
+    return {
+      props: {
+        statusCode,
+      },
+    }
+  }
   setCacheHeader(res)
   return {
     props: {
