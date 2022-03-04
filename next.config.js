@@ -8,6 +8,15 @@ module.exports = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: "/discord",
+        destination: "https://discord.gg/295fnbyBY5",
+        permanent: false,
+      },
+    ]
+  },
   images: {
     domains: ["avatars.githubusercontent.com"],
   },

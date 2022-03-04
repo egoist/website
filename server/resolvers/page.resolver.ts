@@ -24,6 +24,7 @@ import { isUUID } from "~/lib/is"
 import dayjs from "dayjs"
 import { formatDate } from "~/lib/date"
 import { DateFormattedArgs } from "./shared.types"
+import { renderMarkdown } from "~/lib/markdown"
 
 @Resolver((of) => Page)
 export default class PostResolver {
@@ -126,9 +127,7 @@ export default class PostResolver {
 
   @FieldResolver((returns) => String)
   contentHTML(@Root() page: Page) {
-    const md = new MarkdownIt({ html: true })
-    const html = md.render(page.content)
-    return html
+    return renderMarkdown(page.content)
   }
 
   @FieldResolver((returns) => String)

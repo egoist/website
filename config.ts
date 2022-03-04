@@ -7,4 +7,6 @@ export const site = {
   author: "EGOIST",
   email: "hi@egoist.sh",
   disableSignup: true,
+  github: "egoist",
+  telegram: "waifubets",
 }
