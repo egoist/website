@@ -1,10 +1,5 @@
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  InferGetServerSidePropsType,
-} from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import { Giscus } from "@giscus/react"
-
 import { Layout } from "~/components/Layout"
 import {
   GetPageDocument,
@@ -12,7 +7,6 @@ import {
   GetPageQueryVariables,
   useGetPageQuery,
 } from "~/generated/graphql"
-import { executeSchema, getGraphqlContext } from "~/server/graphql-schema"
 import { TweetButton } from "~/components/TweetButton"
 import { site } from "~/config"
 import { useMemo } from "react"
@@ -21,7 +15,7 @@ import { createUrqlClient, withUrql } from "~/lib/urql-client"
 
 const getDesc = (str = "") => str.replace(/<[^>]*>/g, "").slice(0, 100) + "..."
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params!.page as string
   const { client, ssrCache } = createUrqlClient()
   await client
@@ -33,6 +27,14 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     props: {
       urqlState: ssrCache.extractData(),
     },
+    revalidate: 1,
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: "blocking",
   }
 }
 
