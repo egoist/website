@@ -1,5 +1,6 @@
 import { GetServerSideProps } from "next"
 import Link from "next/link"
+import { useMemo } from "react"
 import { Layout } from "~/components/Layout"
 import {
   GetPostsForListingDocument,
@@ -21,30 +22,48 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
 function Home() {
   const [getPostsResult] = useGetPostsForListingQuery()
-  const posts = getPostsResult.data?.getPages
+  console.log(getPostsResult)
+  const groupedPosts = useMemo(() => {
+    const groupedPosts: Map<
+      string,
+      { title: string; slug: string; id: string; date: string }[]
+    > = new Map()
+    const posts = getPostsResult.data?.getPages
+    if (posts) {
+      for (const post of posts) {
+        const items = groupedPosts.get(post.year) || []
+        items.push(post)
+        groupedPosts.set(post.year, items)
+      }
+    }
+    return groupedPosts
+  }, [])
+
   return (
     <Layout>
       <section className="">
-        <h2 className="text-2xl font-medium mb-5">Posts</h2>
         <div>
-          <div className="space-y-1 text-lg">
-            {posts &&
-              posts.map((post) => {
-                return (
-                  <div key={post.id}>
-                    <h3>
-                      <span className="text-zinc-500 mr-3">
-                        {post.publishedAt}
-                      </span>
-                      <Link href={`/${post.slug}`}>
-                        <a className="text-pink-500 hover:underline">
-                          {post.title}
+          <div className="text-lg space-y-6">
+            {[...groupedPosts.keys()].map((year) => {
+              const posts = groupedPosts.get(year)!
+              return (
+                <div key={year}>
+                  <div className="font-semibold mb-2">{year}</div>
+                  {posts.map((post) => {
+                    return (
+                      <Link key={post.id} href={`/${post.slug}`}>
+                        <a className="-mx-2 flex justify-between text-pink-500 hover:bg-zinc-50 p-1 px-2 rounded-lg">
+                          <h3>{post.title}</h3>
+                          <span className="text-zinc-400 flex-shrink-0">
+                            {post.date}
+                          </span>
                         </a>
                       </Link>
-                    </h3>
-                  </div>
-                )
-              })}
+                    )
+                  })}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

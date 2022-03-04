@@ -3,6 +3,7 @@ query getPostsForListing {
     id
     title
     slug
-    publishedAt: dateFormatted(format: "YYYY-MM-DD", field: "publishedAt")
+    year: dateFormatted(format: "YYYY", field: "publishedAt")
+    date: dateFormatted(format: "MMM DD", field: "publishedAt")
   }
 }
