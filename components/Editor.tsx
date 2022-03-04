@@ -28,6 +28,7 @@ export const Editor: React.FC<{
           keymap.of([indentWithTab]),
           markdown(),
           updateListener,
+          EditorView.lineWrapping,
         ],
       }),
       parent: editorRef.current!,
