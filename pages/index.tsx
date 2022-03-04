@@ -1,4 +1,4 @@
-import { GetStaticProps } from "next"
+import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { Layout } from "~/components/Layout"
 import {
@@ -6,10 +6,12 @@ import {
   useGetPostsForListingQuery,
 } from "~/generated/graphql"
 import { createUrqlClient, withUrql } from "~/lib/urql-client"
+import { setCacheHeader } from "~/server/utils"
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const { client, ssrCache } = createUrqlClient()
   await client.query(GetPostsForListingDocument).toPromise()
+  setCacheHeader(res)
   return {
     props: {
       urqlState: ssrCache.extractData(),

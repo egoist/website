@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from "next"
+import { GetServerSideProps } from "next"
 import { Giscus } from "@giscus/react"
 import { Layout } from "~/components/Layout"
 import {
@@ -12,10 +12,14 @@ import { site } from "~/config"
 import { useMemo } from "react"
 import { useRouter } from "next/router"
 import { createUrqlClient, withUrql } from "~/lib/urql-client"
+import { setCacheHeader } from "~/server/utils"
 
 const getDesc = (str = "") => str.replace(/<[^>]*>/g, "").slice(0, 100) + "..."
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  res,
+}) => {
   const slug = params!.page as string
   const { client, ssrCache } = createUrqlClient()
   await client
@@ -23,18 +27,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slugOrId: slug,
     })
     .toPromise()
+  setCacheHeader(res)
   return {
     props: {
       urqlState: ssrCache.extractData(),
     },
-    revalidate: 1,
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: "blocking",
   }
 }
 
