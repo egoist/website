@@ -4,5 +4,7 @@ query getPages($type: String!, $includeDrafts: Boolean, $order: Order) {
     slug
     title
     contentHTML
+    published
+    publishedAt: dateFormatted(format: "MMM DD, YYYY", field: "publishedAt")
   }
 }
