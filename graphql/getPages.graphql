@@ -1,5 +1,15 @@
-query getPages($type: String!, $includeDrafts: Boolean, $order: Order) {
-  getPages(type: $type, includeDrafts: $includeDrafts, order: $order) {
+query getPages(
+  $type: String!
+  $includeDrafts: Boolean
+  $order: Order
+  $language: String
+) {
+  getPages(
+    type: $type
+    includeDrafts: $includeDrafts
+    order: $order
+    language: $language
+  ) {
     id
     slug
     title

@@ -1,5 +1,5 @@
-query getPostsForFeed {
-  getPages(type: "post") {
+query getPostsForFeed($language: String) {
+  getPages(type: "post", language: $language) {
     id
     title
     slug

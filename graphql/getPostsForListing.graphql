@@ -1,5 +1,5 @@
-query getPostsForListing {
-  getPages(type: "post") {
+query getPostsForListing($language: String) {
+  getPages(type: "post", language: $language) {
     id
     title
     slug

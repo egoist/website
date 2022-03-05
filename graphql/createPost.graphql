@@ -4,6 +4,7 @@ mutation createPost(
   $slug: String!
   $published: Boolean
   $publishedAt: String
+  $language: String
 ) {
   createPage(
     type: "post"
@@ -12,6 +13,7 @@ mutation createPost(
     slug: $slug
     published: $published
     publishedAt: $publishedAt
+    language: $language
   ) {
     id
   }

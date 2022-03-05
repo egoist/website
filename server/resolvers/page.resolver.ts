@@ -31,6 +31,7 @@ export default class PostResolver {
   @Query((returns) => [Page])
   async getPages(@GqlContext() ctx: Context, @Args() args: GetPagesArgs) {
     const guard = getGuard(ctx)
+    const lang = args.language || "english"
 
     const includeDrafts = args.includeDrafts && guard.hasEditorPermission()
 
@@ -38,6 +39,12 @@ export default class PostResolver {
       where: {
         published: includeDrafts ? undefined : true,
         type: args.type,
+        OR:
+          lang === "all"
+            ? undefined
+            : lang === "english"
+            ? [{ language: lang }, { language: null }]
+            : [{ language: lang }],
       },
       orderBy: {
         publishedAt: args.order,
@@ -85,6 +92,7 @@ export default class PostResolver {
             id: guard.user.id,
           },
         },
+        language: args.language,
       },
     })
 
@@ -119,6 +127,7 @@ export default class PostResolver {
         slug: args.slug,
         published: args.published,
         publishedAt: args.publishedAt && new Date(args.publishedAt),
+        language: args.language,
       },
     })
 

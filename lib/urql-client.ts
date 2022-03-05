@@ -6,7 +6,7 @@ const GRAPHQL_URL =
   process.env.NEXT_PUBLIC_GRAPHQL_API || "http://localhost:3000/api/graphql"
 
 export const withUrql = (
-  Component: React.FC,
+  Component: React.FC<any>,
   { ssr }: { ssr?: boolean } = {}
 ) => {
   return withUrqlClient(

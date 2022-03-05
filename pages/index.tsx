@@ -1,28 +1,43 @@
 import { GetServerSideProps } from "next"
 import Link from "next/link"
 import { useMemo } from "react"
+import { LanguageTabs } from "~/components/LanguageTabs"
 import { Layout } from "~/components/Layout"
 import {
   GetPostsForListingDocument,
+  GetPostsForListingQuery,
+  GetPostsForListingQueryVariables,
   useGetPostsForListingQuery,
 } from "~/generated/graphql"
 import { createUrqlClient, withUrql } from "~/lib/urql-client"
 import { setCacheHeader } from "~/server/utils"
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  res,
+  query,
+}) => {
+  const lang = (query.lang || "") as string
   const { client, ssrCache } = createUrqlClient()
-  await client.query(GetPostsForListingDocument).toPromise()
+  await client
+    .query<GetPostsForListingQuery, GetPostsForListingQueryVariables>(
+      GetPostsForListingDocument,
+      { language: lang }
+    )
+    .toPromise()
   setCacheHeader(res)
   return {
     props: {
       urqlState: ssrCache.extractData(),
+      lang,
     },
   }
 }
 
-function Home() {
-  const [getPostsResult] = useGetPostsForListingQuery()
-  console.log(getPostsResult)
+function Home({ lang }: { lang: string }) {
+  const [getPostsResult] = useGetPostsForListingQuery({
+    variables: { language: lang },
+  })
+
   const groupedPosts = useMemo(() => {
     const groupedPosts: Map<
       string,
@@ -37,12 +52,15 @@ function Home() {
       }
     }
     return groupedPosts
-  }, [])
+  }, [lang])
 
   return (
     <Layout>
       <section className="">
         <div>
+          <div className="mb-8 -mt-3">
+            <LanguageTabs />
+          </div>
           <div className="text-lg space-y-6">
             {[...groupedPosts.keys()].map((year) => {
               const posts = groupedPosts.get(year)!

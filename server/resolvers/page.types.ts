@@ -20,6 +20,9 @@ export class CreatePageArgs {
 
   @Field({ nullable: true })
   publishedAt?: string
+
+  @Field({ nullable: true })
+  language?: string
 }
 
 @ArgsType()
@@ -41,6 +44,9 @@ export class UpdatePageArgs {
 
   @Field({ nullable: true })
   publishedAt?: string
+
+  @Field({ nullable: true })
+  language?: string
 }
 
 @ObjectType({ simpleResolvers: true })
@@ -68,6 +74,9 @@ export class Page {
 
   @Field((type) => GraphQLDateTime, { nullable: true })
   publishedAt?: Date
+
+  @Field({ nullable: true })
+  language?: string
 }
 
 @ArgsType()
@@ -80,6 +89,9 @@ export class GetPagesArgs {
 
   @Field((type) => Order, { nullable: true, defaultValue: Order.desc })
   order: Order
+
+  @Field({ nullable: true })
+  language?: string
 }
 
 @ArgsType()

@@ -36,6 +36,7 @@ model Page {
   tags        Tag[]    @relation("PagesToTags")
   publishedAt DateTime @default(now())
   published   Boolean?
+  language    String?
 
   @@map("pages")
 }

@@ -16,6 +16,8 @@ const getInputDatetimeValue = (date: Date) => {
   return isoString.substring(0, ((isoString.indexOf("T") | 0) + 6) | 0)
 }
 
+const languages = ["english", "chinese"]
+
 export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
   const isUpdate = !!pageId
 
@@ -35,6 +37,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
     slug: string
     published?: boolean | null
     publishedAt: string
+    language?: string | null
   }>({
     initialValues: {
       title: "",
@@ -42,6 +45,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
       slug: "",
       published: false,
       publishedAt: getInputDatetimeValue(new Date()),
+      language: undefined,
     },
     async onSubmit(values) {
       const { error } = isUpdate
@@ -52,6 +56,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             slug: values.slug,
             published: values.published,
             publishedAt: values.publishedAt,
+            language: values.language,
           })
         : await createPostMutation({
             title: values.title,
@@ -59,6 +64,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             slug: values.slug,
             published: values.published,
             publishedAt: values.publishedAt,
+            language: values.language,
           })
       if (error) {
         alert(error.message)
@@ -82,6 +88,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
         publishedAt: getInputDatetimeValue(
           new Date(getPageResult.data.getPage.publishedAt || new Date())
         ),
+        language: getPageResult.data.getPage.language,
       })
     }
   }, [getPageResult.fetching])
@@ -142,6 +149,20 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             />{" "}
             Published
           </label>
+        </div>
+        <div>
+          <select
+            value={form.values.language || "english"}
+            onChange={(e) => form.setFieldValue("language", e.target.value)}
+          >
+            {languages.map((lang) => {
+              return (
+                <option key={lang} value={lang}>
+                  {lang}
+                </option>
+              )
+            })}
+          </select>
         </div>
         <div>
           <input

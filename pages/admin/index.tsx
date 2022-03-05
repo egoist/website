@@ -8,6 +8,7 @@ export default withUrql(function AdminPage() {
     variables: {
       type: "post",
       includeDrafts: true,
+      language: "all",
     },
   })
   return (
