@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run dev-next",
     "dev-next": "next",
-    "build": "next build && npm run migrate-deploy",
+    "build": "npm run prisma-generate && next build && npm run migrate-deploy",
+    "prisma-generate": "prisma generate",
     "migrate-deploy": "prisma migrate deploy",
     "gql-gen": "graphql-codegen --config graphql-codegen.yml",
     "seed-init-dev": "node -r sucrase/register ./db/seed/init-dev.ts"
