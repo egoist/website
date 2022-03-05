@@ -9,4 +9,14 @@ export const site = {
   disableSignup: true,
   github: "egoist",
   telegram: "waifubets",
+  feeds: [
+    {
+      title: `EGOIST's blog`,
+      url: "/atom.xml",
+    },
+    {
+      title: `EGOIST 的中文博客`,
+      url: "/atom.xml?lang=chinese",
+    },
+  ],
 }

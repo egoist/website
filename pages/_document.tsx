@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document"
 import Script from "next/script"
+import { site } from "~/config"
 
 const PROD = process.env.NODE_ENV === "production"
 
@@ -11,6 +12,15 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />
+        {site.feeds.map((feed) => (
+          <link
+            key={feed.title}
+            rel="alternate"
+            type="application/atom+xml"
+            href={feed.url}
+            title={feed.title}
+          />
+        ))}
       </Head>
       <body>
         <Main />

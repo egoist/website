@@ -3,6 +3,7 @@ import Link from "next/link"
 import { useMemo } from "react"
 import { LanguageTabs } from "~/components/LanguageTabs"
 import { Layout } from "~/components/Layout"
+import { site } from "~/config"
 import {
   GetPostsForListingDocument,
   GetPostsForListingQuery,
