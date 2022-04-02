@@ -22,7 +22,7 @@ export default function Document() {
           />
         ))}
       </Head>
-      <body className="dark:bg-dark dark:text-zinc-100">
+      <body className="dark:bg-dark dark:text-zinc-200">
         <Main />
         <NextScript />
         {PROD && (
