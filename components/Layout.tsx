@@ -7,15 +7,15 @@ import { Blink } from "./Blink"
 
 const navLinks = [
   {
-    text: "/home",
+    text: "home",
     href: "/",
   },
   {
-    text: "/about",
+    text: "about",
     href: "/about",
   },
   {
-    text: "/thanks",
+    text: "supporters",
     href: "/thanks",
   },
 ]
