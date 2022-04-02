@@ -75,7 +75,13 @@ export const Layout: React.FC<{ title?: string; description?: string }> = ({
             <UniLink href="/" className="hover:text-pink-500">
               EGOIST
             </UniLink>{" "}
-            - Built with Next.js
+            -{" "}
+            <UniLink
+              href="https://github.com/egoist/website"
+              className="hover:text-pink-500"
+            >
+              Built with Next.js
+            </UniLink>
           </div>
         </div>
       </footer>
