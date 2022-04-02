@@ -5,7 +5,7 @@
 }
 
 .page-title span {
-  @apply bg-pink-500;
+  @apply bg-brand;
   @apply text-white;
   @apply px-2;
   @apply py-1;

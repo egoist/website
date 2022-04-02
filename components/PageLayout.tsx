@@ -35,7 +35,7 @@ export const PageLayout: React.FC<{
         </div>
       )}
       {page.type === "post" && (
-        <div className="mt-20 pt-8 border-t border-dotted">
+        <div className="mt-20 pt-8 border-t border-dotted dark:border-zinc-800">
           <Giscus
             repo="egoist/website"
             repoId="MDEwOlJlcG9zaXRvcnkxNTQ0OTcyNDQ="
@@ -43,7 +43,7 @@ export const PageLayout: React.FC<{
             mapping="pathname"
             reactionsEnabled="1"
             emitMetadata="0"
-            theme="light"
+            theme="preferred_color_scheme"
             lang="en"
           />
         </div>

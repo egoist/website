@@ -13,7 +13,7 @@ export const LanguageTabs = () => {
   }
 
   return (
-    <div className="inline-flex text-sm text-zinc-400 bg-zinc-100 rounded-lg p-1 space-x-1">
+    <div className="inline-flex text-sm text-zinc-400 bg-zinc-100 darl:text-zinc-200 dark:bg-zinc-800 rounded-lg p-1 space-x-1">
       {tabs.map((tab) => {
         const active = tab.value === (router.query.lang || "")
         return (
@@ -23,8 +23,8 @@ export const LanguageTabs = () => {
             className={clsx(
               `rounded-lg px-4 h-8 flex items-center font-semibold`,
               active
-                ? `bg-white text-black shadow`
-                : `hover:bg-zinc-50 hover:text-zinc-600`
+                ? `bg-white text-black dark:bg-dark dark:text-white shadow`
+                : `hover:bg-zinc-50 hover:text-zinc-600 dark:hover:bg-zinc-700 dark:hover:text-zinc-200`
             )}
             onClick={() => switchLang(tab.value)}
           >

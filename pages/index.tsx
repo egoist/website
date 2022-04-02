@@ -72,7 +72,7 @@ function Home({ lang }: { lang: string }) {
                   {posts.map((post) => {
                     return (
                       <Link key={post.id} href={`/${post.slug}`}>
-                        <a className="-mx-2 flex justify-between text-pink-500 hover:bg-zinc-50 p-1 px-2 rounded-lg">
+                        <a className="-mx-2 flex justify-between text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900 p-1 px-2 rounded-lg">
                           <h3>{post.title}</h3>
                           <span className="text-zinc-400 flex-shrink-0">
                             {post.date}

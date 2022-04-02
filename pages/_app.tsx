@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }: any) => {
 
   useEffect(() => {
     const progress = new Progress({
-      className: "text-pink-500",
+      className: "text-brand",
       color: "",
     })
     const handleRouteStart = () => {

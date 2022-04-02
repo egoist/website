@@ -24,7 +24,7 @@ export default withUrql(function AdminPage() {
             <div key={page.id}>
               <h3>
                 <Link href={`/admin/pages/${page.id}`}>
-                  <a className="text-pink-500 hover:underline">{page.title}</a>
+                  <a className="text-brand hover:underline">{page.title}</a>
                 </Link>
               </h3>
               <div className="text-xs text-zinc-400 space-x-3 mt-1">

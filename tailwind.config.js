@@ -5,6 +5,10 @@ module.exports = {
       fontFamily: {
         serif: `PT Serif,serif`,
       },
+      colors: {
+        brand: "#ec4899",
+        dark: "#010509",
+      },
     },
   },
   plugins: [],

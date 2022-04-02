@@ -45,7 +45,7 @@ export default function ThanksPage({ sponsors }: { sponsors: any[] }) {
           return (
             <div key={tier}>
               <h3 className="text-2xl mb-2">${tier}/month</h3>
-              <div className="border divide-y">
+              <div className="border dark:border-zinc-800 divide-y dark:divide-zinc-800">
                 {sponsors.map((sponsor: any) => {
                   const bio = sponsor.bio || sponsor.description
                   return (
