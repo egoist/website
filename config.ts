@@ -1,6 +1,6 @@
 export const site = {
   title: "EGOIST",
-  headerTitle: "egoist.sh",
+  headerTitle: "egoist@mac",
   description: `The coolest anime fan`,
   url: "https://egoist.sh",
   twitter: "_egoistlily",

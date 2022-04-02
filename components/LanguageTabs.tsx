@@ -13,7 +13,7 @@ export const LanguageTabs = () => {
   }
 
   return (
-    <div className="inline-flex text-sm text-zinc-400 bg-zinc-100 rounded-full p-1 space-x-1">
+    <div className="inline-flex text-sm text-zinc-400 bg-zinc-100 rounded-lg p-1 space-x-1">
       {tabs.map((tab) => {
         const active = tab.value === (router.query.lang || "")
         return (
@@ -21,7 +21,7 @@ export const LanguageTabs = () => {
             key={tab.value}
             type="button"
             className={clsx(
-              `rounded-full px-4 h-8 flex items-center font-semibold`,
+              `rounded-lg px-4 h-8 flex items-center font-semibold`,
               active
                 ? `bg-white text-black shadow`
                 : `hover:bg-zinc-50 hover:text-zinc-600`

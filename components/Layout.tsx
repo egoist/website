@@ -3,20 +3,19 @@ import clsx from "clsx"
 import { useRouter } from "next/router"
 import { UniLink } from "./UniLink"
 import { site } from "~/config"
-import logoLight from "~/assets/logo-light.png"
-import Image from "next/image"
+import { Blink } from "./Blink"
 
 const navLinks = [
   {
-    text: "Home",
+    text: "/home",
     href: "/",
   },
   {
-    text: "About",
+    text: "/about",
     href: "/about",
   },
   {
-    text: "Supporters",
+    text: "/thanks",
     href: "/thanks",
   },
 ]
@@ -40,16 +39,15 @@ export const Layout: React.FC<{ title?: string; description?: string }> = ({
           <meta name="twitter:description" content={description} />
         )}
       </Head>
-      <header className="border-b border-dotted">
-        <div className="max-w-screen-md mx-auto px-5 py-8">
+      <header className="">
+        <div className="container py-8">
           <h1 className="">
-            <UniLink href="/" className="text-5xl italic font-bold">
-              <Image
-                src={logoLight}
-                width={182}
-                height={44}
-                alt={site.headerTitle || site.title}
-              />
+            <UniLink href="/" className="text-2xl font-medium text-pink-500">
+              <span className="font-mono">{"$"}</span>{" "}
+              <span className="font-mono">
+                {site.headerTitle || site.title}
+              </span>{" "}
+              <Blink value="_" />
             </UniLink>
           </h1>
           <ul className="flex space-x-6 mt-6 text-lg text-zinc-500">
@@ -69,11 +67,15 @@ export const Layout: React.FC<{ title?: string; description?: string }> = ({
           </ul>
         </div>
       </header>
-      <div className="max-w-screen-md mx-auto px-5 py-16">{children}</div>
-      <footer className="py-10 text-zinc-500 border-t border-dotted">
-        <div className="max-w-screen-md mx-auto px-5">
+      <div className="container py-16">{children}</div>
+      <footer className="py-10 text-zinc-500 italic">
+        <div className="container">
           <div>
-            Made by <UniLink href="/">EGOIST</UniLink> - Built with Next.js
+            Made by{" "}
+            <UniLink href="/" className="hover:text-pink-500">
+              EGOIST
+            </UniLink>{" "}
+            - Built with Next.js
           </div>
         </div>
       </footer>

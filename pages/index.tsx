@@ -59,7 +59,8 @@ function Home({ lang }: { lang: string }) {
     <Layout>
       <section className="">
         <div>
-          <div className="mb-8 -mt-3">
+          <h2 className="text-5xl font-bold mb-5">Posts</h2>
+          <div className="mb-8">
             <LanguageTabs />
           </div>
           <div className="text-lg space-y-6">

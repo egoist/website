@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  @apply max-w-screen-lg;
+  @apply px-5 lg:px-16;
+}

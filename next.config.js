@@ -19,6 +19,11 @@ module.exports = {
         destination: "https://discord.gg/295fnbyBY5",
         permanent: false,
       },
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
     ]
   },
   images: {
