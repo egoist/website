@@ -61,6 +61,7 @@
   @apply p-5;
   @apply text-base;
   @apply overflow-auto;
+  @apply my-5;
 }
 
 :not(pre) > code {
