@@ -60,7 +60,7 @@ function Page() {
   if (!page) return null
   return (
     <PageLayout
-      page={{ ...page, description }}
+      page={{ ...page, description, cover: page.cover || undefined }}
       tweetButton={{ text: tweetText, url: tweetUrl }}
     />
   )

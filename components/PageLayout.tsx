@@ -9,6 +9,7 @@ export const PageLayout: React.FC<{
     description?: string
     createdAt?: string
     contentHTML: string
+    cover?: string
   }
   tweetButton?: {
     url: string
@@ -16,13 +17,20 @@ export const PageLayout: React.FC<{
   }
 }> = ({ page, tweetButton }) => {
   return (
-    <Layout title={page.title} description={page.description}>
-      <h2 className="page-title">
-        <span>{page.title}</span>
-      </h2>
+    <Layout
+      title={page.title}
+      description={page.description}
+      cover={page.cover}
+    >
+      <h2 className="page-title">{page.title}</h2>
       {page.createdAt && (
         <div>
-          <span className="italic text-zinc-500">{page.createdAt}</span>
+          <span className="italic text-zinc-400">{page.createdAt}</span>
+        </div>
+      )}
+      {page.cover && (
+        <div className="my-8">
+          <img alt="cover image" src={page.cover} className="rounded-xl" />
         </div>
       )}
       <div

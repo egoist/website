@@ -7,5 +7,6 @@ query getPageForEdit($slugOrId: String!) {
     published
     publishedAt
     language
+    cover
   }
 }

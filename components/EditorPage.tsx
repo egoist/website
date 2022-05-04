@@ -38,6 +38,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
     published?: boolean | null
     publishedAt: string
     language?: string | null
+    cover?: string | null
   }>({
     initialValues: {
       title: "",
@@ -46,6 +47,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
       published: false,
       publishedAt: getInputDatetimeValue(new Date()),
       language: undefined,
+      cover: undefined,
     },
     async onSubmit(values) {
       const { error } = isUpdate
@@ -57,6 +59,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             published: values.published,
             publishedAt: values.publishedAt,
             language: values.language,
+            cover: values.cover,
           })
         : await createPostMutation({
             title: values.title,
@@ -65,6 +68,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             published: values.published,
             publishedAt: values.publishedAt,
             language: values.language,
+            cover: values.cover,
           })
       if (error) {
         alert(error.message)
@@ -118,6 +122,17 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
             placeholder="Title goes here..."
             onChange={form.handleChange}
             value={form.values.title}
+            className="w-full border rounded-lg p-3"
+            required
+          />
+        </div>
+        <div>
+          <input
+            name="cover"
+            placeholder="Cover image"
+            onChange={form.handleChange}
+            value={form.values.cover || ""}
+            type="url"
             className="w-full border rounded-lg p-3"
             required
           />

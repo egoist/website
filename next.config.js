@@ -44,4 +44,7 @@ module.exports = {
 
     return config
   },
+  images: {
+    domains: ["cdn.jsdelivr.net"],
+  },
 }

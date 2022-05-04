@@ -37,6 +37,7 @@ model Page {
   publishedAt DateTime @default(now())
   published   Boolean?
   language    String?
+  cover       String?
 
   @@map("pages")
 }

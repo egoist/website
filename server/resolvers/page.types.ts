@@ -23,6 +23,9 @@ export class CreatePageArgs {
 
   @Field({ nullable: true })
   language?: string
+
+  @Field({ nullable: true })
+  cover?: string
 }
 
 @ArgsType()
@@ -47,6 +50,9 @@ export class UpdatePageArgs {
 
   @Field({ nullable: true })
   language?: string
+
+  @Field({ nullable: true })
+  cover?: string
 }
 
 @ObjectType({ simpleResolvers: true })
@@ -77,6 +83,9 @@ export class Page {
 
   @Field({ nullable: true })
   language?: string
+
+  @Field({ nullable: true })
+  cover?: string
 }
 
 @ArgsType()

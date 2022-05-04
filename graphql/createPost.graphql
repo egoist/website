@@ -5,6 +5,7 @@ mutation createPost(
   $published: Boolean
   $publishedAt: String
   $language: String
+  $cover: String
 ) {
   createPage(
     type: "post"
@@ -14,6 +15,7 @@ mutation createPost(
     published: $published
     publishedAt: $publishedAt
     language: $language
+    cover: $cover
   ) {
     id
   }

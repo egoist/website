@@ -6,6 +6,7 @@ mutation updatePage(
   $published: Boolean
   $publishedAt: String
   $language: String
+  $cover: String
 ) {
   updatePage(
     id: $id
@@ -15,6 +16,7 @@ mutation updatePage(
     published: $published
     publishedAt: $publishedAt
     language: $language
+    cover: $cover
   ) {
     id
   }

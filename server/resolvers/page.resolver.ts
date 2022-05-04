@@ -93,6 +93,7 @@ export default class PostResolver {
           },
         },
         language: args.language,
+        cover: args.cover,
       },
     })
 
@@ -128,6 +129,7 @@ export default class PostResolver {
         published: args.published,
         publishedAt: args.publishedAt && new Date(args.publishedAt),
         language: args.language,
+        cover: args.cover,
       },
     })
 

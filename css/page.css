@@ -1,15 +1,8 @@
 .page-title {
   @apply mb-2;
-  @apply font-bold;
-  @apply text-2xl md:text-4xl;
-}
-
-.page-title span {
-  @apply bg-brand;
-  @apply text-white;
-  @apply px-2;
-  @apply py-1;
-  @apply leading-relaxed;
+  @apply font-extrabold;
+  @apply text-2xl md:text-5xl;
+  @apply text-brand;
 }
 
 .prose > *:last-child {

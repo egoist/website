@@ -3,22 +3,35 @@ import { UniLink } from "./UniLink"
 import { site } from "~/config"
 import { SiteHeader } from "./SiteHeader"
 
-export const Layout: React.FC<{ title?: string; description?: string }> = ({
-  children,
-  title,
-  description,
-}) => {
+export const Layout: React.FC<{
+  title?: string
+  description?: string
+  cover?: string
+}> = ({ children, title, description, cover }) => {
   const documentTitle = title ? `${title} - ${site.title}` : site.title
   return (
     <>
       <Head>
         <title>{documentTitle}</title>
         {description && <meta name="description" content={description} />}
-        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:card"
+          content={cover ? "summary_large_image" : "summary"}
+        />
         <meta name="twitter:site" content="_egoistlily" />
         <meta name="twitter:title" content={documentTitle} />
+        <meta name="og:title" content={documentTitle} />
         {description && (
-          <meta name="twitter:description" content={description} />
+          <>
+            <meta name="twitter:description" content={description} />
+            <meta name="og:description" content={description} />
+          </>
+        )}
+        {cover && (
+          <>
+            <meta name="twitter:image" content={cover} />
+            <meta name="og:image" content={cover} />
+          </>
         )}
       </Head>
       <SiteHeader />

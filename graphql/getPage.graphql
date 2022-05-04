@@ -5,6 +5,7 @@ query getPage($slugOrId: String!) {
     slug
     type
     contentHTML
-    createdAt: dateFormatted(format: "YYYY-MM-DD", field: "createdAt")
+    cover
+    createdAt: dateFormatted(format: "MMM DD, YYYY", field: "createdAt")
   }
 }
