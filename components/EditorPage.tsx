@@ -93,6 +93,7 @@ export const EditorPage: React.FC<{ pageId?: string }> = ({ pageId }) => {
           new Date(getPageResult.data.getPage.publishedAt || new Date())
         ),
         language: getPageResult.data.getPage.language,
+        cover: getPageResult.data.getPage.cover,
       })
     }
   }, [getPageResult.fetching])
