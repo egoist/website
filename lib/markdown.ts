@@ -7,6 +7,7 @@ export const renderMarkdown = async (content: string) => {
     html: true,
     linkify: true,
     highlight(code, lang) {
+      load([lang])
       let language = Prism.languages[lang]
       if (!language) {
         language = Prism.languages.markup
