@@ -45,6 +45,6 @@ module.exports = {
     return config
   },
   images: {
-    domains: ["cdn.jsdelivr.net"],
+    domains: ["cdn.jsdelivr.net", "avatars.githubusercontent.com"],
   },
 }
