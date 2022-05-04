@@ -78,3 +78,9 @@
 .prose blockquote {
   @apply border-l-4 px-4 text-zinc-500 dark:border-yellow-300 dark:text-zinc-300;
 }
+
+.prose hr {
+  @apply my-8;
+  @apply block;
+  @apply border-dotted dark:border-zinc-800;
+}
