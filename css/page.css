@@ -49,7 +49,7 @@
 }
 
 .prose pre {
-  @apply bg-zinc-100 dark:bg-zinc-900;
+  @apply bg-zinc-900;
   @apply rounded-lg;
   @apply p-5;
   @apply text-base;
