@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scrollbar-gutter: stable;
+}
+
 .container {
   @apply max-w-screen-lg;
   @apply px-5 lg:px-16;
