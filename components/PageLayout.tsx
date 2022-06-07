@@ -1,4 +1,3 @@
-import { Giscus } from "@giscus/react"
 import { Layout } from "./Layout"
 import { TweetButton } from "./TweetButton"
 
@@ -40,20 +39,6 @@ export const PageLayout: React.FC<{
       {tweetButton && (
         <div className="mt-10">
           <TweetButton text={tweetButton.text} url={tweetButton.url} />
-        </div>
-      )}
-      {page.type === "post" && (
-        <div className="mt-20 pt-8 border-t border-dotted dark:border-zinc-800">
-          <Giscus
-            repo="egoist/website"
-            repoId="MDEwOlJlcG9zaXRvcnkxNTQ0OTcyNDQ="
-            categoryId="DIC_kwDOCTVw3M4CAX6w"
-            mapping="pathname"
-            reactionsEnabled="1"
-            emitMetadata="0"
-            theme="preferred_color_scheme"
-            lang="en"
-          />
         </div>
       )}
     </Layout>

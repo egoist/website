@@ -6,12 +6,15 @@ const content = `
 
 I'm a full-stack engineer who loves to build (~~break~~) things.
 
+I've been contributing to Open Source since 2015.
+
 ## Email
 
 ${site.email}
 
 ## Social Media
 
+- [Blog](https://egoist.proselog.com)
 - [Twitter](https://twitter.com/${site.twitter})
 - [GitHub](https://github.com/${site.github})
 - [GitHub Sponsors](https://github.com/sponsors/${site.github})

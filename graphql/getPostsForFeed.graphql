@@ -1,9 +1,0 @@
-query getPostsForFeed($language: String) {
-  getPages(type: "post", language: $language) {
-    id
-    title
-    slug
-    publishedAt
-    contentHTML
-  }
-}

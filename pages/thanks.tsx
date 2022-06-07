@@ -3,14 +3,16 @@ import { Layout } from "~/components/Layout"
 import { UniLink } from "~/components/UniLink"
 import { getSponsors } from "~/lib/get-sponsors"
 import thanksGif from "~/assets/thanks.gif"
+import { GetStaticProps } from "next"
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const sponsors = await getSponsors()
 
   return {
     props: {
       sponsors,
     },
+    revalidate: 86400,
   }
 }
 
@@ -66,7 +68,7 @@ export default function ThanksPage({ sponsors }: { sponsors: any[] }) {
                           href={`https://github.com/${sponsor.login}`}
                           rel="nofollow noopener"
                           target="_blank"
-                          className="text-lg"
+                          className="text-lg text-pink-500 hover:underline"
                         >
                           {sponsor.name || sponsor.login}
                           {sponsor.name && <span>({sponsor.login})</span>}

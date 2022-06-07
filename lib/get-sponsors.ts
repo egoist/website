@@ -2,6 +2,10 @@ import { groupBy } from "lodash-es"
 
 const token = process.env.GITHUB_TOKEN
 
+if (!token) {
+  throw new Error("missing GITHUB_TOKEN in env")
+}
+
 const fetchSponsors = async () => {
   const data = await fetch(`https://api.github.com/graphql`, {
     headers: {

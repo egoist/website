@@ -1,9 +1,0 @@
-query getPostsForListing($language: String) {
-  getPages(type: "post", language: $language) {
-    id
-    title
-    slug
-    year: dateFormatted(format: "YYYY", field: "publishedAt")
-    date: dateFormatted(format: "MMM DD", field: "publishedAt")
-  }
-}

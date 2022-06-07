@@ -1,94 +1,27 @@
-import { GetServerSideProps } from "next"
-import Link from "next/link"
-import { useMemo } from "react"
-import { LanguageTabs } from "~/components/LanguageTabs"
 import { Layout } from "~/components/Layout"
-import { site } from "~/config"
-import {
-  GetPostsForListingDocument,
-  GetPostsForListingQuery,
-  GetPostsForListingQueryVariables,
-  useGetPostsForListingQuery,
-} from "~/generated/graphql"
-import { createUrqlClient, withUrql } from "~/lib/urql-client"
-import { setCacheHeader } from "~/server/utils"
+import { UniLink } from "~/components/UniLink"
 
-export const getServerSideProps: GetServerSideProps = async ({
-  res,
-  query,
-}) => {
-  const lang = (query.lang || "") as string
-  const { client, ssrCache } = createUrqlClient()
-  await client
-    .query<GetPostsForListingQuery, GetPostsForListingQueryVariables>(
-      GetPostsForListingDocument,
-      { language: lang }
-    )
-    .toPromise()
-  setCacheHeader(res)
-  return {
-    props: {
-      urqlState: ssrCache.extractData(),
-      lang,
-    },
-  }
-}
-
-function Home({ lang }: { lang: string }) {
-  const [getPostsResult] = useGetPostsForListingQuery({
-    variables: { language: lang },
-  })
-
-  const groupedPosts = useMemo(() => {
-    const groupedPosts: Map<
-      string,
-      { title: string; slug: string; id: string; date: string }[]
-    > = new Map()
-    const posts = getPostsResult.data?.getPages
-    if (posts) {
-      for (const post of posts) {
-        const items = groupedPosts.get(post.year) || []
-        items.push(post)
-        groupedPosts.set(post.year, items)
-      }
-    }
-    return groupedPosts
-  }, [lang])
-
+function Home() {
   return (
     <Layout>
-      <section className="">
-        <div>
-          <h2 className="text-5xl font-bold mb-5">Posts</h2>
-          <div className="mb-8">
-            <LanguageTabs />
-          </div>
-          <div className="text-lg space-y-6">
-            {[...groupedPosts.keys()].map((year) => {
-              const posts = groupedPosts.get(year)!
-              return (
-                <div key={year}>
-                  <div className="font-semibold mb-2">{year}</div>
-                  {posts.map((post) => {
-                    return (
-                      <Link key={post.id} href={`/${post.slug}`}>
-                        <a className="-mx-2 flex justify-between text-brand hover:bg-zinc-50 dark:hover:bg-zinc-900 p-1 px-2 rounded-lg">
-                          <h3>{post.title}</h3>
-                          <span className="text-zinc-400 flex-shrink-0">
-                            {post.date}
-                          </span>
-                        </a>
-                      </Link>
-                    )
-                  })}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+      <div className="prose text-xl">
+        <p className="text-4xl">👋</p>
+        <p>
+          Hi, I'm Kevin, a full-time open-source developer. I use TypeScript
+          most of the time, but I'm also interested in Swift and Go.
+        </p>
+        <p>
+          My open-source work is funded by the community via{" "}
+          <UniLink href="https://github.com/sponsors/egoist">
+            GitHub Sponsors
+          </UniLink>
+          , if you use my code, please consider supporting me financially to
+          help me keep doing what I love!
+        </p>
+        <p>Have a nice day!</p>
+      </div>
     </Layout>
   )
 }
 
-export default withUrql(Home)
+export default Home

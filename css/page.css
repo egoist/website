@@ -15,7 +15,6 @@
 
 .prose {
   @apply leading-relaxed;
-  @apply text-lg;
 }
 
 .prose h2 {
