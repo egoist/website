@@ -1,3 +1,11 @@
+const oldPosts = [
+  "/deploy-ghost-on-fly",
+  "/pnpm-monorepo",
+  "/poor-man-backup",
+  "/build-scripts-in-ts",
+  "/extend-ts",
+]
+
 /** @type {import('next').NextConfig} */
 module.exports = {
   async redirects() {
@@ -12,6 +20,13 @@ module.exports = {
         destination: "/",
         permanent: true,
       },
+      ...oldPosts.map((post) => {
+        return {
+          source: post,
+          destination: `https://egoist.proselog.com${post}`,
+          permanent: true,
+        }
+      }),
     ]
   },
   images: {
