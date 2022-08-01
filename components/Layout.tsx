@@ -36,7 +36,7 @@ export const Layout: React.FC<{
       </Head>
       <SiteHeader />
       <div className="container py-16">{children}</div>
-      <footer className="py-10 text-zinc-400 italic">
+      <footer className="py-10 text-zinc-300 hover:text-zinc-400 transform transition-colors">
         <div className="container">
           <div>
             Made by{" "}
@@ -46,9 +46,9 @@ export const Layout: React.FC<{
             -{" "}
             <UniLink
               href="https://github.com/egoist/website"
-              className="hover:text-brand"
+              className="hover:underline"
             >
-              Built with Next.js
+              Built with Next.js & ContentBase.
             </UniLink>
           </div>
         </div>

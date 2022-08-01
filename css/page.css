@@ -1,8 +1,7 @@
 .page-title {
-  @apply mb-2;
-  @apply font-extrabold;
-  @apply text-2xl md:text-5xl;
-  @apply text-brand;
+  @apply mb-10;
+  @apply font-bold;
+  @apply text-2xl md:text-4xl;
 }
 
 .prose > *:last-child {
@@ -48,13 +47,7 @@
 }
 
 .prose pre {
-  @apply text-zinc-200;
-  @apply bg-zinc-900;
-  @apply rounded-lg;
-  @apply p-5;
-  @apply text-base;
-  @apply overflow-auto;
-  @apply my-5;
+  @apply border rounded-lg;
 }
 
 :not(pre) > code {

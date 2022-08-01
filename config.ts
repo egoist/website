@@ -9,4 +9,5 @@ export const site = {
   disableSignup: true,
   github: "egoist",
   telegram: "definitelymid",
+  youtube: "https://www.youtube.com/channel/UCKhaJ86HV7zsklPaCRxD_4A",
 }

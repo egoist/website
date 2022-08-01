@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 .container {
-  @apply max-w-screen-md;
+  @apply max-w-3xl;
   @apply px-5 lg:px-16;
   @apply mx-auto;
+}
+
+.button {
+  @apply rounded-xl px-3 h-10 items-center inline-flex font-medium hover:opacity-80;
+}
+
+.button.is-primary {
+  @apply bg-primary text-white;
 }

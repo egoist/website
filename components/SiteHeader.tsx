@@ -1,20 +1,22 @@
 import clsx from "clsx"
 import { useRouter } from "next/router"
 import { site } from "~/config"
-import { Blink } from "./Blink"
+import Image from "next/image"
 import { UniLink } from "./UniLink"
+import avatar from "~/assets/avatar.png"
+import { Button } from "./Button"
 
 const navLinks = [
   {
-    text: "home",
+    text: "Home",
     href: "/",
   },
   {
-    text: "about",
+    text: "About",
     href: "/about",
   },
   {
-    text: "supporters",
+    text: "Supporters",
     href: "/thanks",
   },
 ]
@@ -23,34 +25,38 @@ export const SiteHeader = () => {
   const router = useRouter()
 
   return (
-    <header>
-      <div className="container py-10">
+    <header className="bg-header relative">
+      <div className="container py-10 text-center">
         <h1 className="">
-          <UniLink
-            href="/"
-            className="text-5xl font-bold bg-brand text-white px-2 py-1"
-          >
-            <span className="">{site.headerTitle || site.title}</span>{" "}
+          <UniLink href="/" className="text-2xl font-bold">
+            <Image
+              src={avatar}
+              width="60"
+              height="60"
+              className="rounded-full"
+            />
+            <div className="mt-1">{site.headerTitle || site.title}</div>
           </UniLink>
         </h1>
-        <ul className="flex space-x-6 mt-10 text-lg text-zinc-500">
+        <div className="mt-8 space-x-5 flex items-center justify-center">
           {navLinks.map((link) => {
-            const active = link.href === router.asPath
+            const active = router.asPath === link.href
             return (
-              <li key={link.text}>
-                <UniLink
-                  href={link.href}
-                  className={clsx(
-                    active && `text-black dark:text-zinc-100`,
-                    `hover:underline`
-                  )}
-                >
-                  {link.text}
-                </UniLink>
-              </li>
+              <UniLink
+                href={link.href}
+                key={link.text}
+                className={clsx(
+                  `border-b-4 font-medium`,
+                  active
+                    ? `border-primary text-primary`
+                    : `border-transparent hover:opacity-50`
+                )}
+              >
+                {link.text}
+              </UniLink>
             )
           })}
-        </ul>
+        </div>
       </div>
     </header>
   )
