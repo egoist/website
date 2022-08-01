@@ -29,12 +29,10 @@ export const SiteHeader = () => {
       <div className="container py-10 text-center">
         <h1 className="">
           <UniLink href="/" className="text-2xl font-bold">
-            <Image
-              src={avatar}
-              width="60"
-              height="60"
-              className="rounded-full"
-            />
+            <span
+              className="inline-block mx-auto bg-zinc-200 rounded-full w-14 h-14 bg-cover bg-center"
+              style={{ backgroundImage: `url(/assets/avatar.png)` }}
+            ></span>
             <div className="mt-1">{site.headerTitle || site.title}</div>
           </UniLink>
         </h1>
