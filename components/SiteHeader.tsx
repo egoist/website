@@ -24,15 +24,16 @@ export const SiteHeader = () => {
 
   return (
     <header>
-      <div className="container py-8">
+      <div className="container py-10">
         <h1 className="">
-          <UniLink href="/" className="text-2xl font-medium text-brand">
-            <span className="font-mono">{"$"}</span>{" "}
-            <span className="font-mono">{site.headerTitle || site.title}</span>{" "}
-            <Blink value="_" />
+          <UniLink
+            href="/"
+            className="text-5xl font-bold bg-brand text-white px-2 py-1"
+          >
+            <span className="">{site.headerTitle || site.title}</span>{" "}
           </UniLink>
         </h1>
-        <ul className="flex space-x-6 mt-6 text-lg text-zinc-500">
+        <ul className="flex space-x-6 mt-10 text-lg text-zinc-500">
           {navLinks.map((link) => {
             const active = link.href === router.asPath
             return (

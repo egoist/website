@@ -36,7 +36,7 @@ export const Layout: React.FC<{
       </Head>
       <SiteHeader />
       <div className="container py-16">{children}</div>
-      <footer className="py-10 text-zinc-500 italic">
+      <footer className="py-10 text-zinc-400 italic">
         <div className="container">
           <div>
             Made by{" "}

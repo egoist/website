@@ -14,13 +14,11 @@ ${site.email}
 
 ## Social Media
 
-- [Blog](https://egoist.proselog.com)
 - [Twitter](https://twitter.com/${site.twitter})
 - [GitHub](https://github.com/${site.github})
 - [GitHub Sponsors](https://github.com/sponsors/${site.github})
 - [Youtube Channel](https://www.youtube.com/channel/UCKhaJ86HV7zsklPaCRxD_4A)
 - [Telegram](https://t.me/${site.telegram})
-- [Discord Server](/discord)
 
 `
 

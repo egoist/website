@@ -6,7 +6,7 @@ module.exports = {
         serif: `PT Serif,serif`,
       },
       colors: {
-        brand: "#ec4899",
+        brand: "#fe2977",
         dark: "#010509",
       },
     },
