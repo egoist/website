@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Layout } from "~/components/Layout"
 import { UniLink } from "~/components/UniLink"
 import { getSponsors } from "~/lib/get-sponsors"
