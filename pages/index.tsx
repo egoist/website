@@ -27,7 +27,6 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
     .fetchPages()
     .then((pages) => pages.map(transformPage))
   const posts = pages.filter((page) => page.type !== "page")
-  console.log(posts)
   return {
     props: {
       groupedPosts: posts.reduce<Props["groupedPosts"]>((result, post) => {
