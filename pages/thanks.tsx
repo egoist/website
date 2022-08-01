@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { Layout } from "~/components/Layout"
 import { UniLink } from "~/components/UniLink"
 import { getSponsors } from "~/lib/get-sponsors"
@@ -33,7 +32,7 @@ export default function ThanksPage({ sponsors }: { sponsors: any[] }) {
           </UniLink>
         </p>
         <p>
-          <Image
+          <img
             src={thanksGif.src}
             width="550"
             height="250"
