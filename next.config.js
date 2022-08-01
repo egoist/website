@@ -20,13 +20,6 @@ module.exports = {
         destination: "/",
         permanent: true,
       },
-      ...oldPosts.map((post) => {
-        return {
-          source: post,
-          destination: `https://egoist.proselog.com${post}`,
-          permanent: true,
-        }
-      }),
     ]
   },
   images: {

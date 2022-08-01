@@ -50,6 +50,10 @@
   @apply border rounded-lg;
 }
 
+.prose pre .table {
+  @apply inline;
+}
+
 :not(pre) > code {
   @apply p-1;
   @apply rounded-md;

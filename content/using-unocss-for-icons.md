@@ -5,7 +5,7 @@ date: 2022-05-27
 
 [UnoCSS](https://github.com/unocss/unocss) is a utility-first CSS framework, much like TailwindCSS, but much more pluggable.
 
-Recently a user of Proselog (the website you're currently looking at) [suggested](https://github.com/proselog/proselog/discussions/83) me to use UnoCSS's `@unocss/preset-icons` preset to handle icons in Proselog, and I was impressed by it, I mean, look at this, using SVG icons in pure CSS, only bundle what I use, how cool is that?
+It's so modular that you can UnoCSS's `@unocss/preset-icons` preset alone to handle icons only, and I was impressed by it, I mean, look at this, using SVG icons in pure CSS, only bundle what I use, how cool is that?
 
 ```html
 <!-- A basic anchor icon from Phosphor icons -->
