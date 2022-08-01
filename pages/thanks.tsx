@@ -3,6 +3,7 @@ import { Layout } from "~/components/Layout"
 import { UniLink } from "~/components/UniLink"
 import { getSponsors } from "~/lib/get-sponsors"
 import { GetStaticProps } from "next"
+import thanksGif from "~/assets/thanks.gif"
 
 export const getStaticProps: GetStaticProps = async () => {
   const sponsors = await getSponsors()
@@ -33,7 +34,7 @@ export default function ThanksPage({ sponsors }: { sponsors: any[] }) {
         </p>
         <p>
           <Image
-            src={"/assets/thanks.gif"}
+            src={thanksGif.src}
             width="550"
             height="250"
             alt="thanks in multiple languages"

@@ -31,7 +31,7 @@ export const SiteHeader = () => {
           <UniLink href="/" className="text-2xl font-bold">
             <span
               className="inline-block mx-auto bg-zinc-200 rounded-full w-14 h-14 bg-cover bg-center"
-              style={{ backgroundImage: `url(/assets/avatar.png)` }}
+              style={{ backgroundImage: `url("${avatar.src}")` }}
             ></span>
             <div className="mt-1">{site.headerTitle || site.title}</div>
           </UniLink>
