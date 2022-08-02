@@ -51,13 +51,13 @@ function Home({ groupedPosts }: Props) {
             const posts = groupedPosts[year]
             return (
               <div key={year} className="">
-                <div className="font-medium text-xl text-zinc-300 mb-3">
+                <div className="font-medium md:text-xl text-zinc-300 mb-3">
                   {year}
                 </div>
                 <div className="space-y-2">
                   {posts.map((post) => {
                     return (
-                      <div key={post.slug} className="group text-xl flex">
+                      <div key={post.slug} className="group md:text-xl flex">
                         <span className="mr-4 text-zinc-300 group-hover:text-zinc-400 flex-shrink-0">
                           {post.date}
                         </span>

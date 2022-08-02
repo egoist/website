@@ -14,6 +14,12 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:ital@0;1&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="icon"
+          href="/favicon_v1.png"
+          type="image/png"
+          sizes="80x80"
+        />
       </Head>
       <body className="">
         <Main />
