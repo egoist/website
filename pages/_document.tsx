@@ -15,7 +15,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="dark:bg-dark dark:text-zinc-200">
+      <body className="">
         <Main />
         <NextScript />
         {process.env.NODE_ENV === "production" && (
