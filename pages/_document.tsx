@@ -22,7 +22,7 @@ export default function Document() {
           <script
             async
             data-website-id="41199b15-9e7e-4354-8e74-95d4c48e178e"
-            src="https://umami.egoist.sh/mami.js"
+            src="https://umami.egoist.dev/mami.js"
           ></script>
         )}
       </body>
