@@ -43,27 +43,27 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
 function Home({ groupedPosts }: Props) {
   return (
     <Layout>
-      <div className="space-y-2">
-        <div className="space-y-8">
-          {Object.keys(groupedPosts)
-            .sort()
-            .reverse()
-            .map((year) => {
-              const posts = groupedPosts[year]
-              return (
-                <div key={year} className="">
-                  <div className="font-medium text-xl text-zinc-300 mb-3">
-                    {year}
-                  </div>
+      <div className="space-y-8">
+        {Object.keys(groupedPosts)
+          .sort()
+          .reverse()
+          .map((year) => {
+            const posts = groupedPosts[year]
+            return (
+              <div key={year} className="">
+                <div className="font-medium text-xl text-zinc-300 mb-3">
+                  {year}
+                </div>
+                <div className="space-y-2">
                   {posts.map((post) => {
                     return (
                       <div key={post.slug} className="group text-xl flex">
-                        <span className="mr-2 md:mr-4 text-zinc-300 group-hover:text-zinc-400 flex-shrink-0">
+                        <span className="mr-4 text-zinc-300 group-hover:text-zinc-400 flex-shrink-0">
                           {post.date}
                         </span>
                         <UniLink
                           href={post.href}
-                          className="hover:text-primary font-medium"
+                          className="hover:text-primary font-medium leading-tight"
                         >
                           {post.title}
                         </UniLink>
@@ -71,9 +71,9 @@ function Home({ groupedPosts }: Props) {
                     )
                   })}
                 </div>
-              )
-            })}
-        </div>
+              </div>
+            )
+          })}
       </div>
     </Layout>
   )
