@@ -57,13 +57,16 @@ function Home({ groupedPosts }: Props) {
                 <div className="space-y-2">
                   {posts.map((post) => {
                     return (
-                      <div key={post.slug} className="group md:text-xl flex">
+                      <div
+                        key={post.slug}
+                        className="group md:text-xl flex leading-tight"
+                      >
                         <span className="mr-4 text-zinc-300 group-hover:text-zinc-400 flex-shrink-0">
                           {post.date}
                         </span>
                         <UniLink
                           href={post.href}
-                          className="hover:text-primary font-medium leading-tight"
+                          className="hover:text-primary font-medium"
                         >
                           {post.title}
                         </UniLink>
