@@ -57,7 +57,7 @@
 :not(pre) > code {
   @apply p-1;
   @apply rounded-md;
-  @apply bg-zinc-100 dark:bg-zinc-900;
+  @apply bg-zinc-100;
   @apply text-sm;
 }
 
@@ -66,11 +66,11 @@
 }
 
 .prose blockquote {
-  @apply border-l-4 px-4 text-zinc-500 dark:border-yellow-300 dark:text-zinc-300;
+  @apply border-l-4 px-4 text-zinc-500;
 }
 
 .prose hr {
   @apply my-8;
   @apply block;
-  @apply border-dotted dark:border-zinc-800;
+  @apply border-dotted;
 }
