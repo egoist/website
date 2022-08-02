@@ -2,11 +2,13 @@ import Head from "next/head"
 import { UniLink } from "./UniLink"
 import { site } from "~/config"
 import { SiteHeader } from "./SiteHeader"
+import React from "react"
 
 export const Layout: React.FC<{
   title?: string
   description?: string
   cover?: string
+  children: React.ReactNode
 }> = ({ children, title, description, cover }) => {
   const documentTitle = title ? `${title} - ${site.title}` : site.title
   return (

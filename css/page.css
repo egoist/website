@@ -55,9 +55,9 @@
 }
 
 :not(pre) > code {
+  background: var(--inline-code-bg);
   @apply p-1;
   @apply rounded-md;
-  @apply bg-zinc-100;
   @apply text-sm;
 }
 

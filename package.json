@@ -31,9 +31,10 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
     "@types/lodash-es": "^4.17.6",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "^17.0.21",
     "@types/prismjs": "^1.26.0",
-    "@types/react": "^17.0.39",
+    "@types/react": "^18.0.15",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.7",
     "preact": "^10.7.3",

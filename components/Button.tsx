@@ -5,10 +5,10 @@ export const Button = ({
   children,
   variant,
   ...props
-}: { children: React.ReactNode; variant?: "primary" } & React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->) => {
+}: {
+  children: React.ReactNode
+  variant?: "primary"
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
       type="button"

@@ -4,10 +4,12 @@ import { CodeBlock } from "./CodeBlock"
 import { Layout } from "./Layout"
 import { TweetButton } from "./TweetButton"
 import { UniLink } from "./UniLink"
+import { Callout } from "./Callout"
 
 const components = {
   UniLink,
   CodeBlock,
+  Callout,
 }
 
 const Content: React.FC<{ content: RenderableTreeNode }> = ({ content }) => {

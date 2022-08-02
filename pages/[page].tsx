@@ -85,6 +85,9 @@ export async function getStaticProps(
       )
     },
   }
+  const calloutTag: Schema = {
+    render: "Callout",
+  }
 
   const config: Config = {
     nodes: {
@@ -96,6 +99,7 @@ export async function getStaticProps(
         render: "span",
       },
       link: linkTag,
+      callout: calloutTag,
     },
     variables: {
       site,

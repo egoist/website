@@ -36,8 +36,9 @@ The above code basically:
 
 The logic for supporting a custom domain is very similar.
 
-> TIP:
-> you can use `*.localhost:3000` to test subdomains in local development, for example `egoist.localhost:3000`.
+{% callout %}
+you can use `*.localhost:3000` to test subdomains in local development, for example `egoist.localhost:3000`
+{% /callout %}
 
 ## What about Remix and SvelteKit
 
