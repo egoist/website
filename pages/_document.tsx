@@ -24,6 +24,13 @@ export default function Document() {
       <body className="">
         <Main />
         <NextScript />
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            data-website-id="c83fb747-c4bd-42e8-9668-b2790be38b67"
+            src="https://umami.egoist.dev/mami.js"
+          ></script>
+        )}
       </body>
     </Html>
   )
