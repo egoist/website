@@ -6,9 +6,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run dev-next",
+    "dev": "pnpm generate-feed && npm run dev-next",
     "dev-next": "next",
-    "build": "next build "
+    "build": "pnpm generate-feed && next build",
+    "generate-feed": "node -r esbuild-register scripts/generate-feed.ts"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +38,8 @@
     "@types/prismjs": "^1.26.0",
     "@types/react": "^18.0.15",
     "autoprefixer": "^10.4.2",
+    "esbuild": "^0.15.1",
+    "esbuild-register": "^3.3.3",
     "postcss": "^8.4.7",
     "preact": "^10.7.3",
     "tailwindcss": "^3.1.7",

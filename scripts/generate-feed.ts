@@ -1,9 +1,9 @@
-import { NextApiHandler } from "next"
+import fs from "fs"
 import { Feed } from "feed"
 import { site } from "~/config"
 import { contentbase } from "~/lib/contentbase"
 
-const handler: NextApiHandler = async (req, res) => {
+async function main() {
   const feed = new Feed({
     id: site.url,
     title: site.title,
@@ -26,8 +26,10 @@ const handler: NextApiHandler = async (req, res) => {
     })
   }
 
-  res.setHeader("Content-Type", "application/json")
-  res.end(feed.json1())
+  fs.writeFileSync("public/feed.json", JSON.stringify(JSON.parse(feed.json1())))
 }
 
-export default handler
+main().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})

@@ -5,3 +5,5 @@ dist
 .next
 *.log
 .DS_Store
+.cache
+public/feed.json
