@@ -76,7 +76,7 @@
 }
 
 .table-wrapper {
-  @apply rounded-lg overflow-hidden border w-full my-5;
+  @apply rounded-lg border w-full my-5 overflow-auto;
 }
 
 .table-wrapper table {
