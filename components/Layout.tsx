@@ -42,7 +42,7 @@ export const Layout: React.FC<{
         <div className="container">
           <div>
             Made by{" "}
-            <UniLink href="/" className="hover:text-brand">
+            <UniLink href="/about" className="hover:underline">
               EGOIST
             </UniLink>{" "}
             -{" "}
@@ -50,8 +50,12 @@ export const Layout: React.FC<{
               href="https://github.com/egoist/website"
               className="hover:underline"
             >
-              Built with Next.js & ContentBase.
-            </UniLink>
+              Source Code
+            </UniLink>{" "}
+            -{" "}
+            <a href="/feed.json" className="hover:underline">
+              Feed
+            </a>
           </div>
         </div>
       </footer>

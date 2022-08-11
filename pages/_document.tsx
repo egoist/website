@@ -20,6 +20,8 @@ export default function Document() {
           type="image/png"
           sizes="80x80"
         />
+        {/** json feed */}
+        <link rel="alternate" type="application/json" href="/feed.json" />
       </Head>
       <body className="">
         <Main />

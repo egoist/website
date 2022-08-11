@@ -13,6 +13,7 @@ const DefaultSchema = z.object({
 const UserSchema = {
   title: z.string(),
   description: z.string().optional(),
+  type: z.enum(["page", "post"]).default("post"),
 }
 
 const MergedSchema = DefaultSchema.extend(UserSchema)

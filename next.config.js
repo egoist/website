@@ -22,6 +22,14 @@ module.exports = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      {
+        source: "/feed.json",
+        destination: "/api/feed",
+      },
+    ]
+  },
   images: {
     domains: ["avatars.githubusercontent.com"],
   },
