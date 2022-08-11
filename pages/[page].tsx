@@ -89,14 +89,22 @@ export async function getStaticProps(
     render: "Callout",
   }
 
+  const tableTag: Schema = {
+    render: "Table",
+  }
+
   const config: Config = {
     nodes: {
       link: linkTag,
       fence: fenceTag,
+      table: tableTag,
     },
     tags: {
       span: {
         render: "span",
+      },
+      div: {
+        render: "div",
       },
       link: linkTag,
       callout: calloutTag,

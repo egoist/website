@@ -1,0 +1,23 @@
+---
+title: Free Database for Developers
+date: 2022-08-11
+---
+
+There're many open-source softwares like [Umami Analytics](https://umami.is), [Miniflux RSS Reader](https://miniflux.app) and [n8n](https://n8n.io/) your can self-host on your own server, or use a free service like Vercel, Railway or Fly.io:
+
+|                         | [Vercel](https://vercel.com) | [Railway](https://railway.app) | [Fly.io](https://fly.io) | [Supabase](https://supabase.com/) | [CockroachDB](https://www.cockroachlabs.com/get-started-cockroachdb/)\* |
+| ----------------------- | ---------------------------: | -----------------------------: | -----------------------: | --------------------------------: | ----------------------------------------------------------------------: |
+| Hosting                 |                          Yes |                            Yes |                      Yes |                               N/A |                                                                     N/A |
+| Docker                  |                          N/A |                            Yes |                      Yes |                               N/A |                                                                     N/A |
+| Free PostgreSQL Storage |                          N/A |                            1GB |                      3GB |                             500MB |                                                                     5GB |
+
+{% div class="text-zinc-500 text-sm -mt-3" %}
+\*CockroachDB is compatible with PostgreSQL.
+{% /div %}
+
+If the software you want to deploy supports **Vercel** (such as [Umami Analytics](https://umami.is)), you still need to get a database from other database providers.
+Similarly, if you use Supabase as the database provider, you need to use another hosting service.
+
+**Railway** is the most convenient solution among the above options, you can deploy a service right from GitHub and create a database for it to use, no coding required. If 1GB of storage is not enough, you can create a database on [**Fly.io**](https://fly.io/docs/reference/postgres/) instead, you'll have to create the database from CLI manually, but it won't take you more than a few minutes. And you can actually deploy any type of database on Fly.io, be it PostgreSQL, MySQL or ClickHouse, you name it. Another option is **CockroachDB**, which is compatible with PostgreSQL.
+
+If your project outgrows those free options and you can't afford their premium plans, you can give [Caprover](https://caprover.com/) a try. It's a free and open-source PaaS (like Railway) for deploying services on your own servers, you can throw a few bucks to [DigitalOcean](https://digitalocean.com) or [Hetzner](https://www.hetzner.com/cloud) to purchase a relatively powerful VPS and host your services on it.

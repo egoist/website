@@ -5,11 +5,13 @@ import { Layout } from "./Layout"
 import { TweetButton } from "./TweetButton"
 import { UniLink } from "./UniLink"
 import { Callout } from "./Callout"
+import { Table } from "./Table"
 
 const components = {
   UniLink,
   CodeBlock,
   Callout,
+  Table,
 }
 
 const Content: React.FC<{ content: RenderableTreeNode }> = ({ content }) => {

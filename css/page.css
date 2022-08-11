@@ -74,3 +74,20 @@
   @apply block;
   @apply border-dotted;
 }
+
+.table-wrapper {
+  @apply rounded-lg overflow-hidden border w-full my-5;
+}
+
+.table-wrapper table {
+  @apply w-full;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  @apply py-2 px-3;
+}
+
+.table-wrapper tbody tr:nth-child(odd) {
+  @apply bg-zinc-50;
+}
