@@ -37,7 +37,7 @@ export const PageLayout: React.FC<{
       description={page.description}
       cover={page.cover}
     >
-      <header className="text-center">
+      <header className="">
         {page.date && page.type !== "page" && (
           <div className="mb-2">
             <span className="text-zinc-400 text-lg">{page.date}</span>

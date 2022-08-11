@@ -5,6 +5,11 @@
 :root {
   --code-bg: #fbfbfb;
   --inline-code-bg: theme("colors.zinc.100");
+  --sidebar-width: 260px;
+}
+
+body {
+  @apply antialiased;
 }
 
 .container {

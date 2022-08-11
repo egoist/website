@@ -43,6 +43,9 @@ export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
 function Home({ groupedPosts }: Props) {
   return (
     <Layout>
+      <h3 className="font-bold text-lg mb-5 border-b pb-1 border-zinc-100">
+        Posts
+      </h3>
       <div className="space-y-8">
         {Object.keys(groupedPosts)
           .sort()

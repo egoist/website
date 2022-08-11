@@ -1,7 +1,7 @@
 import Head from "next/head"
 import { UniLink } from "./UniLink"
 import { site } from "~/config"
-import { SiteHeader } from "./SiteHeader"
+import { Sidebar } from "./Sidebar"
 import React from "react"
 
 export const Layout: React.FC<{
@@ -36,29 +36,31 @@ export const Layout: React.FC<{
           </>
         )}
       </Head>
-      <SiteHeader />
-      <div className="container py-16">{children}</div>
-      <footer className="py-10 text-zinc-300 hover:text-zinc-400 transform transition-colors">
-        <div className="container">
-          <div>
-            Made by{" "}
-            <UniLink href="/about" className="hover:underline">
-              EGOIST
-            </UniLink>{" "}
-            -{" "}
-            <UniLink
-              href="https://github.com/egoist/website"
-              className="hover:underline"
-            >
-              Source Code
-            </UniLink>{" "}
-            -{" "}
-            <a href="/feed.json" className="hover:underline">
-              Feed
-            </a>
+      <Sidebar />
+      <main className="md:ml-sidebar">
+        <div className="container py-8 md:py-16">{children}</div>
+        <footer className="py-8 md:py-20 border-t text-sm md:text-base border-zinc-100 mt-8 md:mt-20 text-zinc-300 hover:text-zinc-400 transform transition-colors">
+          <div className="container">
+            <div>
+              Made by{" "}
+              <UniLink href="/about" className="hover:underline">
+                EGOIST
+              </UniLink>{" "}
+              -{" "}
+              <UniLink
+                href="https://github.com/egoist/website"
+                className="hover:underline"
+              >
+                Source Code
+              </UniLink>{" "}
+              -{" "}
+              <a href="/feed.json" className="hover:underline">
+                Feed
+              </a>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </main>
     </>
   )
 }

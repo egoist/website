@@ -14,6 +14,9 @@ module.exports = {
       backgroundColor: {
         header: "#f7f5ff",
       },
+      spacing: {
+        sidebar: "var(--sidebar-width)",
+      },
     },
   },
   plugins: [],
