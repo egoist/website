@@ -1,8 +1,6 @@
 import clsx from "clsx"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { useRouter } from "next/router"
-import { useEffect, useMemo, useState } from "react"
-import { autoUpdate, useFloating } from "@floating-ui/react-dom"
 import { Layout } from "~/components/Layout"
 import { UniLink } from "~/components/UniLink"
 
@@ -83,87 +81,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const Screenshot: React.FC<{ url: string }> = ({ url }) => {
-  const [imageUrl, setImageUrl] = useState<string | undefined>()
-  useEffect(() => {
-    fetch(`/api/screenshot`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ url }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setImageUrl(res.screenshot)
-      })
-  }, [])
-  return (
-    <div>
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          className="max-w-[400px] "
-          width="1280"
-          height="760"
-          alt="screenshot"
-        />
-      ) : (
-        <div className="bg-zinc-200 animate-pulse w-[400px] aspect-[16/9]"></div>
-      )}
-    </div>
-  )
-}
-
-const useMediaQuery = (query: string) => {
-  const [matches, setMatches] = useState(false)
-  useEffect(() => {
-    const mql = window.matchMedia(query)
-    setMatches(mql.matches)
-    const onChange = (e: MediaQueryListEvent) => setMatches(e.matches)
-    mql.addEventListener("change", onChange)
-    return () => mql.removeEventListener("change", onChange)
-  }, [])
-  return matches
-}
-
-const Item: React.FC<{ item: Item; isMobile: boolean }> = ({
-  item,
-  isMobile,
-}) => {
-  const { x, y, reference, floating, strategy } = useFloating({
-    whileElementsMounted: autoUpdate,
-  })
+const Item: React.FC<{ item: Item }> = ({ item }) => {
   const isExternal = /^https?\:/.test(item.url)
-  const [showScreenshot, setShowScreenshot] = useState(false)
   const href = isExternal ? item.url : `${HACKERNEWS_URL}/${item.url}`
 
   return (
     <div className="p-3 rounded-lg hover:bg-zinc-50">
       <h3>
         <UniLink
-          ref={reference}
           href={href}
           className="text-lg text-zinc-600 hover:text-indigo-500 hover:underline"
-          onMouseEnter={() => setShowScreenshot(true)}
-          onMouseLeave={() => setShowScreenshot(false)}
         >
           {item.title}
         </UniLink>
       </h3>
-      {showScreenshot && !isMobile && (
-        <div
-          ref={floating}
-          style={{
-            position: strategy,
-            top: y ?? 0,
-            left: x ?? 0,
-          }}
-          className="z-[9999] shadow-lg ring-1 ring-zinc-200 rounded-lg overflow-hidden bg-white"
-        >
-          <Screenshot url={href} />
-        </div>
-      )}
       <div className="text-xs text-zinc-400 mt-1 flex items-center space-x-4">
         <span className="inline-flex items-center space-x-1">
           <span className="i-mdi:triangle text-zinc-300"></span>
@@ -191,7 +122,6 @@ export default function Page({ data }: Props) {
     { type: "show", label: "Show" },
   ]
   const router = useRouter()
-  const isMobile = useMediaQuery("(max-width: 768px)")
   return (
     <Layout title="Hacker News">
       <div className="flex items-center text-xs mb-5 space-x-1 bg-zinc-200/50 rounded-lg p-3 sticky top-5 backdrop-blur-lg">
@@ -216,7 +146,7 @@ export default function Page({ data }: Props) {
       </div>
       <div className="space-y-2 -mx-3">
         {data.items.map((item) => {
-          return <Item key={item.id} item={item} isMobile={isMobile} />
+          return <Item key={item.id} item={item} />
         })}
       </div>
     </Layout>
