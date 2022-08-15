@@ -90,7 +90,7 @@ const Item: React.FC<{ item: Item }> = ({ item }) => {
       <h3>
         <UniLink
           href={href}
-          className="text-lg text-zinc-600 hover:text-indigo-500 hover:underline"
+          className="text-lg text-zinc-600 hover:text-indigo-500 hover:underline visited:text-zinc-300"
         >
           {item.title}
         </UniLink>
