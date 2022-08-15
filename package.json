@@ -6,17 +6,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm generate-feed && npm run dev-next",
+    "dev": "pnpm generate-feed && run-p dev-uno dev-next",
     "dev-next": "next",
-    "build": "pnpm generate-feed && next build",
-    "generate-feed": "node -r esbuild-register scripts/generate-feed.ts"
+    "dev-uno": "pnpm generate-uno --watch",
+    "build": "run-p generate-feed generate-uno && next build",
+    "generate-feed": "node -r esbuild-register scripts/generate-feed.ts",
+    "generate-uno": "unocss \"**/*.tsx\" -o generated/uno.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@badrap/bar-of-progress": "^0.1.2",
+    "@floating-ui/react-dom": "^1.0.0",
     "@markdoc/markdoc": "^0.1.4",
+    "browserku": "^0.2.1",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.8",
     "feed": "^4.2.2",
@@ -31,18 +35,22 @@
     "zod": "^3.17.10"
   },
   "devDependencies": {
+    "@iconify-json/mdi": "^1.1.30",
     "@types/js-yaml": "^4.0.5",
     "@types/lodash-es": "^4.17.6",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^17.0.21",
     "@types/prismjs": "^1.26.0",
     "@types/react": "^18.0.15",
+    "@unocss/cli": "^0.45.6",
     "autoprefixer": "^10.4.2",
     "esbuild": "^0.15.1",
     "esbuild-register": "^3.3.3",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.7",
     "preact": "^10.7.3",
     "tailwindcss": "^3.1.7",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "unocss": "^0.45.6"
   }
 }

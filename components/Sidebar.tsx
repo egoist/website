@@ -18,6 +18,10 @@ const navLinks = [
     text: "Supporters",
     href: "/thanks",
   },
+  {
+    text: "Hacker News",
+    href: "/news",
+  },
 ]
 
 export const Sidebar = () => {

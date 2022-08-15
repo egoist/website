@@ -1,4 +1,5 @@
 import "../css/tailwind.css"
+import "../generated/uno.css"
 import "../css/prism.css"
 import "../css/page.css"
 import { useEffect } from "react"
