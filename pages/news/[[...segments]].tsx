@@ -158,7 +158,7 @@ const Item: React.FC<{ item: Item; isMobile: boolean }> = ({
             top: y ?? 0,
             left: x ?? 0,
           }}
-          className="shadow-lg ring-1 ring-zinc-200 rounded-lg overflow-hidden bg-white"
+          className="z-[9999] shadow-lg ring-1 ring-zinc-200 rounded-lg overflow-hidden bg-white"
         >
           <Screenshot url={href} />
         </div>
