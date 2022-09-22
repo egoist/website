@@ -1,7 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document"
 
-const PROD = process.env.NODE_ENV === "production"
-
 export default function Document() {
   return (
     <Html>
@@ -24,13 +22,6 @@ export default function Document() {
         />
         {/** json feed */}
         <link rel="alternate" type="application/json" href="/feed.json" />
-        {PROD && (
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4882368575250522"
-            crossOrigin="anonymous"
-          ></script>
-        )}
       </Head>
       <body className="">
         <Main />
