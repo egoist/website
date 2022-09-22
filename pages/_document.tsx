@@ -36,7 +36,7 @@ export default function Document() {
             <script
               async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4882368575250522"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
             ></script>
           </>
         )}
