@@ -27,11 +27,18 @@ export default function Document() {
         <Main />
         <NextScript />
         {process.env.NODE_ENV === "production" && (
-          <script
-            async
-            data-website-id="c83fb747-c4bd-42e8-9668-b2790be38b67"
-            src="https://umami.egoist.dev/mami.js"
-          ></script>
+          <>
+            <script
+              async
+              data-website-id="c83fb747-c4bd-42e8-9668-b2790be38b67"
+              src="https://umami.egoist.dev/mami.js"
+            ></script>
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4882368575250522"
+              crossorigin="anonymous"
+            ></script>
+          </>
         )}
       </body>
     </Html>
