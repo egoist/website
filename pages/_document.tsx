@@ -16,8 +16,8 @@ export default function Document() {
         />
         <link
           rel="icon"
-          href="/favicon_v1.png"
-          type="image/png"
+          href="/favicon_v2.jpeg"
+          type="image/jpeg"
           sizes="80x80"
         />
         {/** json feed */}
@@ -26,7 +26,7 @@ export default function Document() {
       <body className="">
         <Main />
         <NextScript />
-        {PROD && (
+        {process.env.NODE_ENV === 'production' && (
           <>
             <script
               async

@@ -1,7 +1,5 @@
-import Markdoc, {
-  Config,
+import {
   ValidateError,
-  Schema,
   RenderableTreeNode,
 } from "@markdoc/markdoc"
 import {
@@ -11,11 +9,10 @@ import {
 } from "next"
 import superjson from "superjson"
 import { PageLayout } from "~/components/PageLayout"
-import { site } from "~/config"
 import dayjs from "dayjs"
 import { contentbase, PageType } from "~/lib/contentbase"
-import Prism from "prismjs"
 import loadLanguages from "prismjs/components/index"
+import { renderMarkdown } from "~/lib/markdown"
 
 const transformPage = (page: PageType) => {
   return {
@@ -51,78 +48,9 @@ export async function getStaticProps(
     }
   }
 
-  const ast = Markdoc.parse(page.content)
-  ast.attributes.class = "prose text-lg"
+  const { errors, node } = renderMarkdown(page.content)
 
-  const linkTag: Schema = {
-    render: "UniLink",
-    attributes: {
-      href: {
-        type: String,
-      },
-    },
-  }
-  const fenceTag: Schema = {
-    attributes: {
-      language: {
-        type: String,
-      },
-      content: {
-        type: String,
-      },
-    },
-    transform(node) {
-      const language = node.attributes.language || "markup"
-      const grammer = Prism.languages[language] || Prism.languages.markup
-      const code = Prism.highlight(node.attributes.content, grammer, language)
-      return new Markdoc.Tag(
-        "CodeBlock",
-        {
-          code,
-          language,
-        },
-        []
-      )
-    },
-  }
-  const calloutTag: Schema = {
-    render: "Callout",
-  }
-
-  const tableTag: Schema = {
-    render: "Table",
-  }
-
-  const config: Config = {
-    nodes: {
-      link: linkTag,
-      fence: fenceTag,
-      table: tableTag,
-    },
-    tags: {
-      span: {
-        render: "span",
-      },
-      div: {
-        render: "div",
-      },
-      link: linkTag,
-      callout: calloutTag,
-    },
-    variables: {
-      site,
-    },
-    functions: {
-      join: {
-        transform(parameters, config) {
-          return parameters[0].join(parameters[1] || "")
-        },
-      },
-    },
-  }
-  const errors = Markdoc.validate(ast, config)
-
-  if (errors.length > 0) {
+  if (errors && errors.length > 0) {
     return {
       props: {
         _: superjson.stringify({
@@ -132,12 +60,10 @@ export async function getStaticProps(
     }
   }
 
-  const content = Markdoc.transform(ast, config)
-
   return {
     props: {
       _: superjson.stringify({
-        content: content,
+        content: node,
         page: transformPage(page),
       }),
     },

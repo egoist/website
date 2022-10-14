@@ -1,23 +1,9 @@
-import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc"
+import { RenderableTreeNode } from "@markdoc/markdoc"
 import React from "react"
-import { CodeBlock } from "./CodeBlock"
 import { Layout } from "./Layout"
+import { MarkdocContent } from "./Markdoc"
 import { TweetButton } from "./TweetButton"
-import { UniLink } from "./UniLink"
-import { Callout } from "./Callout"
-import { Table } from "./Table"
 
-const components = {
-  UniLink,
-  CodeBlock,
-  Callout,
-  Table,
-}
-
-const Content: React.FC<{ content: RenderableTreeNode }> = ({ content }) => {
-  const node = Markdoc.renderers.react(content, React, { components })
-  return node as any
-}
 
 export const PageLayout: React.FC<{
   page: {
@@ -53,7 +39,7 @@ export const PageLayout: React.FC<{
           <img alt="cover image" src={page.cover} className="rounded-xl" />
         </div>
       )}
-      <Content content={content} />
+      <MarkdocContent content={content} />
       {tweetButton && (
         <div className="mt-10">
           <TweetButton text={tweetButton.text} url={tweetButton.url} />

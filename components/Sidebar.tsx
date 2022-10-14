@@ -2,8 +2,9 @@ import clsx from "clsx"
 import { useRouter } from "next/router"
 import { site } from "~/config"
 import { UniLink } from "./UniLink"
-import avatar from "~/assets/avatar.png"
+import avatar from "~/assets/avatar.jpeg"
 import { useState } from "react"
+import Image from 'next/image'
 
 const navLinks = [
   {
@@ -35,10 +36,7 @@ export const Sidebar = () => {
           href="/"
           className="flex space-x-3 items-center h-16 px-5 hover:bg-zinc-100 "
         >
-          <span
-            className="inline-block rounded-md w-10 h-10 bg-cover bg-center"
-            style={{ backgroundImage: `url("${avatar.src}")` }}
-          ></span>
+          <Image className="rounded-md" src={avatar} width={40} height={40} alt="EGOIST's avatar" />
           <div className="text-xl font-medium">
             {site.headerTitle || site.title}
           </div>
