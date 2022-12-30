@@ -1,6 +1,6 @@
 code[class*="language-"],
 pre[class*="language-"] {
-  @apply font-mono;
+  @apply font-mono text-base;
   color: #403f53;
   text-align: left;
   white-space: pre;

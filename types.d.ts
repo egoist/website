@@ -3,7 +3,6 @@ declare namespace NodeJS {
     DATABASE_URL: string
     AUTH_SECRET: string
     AUTH_COOKIE_NAME: string
-    BROWSERKU_APIKEY: string
   }
 }
 

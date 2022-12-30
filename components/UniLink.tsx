@@ -23,8 +23,8 @@ export const UniLink = React.forwardRef<HTMLAnchorElement, Props>(
     }
 
     return (
-      <Link href={href} ref={ref}>
-        <a {...props}>{children}</a>
+      <Link {...props} href={href} ref={ref}>
+        {children}
       </Link>
     )
   }
