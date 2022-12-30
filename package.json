@@ -20,6 +20,7 @@
     "@badrap/bar-of-progress": "^0.1.2",
     "@floating-ui/react-dom": "^1.0.0",
     "@markdoc/markdoc": "^0.2.1",
+    "@vercel/analytics": "^0.1.6",
     "clsx": "^1.1.1",
     "dayjs": "^1.10.8",
     "feed": "^4.2.2",

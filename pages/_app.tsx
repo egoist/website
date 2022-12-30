@@ -6,6 +6,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Progress from "@badrap/bar-of-progress"
 import Error from "next/error"
+import { Analytics } from "@vercel/analytics/react"
 
 const App = ({ Component, pageProps }: any) => {
   const router = useRouter()
@@ -36,7 +37,12 @@ const App = ({ Component, pageProps }: any) => {
   if (pageProps.statusCode) {
     return <Error statusCode={pageProps.statusCode} />
   }
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      {process.env.NODE_ENV === "production" && <Analytics />}
+    </>
+  )
 }
 
 export default App
