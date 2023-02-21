@@ -24,7 +24,10 @@ const nav = [
         <span
           class={clsx(
             "group-hover:bg-zinc-100 rounded-lg px-2 h-8 items-center group-hover:text-black inline-flex",
-            Astro.url.pathname === item.href ? "text-black" : "text-zinc-400"
+            Astro.url.pathname === item.href ||
+              Astro.url.pathname === `${item.href}/`
+              ? "text-black"
+              : "text-zinc-400"
           )}
         >
           {item.label}
