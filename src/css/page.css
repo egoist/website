@@ -37,7 +37,7 @@
 }
 
 .prose img {
-  @apply rounded-lg;
+  @apply rounded-xl;
 }
 
 .prose a {
