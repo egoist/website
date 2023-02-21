@@ -6,6 +6,6 @@ export const sortByDate = <
   return items.sort((a, b) => {
     if (!a.data.date || !b.data.date) return 0;
 
-    return a.data.date.getTime() - b.data.date.getTime();
+    return a.data.date.getTime() > b.data.date.getTime() ? -1 : 1;
   });
 };

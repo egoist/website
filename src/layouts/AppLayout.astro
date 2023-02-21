@@ -32,6 +32,12 @@ const description = Astro.props.description || site.description;
     <meta name="og:site_name" content={site.title} />
     <meta name="description" content={description} />
     <meta name="og:description" content={description} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for EGOIST's Blog"
+      href="/rss.xml"
+    />
   </head>
   <body
     class="gap-5 flex p-5 flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-[calc(65ch+150px)] mx-auto"
