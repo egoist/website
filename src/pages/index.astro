@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import AppLayout from "~/layouts/AppLayout.astro";
+
+const allBlog = await getCollection("blog");
+const allPosts = allBlog.filter((item) => item.data.date && !item.data.is_page);
+---
+
+<AppLayout title="Blog">
+  <div class="flex flex-col gap-3">
+    {
+      allPosts
+        .sort((a, b) =>
+          a.data.date!.valueOf() > b.data.date!.valueOf() ? -1 : 1
+        )
+        .map((post) => (
+          <a class="flex flex-col" href={`/${post.slug}`}>
+            <h3>{post.data.title}</h3>
+            <div class="text-zinc-400 text-sm">
+              {dayjs(post.data.date).format("MMMM D, YYYY")}
+            </div>
+          </a>
+        ))
+    }
+  </div>
+</AppLayout>

@@ -1,0 +1,75 @@
+---
+import { getSponsors } from "~/lib/get-sponsors";
+import thanksGif from "~/assets/thanks.gif";
+import AppLayout from "~/layouts/AppLayout.astro";
+
+const normalizeNewLine = (v: string) => v.replace(/\r\n/g, "\n");
+
+const sponsors = await getSponsors();
+---
+
+<AppLayout title="Donate">
+  <div class="prose my-5">
+    <p>
+      I’m truly grateful to all the wonderful humans and companies supporting my
+      open source work on{" "}
+      <a
+        href="https://github.com/sponsors/egoist"
+        target="_blank"
+        rel="nofollow noopener"
+      >
+        GitHub Sponsors
+      </a>
+    </p>
+    <p>
+      <img
+        src={thanksGif}
+        width="550"
+        height="250"
+        alt="thanks in multiple languages"
+      />
+    </p>
+  </div>
+  <div class="space-y-8">
+    {
+      sponsors.map(({ tier, sponsors }) => {
+        return (
+          <div>
+            <h3 class="text-2xl mb-2">${tier}/month</h3>
+            <div class="border dark:border-zinc-800 divide-y dark:divide-zinc-800">
+              {sponsors.map((sponsor: any) => {
+                const bio = sponsor.bio || sponsor.description;
+                return (
+                  <div class="flex space-x-3 items-center p-3">
+                    <span class="flex-shrink-0">
+                      <img
+                        src={sponsor.avatarUrl}
+                        height={60}
+                        width={60}
+                        alt={`profile image of ${sponsor.login}`}
+                      />
+                    </span>
+                    <div>
+                      <a
+                        href={`https://github.com/${sponsor.login}`}
+                        rel="nofollow noopener"
+                        target="_blank"
+                        class="text-lg text-pink-500 hover:underline"
+                      >
+                        {sponsor.name || sponsor.login}
+                        {sponsor.name && <span>({sponsor.login})</span>}
+                      </a>
+                      {bio && (
+                        <div class="text-zinc-500">{normalizeNewLine(bio)}</div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</AppLayout>

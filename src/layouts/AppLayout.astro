@@ -1,0 +1,66 @@
+---
+import "../css/tailwind.css";
+import "../css/page.css";
+import dayjs from "dayjs";
+import avatar from "~/assets/avatar.jpeg";
+import SidebarNav from "~/components/SidebarNav.astro";
+import { site } from "~/config";
+
+interface Props {
+  title: string;
+  description?: string;
+  meta?: {
+    title?: string;
+  };
+  date?: string;
+}
+
+const { title, date, meta } = Astro.props;
+
+const documentTitle = meta?.title || `${title} - ${site.title}`;
+const description = Astro.props.description || site.description;
+---
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{documentTitle}</title>
+    <link rel="icon" href="/favicon_v2.jpeg" type="image/jpeg" sizes="80x80" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="og:title" content={title} />
+    <meta name="og:site" content="EGOIST" />
+    <meta name="description" content={description} />
+    <meta name="og:description" content={description} />
+  </head>
+  <body
+    class="gap-5 flex flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-[calc(65ch+150px)] mx-auto"
+  >
+    <div class="shrink-0 md:w-[150px]">
+      <div class="sticky top-5">
+        <h1 class="">
+          <a href="/">
+            <img src={avatar} class="w-10 h-10 rounded-xl" alt="egoist" />
+          </a>
+        </h1>
+        <SidebarNav />
+      </div>
+    </div>
+    <div class="max-w-[65ch]">
+      <h2 class="text-3xl font-extrabold">{title}</h2>
+      {
+        date && (
+          <div class="relative mt-3 flex items-center">
+            <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
+              {dayjs(date).format("YYYY-MM-DD")}
+            </span>
+            <div class="h-[3px] flex-1 bg-zinc-50" />
+          </div>
+        )
+      }
+      <div class="mt-5"><slot /></div>
+    </div>
+
+    {import.meta.env.PROD && <script defer src="/_vercel/insights/script.js" />}
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+import clsx from "clsx";
+
+const nav = [
+  {
+    label: "home",
+    href: "/",
+  },
+  {
+    label: "about",
+    href: "/about",
+  },
+  {
+    label: "donate",
+    href: "/donate",
+  },
+];
+---
+
+<div class="font-medium -ml-2 mt-8">
+  {
+    nav.map((item) => (
+      <a href={item.href} class="flex group">
+        <span
+          class={clsx(
+            "group-hover:bg-zinc-100 rounded-lg px-2 h-8 items-center group-hover:text-black inline-flex",
+            Astro.url.pathname === item.href ? "text-black" : "text-zinc-400"
+          )}
+        >
+          {item.label}
+        </span>
+      </a>
+    ))
+  }
+</div>

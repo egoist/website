@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --code-bg: #fbfbfb;
+  --inline-code-bg: theme("colors.zinc.100");
+  --sidebar-width: 260px;
+}
+
+body {
+  @apply antialiased;
+}
+
+.container {
+  @apply max-w-3xl;
+  @apply px-5 lg:px-16;
+  @apply mx-auto;
+}
+
+.button {
+  @apply rounded-xl px-3 h-10 items-center inline-flex font-medium hover:opacity-80;
+}
+
+.button.is-primary {
+  @apply bg-primary text-white;
+}
+
+.callout {
+  --inline-code-bg: theme("colors.blue.100");
+  @apply rounded-xl p-4 border border-blue-200 bg-blue-50 my-5;
+}

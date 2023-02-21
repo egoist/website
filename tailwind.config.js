@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./**/**.{md,tsx}"],
+  content: ["./src/**/*.{mdx,md,tsx,astro}"],
   theme: {
     extend: {
       fontFamily: {
@@ -20,4 +20,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

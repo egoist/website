@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Link from "~/components/Link.astro";
+import AppLayout from "~/layouts/AppLayout.astro";
+
+const allBlogs = await getCollection("blog");
+const page = allBlogs.find((b) => b.slug === Astro.params.slug);
+
+if (!page) return Astro.redirect("/404");
+
+const { Content } = await page.render();
+
+export const getStaticPaths = async () => {
+  const allBlogs = await getCollection("blog");
+
+  return allBlogs.map((b) => {
+    return {
+      params: { slug: b.slug },
+    };
+  });
+};
+---
+
+<AppLayout title={page.data.title}>
+  <div class="prose"><Content /></div>
+</AppLayout>

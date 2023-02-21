@@ -1,0 +1,24 @@
+---
+title: About
+is_page: true
+---
+
+import { site } from "~/config";
+import Link from "~/components/Link.astro";
+
+<span class="text-3xl">👋</span>
+
+Hi, I'm Kevin, a full-time open-source developer. I use TypeScript most of the time, but I'm also interested in Swift and Go.
+
+My open-source work is funded by the [community](/donate) via [GitHub Sponsors](https://github.com/sponsors/egoist), if you use my code, please consider supporting me financially to help me keep doing what I love!
+
+Have a nice day!
+
+## Email
+
+<Link href={`mailto:${site.email}`}>{site.email}</Link>
+
+## Social
+
+- twitter: <Link href={`https://twitter.com/${site.twitter}`}>{site.twitter}</Link>
+- mastodon: <Link href={`https://${site.mastodon}`}>{site.mastodon}</Link>
