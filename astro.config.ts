@@ -35,15 +35,13 @@ const prettyCodeOptions: Partial<Options> = {
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    mdx({
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [
-        [rehypePrettyCode, prettyCodeOptions],
-        rehypeTable,
-        rehypeExternalLink,
-      ],
-    }),
-    preact({ compat: true }),
-  ],
+  markdown: {
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "solarized-light",
+    },
+    rehypePlugins: [rehypeTable, rehypeExternalLink],
+    gfm: true,
+  },
+  integrations: [mdx({}), preact({ compat: true })],
 });
