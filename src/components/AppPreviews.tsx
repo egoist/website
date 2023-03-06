@@ -42,6 +42,7 @@ export const AppPreviews = ({
               height={preview.image.height || undefined}
               alt={preview.image.alt || undefined}
               decoding={preview.image.decoding || undefined}
+              loading={preview.image.loading || undefined}
             />
           </div>
         );
