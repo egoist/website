@@ -1,14 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
-import AppLayout from "~/layouts/AppLayout.astro";
+import BlogLayout from "~/layouts/BlogLayout.astro";
 import { site } from "~/config";
 
 const allBlog = await getCollection("blog");
 const allPosts = allBlog.filter((item) => item.data.date && !item.data.is_page);
 ---
 
-<AppLayout title="Blog" meta={{ title: site.title }}>
+<BlogLayout title="Blog" meta={{ title: site.title }}>
   <div class="flex flex-col gap-3">
     {
       allPosts
@@ -25,4 +25,4 @@ const allPosts = allBlog.filter((item) => item.data.date && !item.data.is_page);
         ))
     }
   </div>
-</AppLayout>
+</BlogLayout>

@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Link from "~/components/Link.astro";
-import AppLayout from "~/layouts/AppLayout.astro";
+import BlogLayout from "~/layouts/BlogLayout.astro";
 
 const allBlogs = await getCollection("blog");
 const page = allBlogs.find((b) => b.slug === Astro.params.slug);
@@ -21,6 +20,6 @@ export const getStaticPaths = async () => {
 };
 ---
 
-<AppLayout title={page.data.title}>
+<BlogLayout title={page.data.title}>
   <div class="prose"><Content /></div>
-</AppLayout>
+</BlogLayout>

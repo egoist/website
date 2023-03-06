@@ -1,0 +1,23 @@
+---
+import AppLayout from "~/layouts/AppLayout.astro";
+import toolcatPreview from "~/assets/toolcat-preview.png";
+import toolcatIcon from "~/assets/toolcat-icon.png";
+import { AppDownloadButton } from "~/components/AppDownloadButton";
+---
+
+<AppLayout title="Toolcat" description="Developer tools you'll absolutely love">
+  <div>
+    <img
+      src={toolcatIcon}
+      alt="toolcat icon"
+      class="w-20 h-20 rounded-xl mx-auto shadow-lg border"
+    />
+  </div>
+  <h1 class="text-6xl font-extrabold text-center mt-5">Toolcat</h1>
+  <div class="flex justify-center mt-5">
+    <AppDownloadButton client:visible />
+  </div>
+  <div class="lg:w-[140%] lg:-ml-[20%]">
+    <img src={toolcatPreview} alt="toolcat preview" />
+  </div>
+</AppLayout>

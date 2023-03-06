@@ -2,14 +2,15 @@ module.exports = {
   content: ["./src/**/*.{mdx,md,tsx,astro}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: `Roboto,sans-serif`,
-        mono: `"Roboto Mono",monospace`,
-      },
+      fontFamily: {},
       colors: {
         primary: "#563bda",
         dark: "#010509",
         rss: "#ee802f",
+      },
+      boxShadow: {
+        popover:
+          "0 0 0 1px #8898aa1a, 0 15px 35px #31315d1a, 0 5px 15px #00000014",
       },
       backgroundColor: {
         header: "#f7f5ff",
@@ -19,5 +20,12 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@egoist/tailwindcss-icons").iconsPlugin({
+      collections: require("@egoist/tailwindcss-icons").getIconCollections([
+        "lucide",
+      ]),
+    }),
+  ],
 };
