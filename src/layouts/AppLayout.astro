@@ -6,7 +6,7 @@ import { site } from "~/config";
 interface Props {
   title: string;
   description?: string;
-  favicon?: string;
+  favicon?: string | null;
 }
 
 const { title, meta, favicon } = Astro.props;
@@ -31,10 +31,10 @@ const description = Astro.props.description || site.description;
     <meta name="og:description" content={description} />
   </head>
   <body>
-    <div class="max-w-3xl mx-auto p-5 py-20">
+    <div class="max-w-3xl mx-auto p-5 py-20 text-center">
       <slot />
 
-      <footer class="text-center mt-20 text-zinc-500 text-sm">
+      <footer class="mt-20 text-zinc-500 text-sm">
         &copy; <a href="/" class="hover:underline">EGOIST</a>
       </footer>
     </div>

@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import avatar from "~/assets/avatar.jpeg";
 import SidebarNav from "~/components/SidebarNav.astro";
 import { site } from "~/config";
+import { Image } from "@astrojs/image/components";
 
 interface Props {
   title: string;
@@ -46,7 +47,7 @@ const description = Astro.props.description || site.description;
       <div class="sticky top-5">
         <h1 class="">
           <a href="/">
-            <img src={avatar} class="w-10 h-10 rounded-xl" alt="egoist" />
+            <Image src={avatar} class="w-10 h-10 rounded-xl" alt="egoist" />
           </a>
         </h1>
         <SidebarNav />

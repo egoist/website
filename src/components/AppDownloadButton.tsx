@@ -1,3 +1,5 @@
+/** @jsxImportSource preact */
+
 import { Fragment, useEffect, useRef, useState } from "react";
 import useOnClickOutside from "use-onclickoutside";
 import { Spinner } from "./Spinner";

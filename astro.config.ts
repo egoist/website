@@ -1,9 +1,11 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
-
 import { rehypeTable } from "./src/lib/rehype-table";
 import { rehypeExternalLink } from "./src/lib/rehype-external-link";
+
+// https://astro.build/config
+import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,5 +17,18 @@ export default defineConfig({
     rehypePlugins: [rehypeTable, rehypeExternalLink],
     gfm: true,
   },
-  integrations: [mdx({}), preact({ compat: true })],
+  vite: {
+    ssr: {
+      noExternal: ["use-onclickoutside"],
+    },
+  },
+  integrations: [
+    mdx({}),
+    preact({
+      compat: true,
+    }),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+  ],
 });

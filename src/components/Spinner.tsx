@@ -1,3 +1,5 @@
+/** @jsxImportSource preact */
+
 import "../css/spinner.css";
 import clsx from "clsx";
 import { memo } from "react";
