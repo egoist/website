@@ -1,28 +1,54 @@
 ---
-import { getCollection } from "astro:content";
-import dayjs from "dayjs";
-import BlogLayout from "~/layouts/BlogLayout.astro";
-import { site } from "~/config";
+import { getCollection } from "astro:content"
+import BlogLayout from "~/layouts/BlogLayout.astro"
+import { site } from "~/config"
+import PageSection from "~/components/PageSection.astro"
 
-const allBlog = await getCollection("blog");
-const allPosts = allBlog.filter((item) => item.data.date && !item.data.is_page);
+const allBlog = await getCollection("blog")
+const allPosts = allBlog.filter((item) => item.data.date && !item.data.is_page)
+
+const projects = [
+  {
+    name: "ChatKit",
+    url: "https://chatkit.app",
+    desc: "Better ChatGPT frontend",
+  },
+]
 ---
 
-<BlogLayout title="Blog" meta={{ title: site.title }}>
-  <div class="flex flex-col gap-3">
-    {
-      allPosts
-        .sort((a, b) =>
-          a.data.date!.valueOf() > b.data.date!.valueOf() ? -1 : 1
-        )
-        .map((post) => (
-          <a class="flex flex-col" href={`/${post.slug}`}>
-            <h3>{post.data.title}</h3>
-            <div class="text-zinc-400 text-sm">
-              {dayjs(post.data.date).format("MMMM D, YYYY")}
+<BlogLayout meta={{ title: site.title }}>
+  <div class="space-y-10">
+    <PageSection title="Projects">
+      {
+        projects.map((p) => {
+          return (
+            <div>
+              <a href={p.url} target="_blank" class="hover:text-indigo-500">
+                {p.name}
+                <span class="text-zinc-500"> - {p.desc}</span>
+              </a>
             </div>
-          </a>
-        ))
-    }
+          )
+        })
+      }
+    </PageSection>
+    <PageSection title="Essays">
+      <div class="flex flex-col gap-1">
+        {
+          allPosts
+            .sort((a, b) =>
+              a.data.date!.valueOf() > b.data.date!.valueOf() ? -1 : 1
+            )
+            .map((post) => (
+              <a
+                class="flex flex-col hover:text-indigo-500"
+                href={`/${post.slug}`}
+              >
+                <h3>{post.data.title}</h3>
+              </a>
+            ))
+        }
+      </div>
+    </PageSection>
   </div>
 </BlogLayout>

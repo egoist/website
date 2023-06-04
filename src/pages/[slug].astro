@@ -1,25 +1,25 @@
 ---
-import { getCollection } from "astro:content";
-import BlogLayout from "~/layouts/BlogLayout.astro";
+import { getCollection } from "astro:content"
+import BlogLayout from "~/layouts/BlogLayout.astro"
 
-const allBlogs = await getCollection("blog");
-const page = allBlogs.find((b) => b.slug === Astro.params.slug);
+const allBlogs = await getCollection("blog")
+const page = allBlogs.find((b) => b.slug === Astro.params.slug)
 
-if (!page) return Astro.redirect("/404");
+if (!page) return Astro.redirect("/404")
 
-const { Content } = await page.render();
+const { Content } = await page.render()
 
 export const getStaticPaths = async () => {
-  const allBlogs = await getCollection("blog");
+  const allBlogs = await getCollection("blog")
 
   return allBlogs.map((b) => {
     return {
       params: { slug: b.slug },
-    };
-  });
-};
+    }
+  })
+}
 ---
 
-<BlogLayout title={page.data.title}>
+<BlogLayout title={page.data.title} date={page.data.date}>
   <div class="prose"><Content /></div>
 </BlogLayout>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string
+}
+---
+
+<section>
+  <div
+    class="relative after:-z-10 after:block after:h-[2px] after:absolute after:top-1/2 after:transform after:bg-zinc-100 after:w-full after:left-0 after:right-0"
+  >
+    <span class="font-bold text-sm lowercase text-stone-700 bg-white pr-2"
+      >{Astro.props.title}</span
+    >
+  </div>
+  <div class="mt-3"><slot /></div>
+</section>

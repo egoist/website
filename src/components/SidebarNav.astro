@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx";
+import clsx from "clsx"
 
 const nav = [
   {
@@ -14,16 +14,16 @@ const nav = [
     label: "donate",
     href: "/donate",
   },
-];
+]
 ---
 
-<div class="font-medium -ml-2 mt-5 md:mt-8 flex md:flex-col">
+<div class="font-semibold text-sm -ml-2 mt-5 md:mt-8 flex md:flex-col">
   {
     nav.map((item) => (
       <a href={item.href} class="flex group">
         <span
           class={clsx(
-            "group-hover:bg-zinc-100 rounded-lg px-2 h-8 items-center group-hover:text-black inline-flex",
+            "group-hover:bg-indigo-100 rounded-lg px-2 h-8 items-center group-hover:text-indigo-500 inline-flex",
             Astro.url.pathname === item.href ||
               Astro.url.pathname === `${item.href}/`
               ? "text-black"

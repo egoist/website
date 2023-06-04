@@ -4,6 +4,7 @@ export const site = {
   url: "https://egoist.dev",
   email: "0x142857@gmail.com",
   twitter: "poorlybatched",
+  twitter_cn: "dishouru",
   github: "egoist",
   mastodon: "m.cmx.im/@egoist",
 };

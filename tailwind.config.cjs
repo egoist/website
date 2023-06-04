@@ -1,8 +1,12 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: ["./src/**/*.{mdx,md,tsx,astro}"],
   theme: {
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: "#563bda",
         dark: "#010509",

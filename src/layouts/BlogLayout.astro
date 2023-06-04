@@ -1,25 +1,27 @@
 ---
-import "../css/tailwind.css";
-import "../css/page.css";
-import dayjs from "dayjs";
-import avatar from "~/assets/avatar.jpeg";
-import SidebarNav from "~/components/SidebarNav.astro";
-import { site } from "~/config";
-import { Image } from "@astrojs/image/components";
+import "@fontsource-variable/inter"
+import "../css/tailwind.css"
+import "../css/page.css"
+import dayjs from "dayjs"
+import avatar from "~/assets/avatar.jpeg"
+import SidebarNav from "~/components/SidebarNav.astro"
+import { site } from "~/config"
+import { Image } from "@astrojs/image/components"
+import clsx from "clsx"
 
 interface Props {
-  title: string;
-  description?: string;
+  title?: string
+  description?: string
   meta?: {
-    title?: string;
-  };
-  date?: string;
+    title?: string
+  }
+  date?: string | Date
 }
 
-const { title, date, meta } = Astro.props;
+const { title, date, meta } = Astro.props
 
-const documentTitle = meta?.title || `${title} - ${site.title}`;
-const description = Astro.props.description || site.description;
+const documentTitle = meta?.title || `${title} - ${site.title}`
+const description = Astro.props.description || site.description
 ---
 
 <html>
@@ -54,10 +56,10 @@ const description = Astro.props.description || site.description;
       </div>
     </div>
     <div class="max-w-[65ch]">
-      <h2 class="text-3xl font-extrabold">{title}</h2>
+      {title && <h2 class="text-3xl font-extrabold">{title}</h2>}
       {
         date && (
-          <div class="relative mt-3 flex items-center">
+          <div class={clsx("relative flex items-center", title && "mt-3")}>
             <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
               {dayjs(date).format("YYYY-MM-DD")}
             </span>
@@ -65,7 +67,7 @@ const description = Astro.props.description || site.description;
           </div>
         )
       }
-      <div class="mt-5"><slot /></div>
+      <div class={clsx((title || date) && "mt-5")}><slot /></div>
     </div>
 
     {import.meta.env.PROD && <script defer src="/_vercel/insights/script.js" />}

@@ -1,17 +1,18 @@
 ---
-import "../css/tailwind.css";
-import "../css/page.css";
-import { site } from "~/config";
+import "@fontsource-variable/inter"
+import "../css/tailwind.css"
+import "../css/page.css"
+import { site } from "~/config"
 
 interface Props {
-  title: string;
-  description?: string;
-  favicon?: string | null;
+  title: string
+  description?: string
+  favicon?: string | null
 }
 
-const { title, meta, favicon } = Astro.props;
+const { title, favicon } = Astro.props
 
-const description = Astro.props.description || site.description;
+const description = Astro.props.description || site.description
 ---
 
 <html>
