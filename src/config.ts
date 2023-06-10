@@ -3,8 +3,8 @@ export const site = {
   description: "A blog about small things.",
   url: "https://egoist.dev",
   email: "0x142857@gmail.com",
-  twitter: "poorlybatched",
-  twitter_cn: "dishouru",
+  twitter: "localhost_5173",
+  twitter_cn: "localhost_4173",
   github: "egoist",
   mastodon: "m.cmx.im/@egoist",
 };
