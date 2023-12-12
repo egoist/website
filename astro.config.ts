@@ -5,9 +5,6 @@ import { rehypeTable } from "./src/lib/rehype-table";
 import { rehypeExternalLink } from "./src/lib/rehype-external-link";
 
 // https://astro.build/config
-import image from "@astrojs/image";
-
-// https://astro.build/config
 export default defineConfig({
   markdown: {
     syntaxHighlight: "shiki",
@@ -26,9 +23,6 @@ export default defineConfig({
     mdx({}),
     preact({
       compat: true,
-    }),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
     }),
   ],
 });

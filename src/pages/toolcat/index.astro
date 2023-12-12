@@ -1,19 +1,18 @@
 ---
-import { Image } from "@astrojs/image/components";
-import AppLayout from "~/layouts/AppLayout.astro";
-import toolcatIcon from "~/assets/toolcat-icon.png";
-import { AppDownloadButton } from "~/components/AppDownloadButton";
-import { getImage } from "@astrojs/image";
-import { AppPreviews } from "~/components/AppPreviews";
+import { Image, getImage } from "astro:assets"
+import AppLayout from "~/layouts/AppLayout.astro"
+import toolcatIcon from "~/assets/toolcat-icon.png"
+import { AppDownloadButton } from "~/components/AppDownloadButton"
+import { AppPreviews } from "~/components/AppPreviews"
 
-const desc = `Developer tools you'll absolutely love`;
+const desc = `Developer tools you'll absolutely love`
 
 const favicon = await getImage({
   src: import("~/assets/toolcat-icon.png"),
   alt: "favicon",
   width: 80,
   height: 80,
-});
+})
 
 const previews = [
   {
@@ -43,7 +42,7 @@ const previews = [
       height: undefined,
     }),
   },
-];
+]
 ---
 
 <AppLayout title="Toolcat" description={desc} favicon={favicon.src}>
