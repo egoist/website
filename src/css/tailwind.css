@@ -8,10 +8,6 @@
   --sidebar-width: 260px;
 }
 
-[v-cloak] {
-  @apply hidden;
-}
-
 body {
 }
 

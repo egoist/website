@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import preact from "@astrojs/preact";
 import { rehypeTable } from "./src/lib/rehype-table";
 import { rehypeExternalLink } from "./src/lib/rehype-external-link";
 
@@ -19,10 +18,5 @@ export default defineConfig({
       noExternal: ["use-onclickoutside"],
     },
   },
-  integrations: [
-    mdx({}),
-    preact({
-      compat: true,
-    }),
-  ],
+  integrations: [mdx({})],
 });
