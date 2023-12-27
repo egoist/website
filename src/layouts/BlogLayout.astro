@@ -43,7 +43,7 @@ const description = Astro.props.description || site.description
     />
   </head>
   <body
-    class="gap-5 flex p-5 flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-[calc(65ch+150px)] mx-auto"
+    class="flex p-5 flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-screen-md mx-auto"
   >
     <div class="shrink-0 md:w-[150px]">
       <div class="sticky top-5">
@@ -55,7 +55,7 @@ const description = Astro.props.description || site.description
         <SidebarNav />
       </div>
     </div>
-    <div class="max-w-[65ch]">
+    <div class="grow mt-5 md:mt-0">
       {title && <h2 class="text-3xl font-extrabold">{title}</h2>}
       {
         date && (
