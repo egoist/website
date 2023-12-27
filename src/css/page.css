@@ -16,7 +16,7 @@
 }
 
 .prose h3 {
-  @apply my-7 text-xl;
+  @apply my-7 text-xl font-medium;
 }
 
 .prose p {
