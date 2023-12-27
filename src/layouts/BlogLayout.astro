@@ -29,7 +29,7 @@ const description = Astro.props.description || site.description
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{documentTitle}</title>
-    <link rel="icon" href="/favicon_v2.jpeg" type="image/jpeg" sizes="80x80" />
+    <link rel="icon" href="/favicon_v3.jpeg" type="image/jpeg" sizes="80x80" />
     <meta name="twitter:card" content="summary" />
     <meta name="og:title" content={title} />
     <meta name="og:site_name" content={site.title} />
@@ -43,31 +43,33 @@ const description = Astro.props.description || site.description
     />
   </head>
   <body
-    class="flex p-5 flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-screen-md mx-auto"
-  >
-    <div class="shrink-0 md:w-[150px]">
-      <div class="sticky top-5">
-        <h1 class="">
-          <a href="/">
-            <Image src={avatar} class="w-10 h-10 rounded-xl" alt="egoist" />
-          </a>
-        </h1>
-        <SidebarNav />
+    ><div
+      class="flex p-5 gap-2 flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-screen-md mx-auto"
+    >
+      <div class="shrink-0 md:w-[150px]">
+        <div class="sticky top-5">
+          <h1 class="">
+            <a href="/">
+              <Image src={avatar} class="w-10 h-10 rounded-xl" alt="egoist" />
+            </a>
+          </h1>
+          <SidebarNav />
+        </div>
       </div>
-    </div>
-    <div class="grow mt-5 md:mt-0 w-0">
-      {title && <h2 class="text-3xl font-extrabold">{title}</h2>}
-      {
-        date && (
-          <div class={clsx("relative flex items-center", title && "mt-3")}>
-            <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
-              {dayjs(date).format("YYYY-MM-DD")}
-            </span>
-            <div class="h-[3px] flex-1 bg-zinc-50" />
-          </div>
-        )
-      }
-      <div class={clsx((title || date) && "mt-5")}><slot /></div>
+      <div class="grow w-0">
+        {title && <h2 class="text-3xl font-extrabold">{title}</h2>}
+        {
+          date && (
+            <div class={clsx("relative flex items-center", title && "mt-3")}>
+              <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
+                {dayjs(date).format("YYYY-MM-DD")}
+              </span>
+              <div class="h-[3px] flex-1 bg-zinc-50" />
+            </div>
+          )
+        }
+        <div class={clsx((title || date) && "mt-5")}><slot /></div>
+      </div>
     </div>
 
     {import.meta.env.PROD && <script defer src="/_vercel/insights/script.js" />}
