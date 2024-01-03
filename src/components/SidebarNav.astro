@@ -17,13 +17,13 @@ const nav = [
 ]
 ---
 
-<div class="font-semibold text-sm -ml-2 mt-5 md:mt-8 flex md:flex-col">
+<div class="font-medium text-sm -ml-2 mt-5 md:mt-8 flex md:flex-col">
   {
     nav.map((item) => (
       <a href={item.href} class="flex group">
         <span
           class={clsx(
-            "group-hover:bg-indigo-100 rounded-lg px-2 h-8 items-center group-hover:text-indigo-500 inline-flex",
+            "group-hover:bg-zinc-100 rounded-xl px-2 h-7 items-center group-hover:text-zinc-900 inline-flex",
             Astro.url.pathname === item.href ||
               Astro.url.pathname === `${item.href}/`
               ? "text-black"
