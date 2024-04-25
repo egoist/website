@@ -112,5 +112,16 @@ const description = Astro.props.description || site.description
     </div>
 
     {import.meta.env.PROD && <script defer src="/_vercel/insights/script.js" />}
+
+    {
+      import.meta.env.PROD && (
+        <script
+          async
+          defer
+          src="https://umami2.egoist.dev/script.js"
+          data-website-id="d345d161-6ebc-417c-b1f3-d157b21fdbb1"
+        />
+      )
+    }
   </body>
 </html>
