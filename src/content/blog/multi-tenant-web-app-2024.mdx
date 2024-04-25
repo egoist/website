@@ -207,3 +207,9 @@ const normalizeRoute = (route) => {
   }
 }
 ```
+
+## Conclusion
+
+The easiest solution to multi-tenacy is to have the framework handle it for you through a reroute mechanism, like Next.js and SvelteKit, in that way you can also map the `tenant` value to a route parameter `[tenant]`. 
+
+Nuxt and Solid Start require a bit more work, since you need to modify the routes yourself.
