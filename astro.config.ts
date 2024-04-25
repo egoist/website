@@ -24,6 +24,9 @@ export default defineConfig({
       defaultProps: {
         wrap: true,
       },
+      styleOverrides: {
+        codeFontSize: "0.95rem",
+      },
     }),
     mdx({}),
   ],
