@@ -43,24 +43,26 @@ const description = Astro.props.description || site.description
     />
   </head>
   <body
-    ><div
-      class="flex p-5 gap-5 md:gap-2 flex-col md:flex-row antialiased lg:mt-32 md:mt-20 mb-40 max-w-screen-md mx-auto"
-    >
-      <div class="shrink-0 md:w-[150px]">
-        <div class="sticky top-5">
-          <h1 class="">
+    ><div class="flex flex-col md:flex-row antialiased max-w-screen-lg mx-auto">
+      <div class="shrink-0 md:w-[220px] border-r md:fixed top-0 bottom-0">
+        <div class="p-5 md:py-10 lg:py-20">
+          <h1 class="md:px-2">
             <a href="/">
-              <Image src={avatar} class="w-10 h-10 rounded-xl" alt="egoist" />
+              <Image
+                src={avatar}
+                class="w-10 h-10 md:w-12 md:h-12 rounded-xl"
+                alt="egoist"
+              />
             </a>
           </h1>
           <SidebarNav />
         </div>
       </div>
-      <div class="grow md:w-0">
-        {title && <h2 class="text-3xl font-extrabold">{title}</h2>}
+      <div class="grow md:w-0 md:ml-[220px] p-5 md:p-10 lg:p-20">
+        {title && <h2 class="text-4xl font-extrabold">{title}</h2>}
         {
           date && (
-            <div class={clsx("relative flex items-center", title && "mt-3")}>
+            <div class={clsx("relative flex items-center", title && "mt-5")}>
               <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
                 {dayjs(date).format("YYYY-MM-DD")}
               </span>
@@ -68,7 +70,7 @@ const description = Astro.props.description || site.description
             </div>
           )
         }
-        <div class={clsx((title || date) && "mt-5")}><slot /></div>
+        <div class={clsx((title || date) && "mt-10")}><slot /></div>
       </div>
     </div>
 

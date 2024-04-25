@@ -7,7 +7,7 @@
 }
 
 .prose {
-  @apply leading-relaxed;
+  @apply text-lg leading-relaxed;
 }
 
 .prose h2 {
