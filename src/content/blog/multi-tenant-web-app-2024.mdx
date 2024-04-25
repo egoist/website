@@ -1,0 +1,209 @@
+---
+title: Building a Multi-Tenat Web App in 2024
+date: 2024-04-26
+---
+
+In [a similar post](/multi-tenant-nextjs-app) I wrote 2 years ago, I mentioned that only Next.js has built-in support for multi-tenancy, but that's not true anymore, SvelteKit has caught up to the competition and now offers a way to build multi-tenant apps.
+
+In this post I'll revisit the topic and add a few more frameworks to compare. Let's start with the OG.
+
+## Next.js
+
+Next.js has largely remained the same in terms of multi-tenancy support, you use Next.js middleware to reroute requests based on the `host` header. It's pretty straightforward:
+
+```ts title="src/middleware.ts"
+import { NextRequest, NextResponse } from "next/server"
+
+const OUR_DOMAIN =
+  process.env.NODE_ENV === "production" ? "acme.com" : "localhost:3000"
+
+export default function middleware(req: NextRequest) {
+  const host = req.headers.get("host")
+
+  if (host !== OUR_DOMAIN) {
+    // tenant is a subdomain or a custom domain
+    const tenant = host.replace(`.${OUR_DOMAIN}`, "")
+    const url = req.nextUrl.clone()
+    url.pathname = `_tenant/${tenant}${url.pathname}`
+    return NextResponse.rewrite(url)
+  }
+
+  return NextResponse.next()
+}
+```
+
+What the code above does:
+
+1. Check if `host` is equal to `OUR_DOMAIN`, if not it belongs to a tenant, the value of `tenant` is the subdomain or custom domain
+2. Rewrite to `_tenant/$subdomain/$originalPath` if it is
+
+## SvelteKit
+
+SvelteKit has a concept of `hooks` that will be called in response to specific events, now there's a `reroute` hook that allows you to reroute requests based on incoming URL.
+
+Here's how you can use it for multi-tenancy:
+
+```ts title="src/hooks.ts"
+export const reroute: Reroute = ({ url }) => {
+  if (url.host !== OUR_DOMAIN) {
+    const tenant = url.host.replace(`.${OUR_DOMAIN}`, "")
+    // maps to `src/routes/tenant/[tenant]/...`
+    return `/tenant/${tenant}${url.pathname}`
+  }
+}
+```
+
+The Next.js version is all done in a server-side middleware, I didn't read their code but for sure there's some magic going on behind the scenes to pass the new URL to the client, so that the client-side router can pick it up. SvelteKit is more explicit about it, `reroute` is a universal hook which means it also runs in the browser, so the client-side router can use it to get the desired URL.
+
+## Remix
+
+Unfortunately, Remix still doesn't have built-in support for multi-tenancy as of writing, they have some proposals though like [Lazy Route Discovery](https://github.com/remix-run/react-router/discussions/11113) and [Route Segment Constraints](https://github.com/remix-run/remix/discussions/7111) which could help implement this feature.
+
+Until then you can either split your main app and user app into different projects inside a monorepo, or conditionally render different components in the same route based on the `host` header using `loader` function:
+
+```tsx title="src/routes/index.tsx"
+export const loader = ({ request }) => {
+  const host = request.headers.get("host")
+  const tenant = host === OUR_DOMAIN ? null : host.replace(`.${OUR_DOMAIN}`, "")
+
+  return { tenant }
+}
+
+export default function Page() {
+  const { tenant } = useLoaderData()
+  return <div>{tenant ? <UserApp tenant={tenant} /> : <MainApp />}</div>
+}
+```
+
+It's kinda verbose since you have to do this in every route, I personally would rather split it into different projects instead.
+
+## Solid Start
+
+[Solid Start](https://start.solidjs.com) is the new kid on the block, it's so new that I didn't expect it to have this kind of flexibility for multi-tenancy, but it does! And surprisingly you can do it within a Solid component.
+
+Let's take a look at the root layout component in Solid Start:
+
+```tsx "<FileRoutes />"
+// src/app.tsx
+import { FileRoutes } from "@solidjs/start/router"
+
+export default function App() {
+  return (
+    <Router
+      root={(props) => (
+        <MetaProvider>
+          <Title>SolidStart - Basic</Title>
+          <Suspense>{props.children}</Suspense>
+        </MetaProvider>
+      )}
+    >
+      <FileRoutes />
+    </Router>
+  )
+}
+```
+
+The `FileRoutes` component caught my eyes immediately, I'm sure it caught yours too because I highlighted it for you. After reading the source code I found out that it returns the generated routes as an array. This means we can manipulate the routes before passing them to the `Router` component as children.
+
+Now here's another problem, I need the `host` header or the request URL on both server-side and client-side to determine the tenant, how do I do that in a component?
+
+Thanks to Node.js `AsyncLocalStorage` API, Solid Start uses it to provide the `getRequestEvent` function which you can use in any component to get the `host` header:
+
+```ts
+import { getRequestEvent } from "solid-js/web"
+
+const getTenant = () => {
+  const event = getRequestEvent()
+
+  // `event` is null on the client-side
+  const host = event ? event.request.headers.get("host") : location.host
+
+  if (host === OUR_DOMAIN) {
+    return null
+  }
+
+  return host.replace(`.${OUR_DOMAIN}`, "")
+}
+```
+
+Now you've got the `tenant` value, you can use it to map different routes to your main app and tenant app. I also chose to put them under different folder in `src/routes`:
+
+- `src/routes/app` for the main app routes
+- `src/routes/tenant` for the tenant app routes
+
+Without midifying the `FileRoutes` component, your website will have `/app/*` and `/tenant/*` routes which is obviously not what you want. So you have to filter the routes and modify route path in a custom `FileRoutes` component:
+
+```tsx
+const CustomFileRoutes = () => {
+  const routes = FileRoutes()
+
+  const tenant = getTenant()
+
+  return FileRoutes()
+    .filter((route) => {
+      return tenant ? isTenantRoute(route) : !isTenantRoute(route)
+    })
+    .map(normalizeRoute)
+}
+
+const isTenantRoute = (route) => route.path.match(/^\/tenant\/?/)
+
+// Remove the `/tenant` and `/app` prefix from the path
+const normalizeRoute = (route) => {
+  return {
+    ...route,
+    path: route.path.replace(/^\/(tenant|app)\/?/, "/"),
+  }
+}
+```
+
+Now just replace the `FileRoutes` component in the `App` component with `CustomFileRoutes` and you got a solid multi-tenant app!
+
+## Nuxt
+
+Last but not least, Nuxt, famous for its flexibility and rich plugin ecosystem. So of course there's a plugin for multi-tenancy, and yes I found one https://github.com/hieuhani/nuxt-multi-tenancy.
+
+However this plugin is only useful if it's a limited set of subdomains or custom domains known at build time, meaning it won't work for your SaaS app where users can add their own custom domain. But you can have your own implementation quite easily since Nuxt allows to modify the routes at runtime.
+
+First, you can get request `host` in Nuxt using `useRequestURL` to determine the tenant:
+
+```ts
+import { useRequestURL } from "nuxt/app"
+
+const getTenant = () => {
+  const { hostname } = useRequestURL()
+
+  if (hostname === OUR_DOMAIN) {
+    return null
+  }
+
+  return hostname.replace(`.${OUR_DOMAIN}`, "")
+}
+```
+
+Then in the `router.options.ts` file, you can normalize the routes based on the tenant, similarily I have `pages/app/` folder the main app and `pages/tenant/` for tenant app routes:
+
+```ts title="app/router.options.ts" "normalizeRoutes"
+import type { RouterConfig } from "@nuxt/schema"
+
+export default <RouterConfig>{
+  routes(routes) {
+    const tenant = getTenant()
+
+    return routes
+      .filter((route) => {
+        return tenant ? isTenantRoute(route) : !isTenantRoute(route)
+      })
+      .map(normalizeRoute)
+  },
+}
+
+const isTenantRoute = (route) => route.path.match(/^\/tenant\/?/)
+
+const normalizeRoute = (route) => {
+  return {
+    ...route,
+    path: route.path.replace(/^\/(tenant|app)\/?/, "/"),
+  }
+}
+```

@@ -7,7 +7,7 @@ const page = allBlogs.find((b) => b.slug === Astro.params.slug)
 
 if (!page) return Astro.redirect("/404")
 
-const { Content } = await page.render()
+const { Content, headings } = await page.render()
 
 export const getStaticPaths = async () => {
   const allBlogs = await getCollection("blog")
@@ -20,6 +20,6 @@ export const getStaticPaths = async () => {
 }
 ---
 
-<BlogLayout title={page.data.title} date={page.data.date}>
+<BlogLayout title={page.data.title} date={page.data.date} headings={headings}>
   <div class="prose"><Content /></div>
 </BlogLayout>

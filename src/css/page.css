@@ -11,12 +11,12 @@
 }
 
 .prose h2 {
-  @apply mt-8 mb-3 text-2xl;
+  @apply mt-8 mb-3 text-3xl;
   @apply font-semibold;
 }
 
 .prose h3 {
-  @apply my-7 text-xl font-medium;
+  @apply my-7 text-2xl font-medium;
 }
 
 .prose p {

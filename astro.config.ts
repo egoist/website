@@ -1,16 +1,16 @@
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
-import { rehypeTable } from "./src/lib/rehype-table";
-import { rehypeExternalLink } from "./src/lib/rehype-external-link";
+import { defineConfig } from "astro/config"
+import mdx from "@astrojs/mdx"
+import { rehypeTable } from "./src/lib/rehype-table"
+import { rehypeExternalLink } from "./src/lib/rehype-external-link"
+import expressiveCode from "astro-expressive-code"
+import { rehypeHeadingIds } from "@astrojs/markdown-remark"
 
 // https://astro.build/config
 export default defineConfig({
   markdown: {
     syntaxHighlight: "shiki",
-    shikiConfig: {
-      theme: "solarized-light",
-    },
-    rehypePlugins: [rehypeTable, rehypeExternalLink],
+    shikiConfig: {},
+    rehypePlugins: [rehypeTable, rehypeExternalLink, rehypeHeadingIds],
     gfm: true,
   },
   vite: {
@@ -18,5 +18,13 @@ export default defineConfig({
       noExternal: ["use-onclickoutside"],
     },
   },
-  integrations: [mdx({})],
-});
+  integrations: [
+    expressiveCode({
+      themes: ["solarized-light"],
+      defaultProps: {
+        wrap: true,
+      },
+    }),
+    mdx({}),
+  ],
+})

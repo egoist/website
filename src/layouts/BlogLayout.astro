@@ -8,6 +8,7 @@ import SidebarNav from "~/components/SidebarNav.astro"
 import { site } from "~/config"
 import { Image } from "astro:assets"
 import clsx from "clsx"
+import type { MarkdownHeading } from "astro"
 
 interface Props {
   title?: string
@@ -16,9 +17,10 @@ interface Props {
     title?: string
   }
   date?: string | Date
+  headings?: MarkdownHeading[]
 }
 
-const { title, date, meta } = Astro.props
+const { title, date, meta, headings } = Astro.props
 
 const documentTitle = meta?.title || `${title} - ${site.title}`
 const description = Astro.props.description || site.description
@@ -56,6 +58,35 @@ const description = Astro.props.description || site.description
             </a>
           </h1>
           <SidebarNav />
+
+          {
+            headings && headings.length > 0 && (
+              <div class="hidden absolute pr-8 bottom-0 md:inline-block w-full">
+                <div class="bg-white overflow-hidden border border-b-0 rounded-t-lg shadow-sm ">
+                  <h4 class="px-[10px] border-b h-9 text-sm font-medium flex items-center leading-none">
+                    Table of Contents
+                  </h4>
+                  <ul class="text-sm py-1">
+                    {headings.map((heading) => {
+                      return (
+                        <li>
+                          <a
+                            class="pr-[10px] hover:bg-stone-100 h-7 items-center flex"
+                            href={`#${heading.slug}`}
+                            style={{
+                              paddingLeft: `${(heading.depth - 1) * 10}px`,
+                            }}
+                          >
+                            <span class="truncate">{heading.text}</span>
+                          </a>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
       <div class="grow md:ml-[220px] md:min-h-dvh md:p-5 md:flex flex-col">
@@ -73,7 +104,9 @@ const description = Astro.props.description || site.description
               </div>
             )
           }
-          <div class={clsx((title || date) && "mt-10")}><slot /></div>
+          <div class={clsx((title || date) && "mt-10")}>
+            <slot />
+          </div>
         </div>
       </div>
     </div>
