@@ -42,11 +42,11 @@ const description = Astro.props.description || site.description
       href="/rss.xml"
     />
   </head>
-  <body
-    ><div class="flex flex-col md:flex-row antialiased max-w-screen-lg mx-auto">
-      <div class="shrink-0 md:w-[220px] border-r md:fixed top-0 bottom-0">
-        <div class="p-5 md:py-10 lg:py-20">
-          <h1 class="md:px-2">
+  <body class="md:bg-stone-50"
+    ><div class="flexflex-col md:flex-row antialiased max-w-screen-lg mx-auto">
+      <div class="shrink-0 md:w-[220px] md:fixed top-0 bottom-0">
+        <div class="p-5 md:py-8">
+          <h1 class="md:px-1">
             <a href="/">
               <Image
                 src={avatar}
@@ -58,19 +58,23 @@ const description = Astro.props.description || site.description
           <SidebarNav />
         </div>
       </div>
-      <div class="grow md:w-0 md:ml-[220px] p-5 md:p-10 lg:p-20">
-        {title && <h2 class="text-4xl font-extrabold">{title}</h2>}
-        {
-          date && (
-            <div class={clsx("relative flex items-center", title && "mt-5")}>
-              <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
-                {dayjs(date).format("YYYY-MM-DD")}
-              </span>
-              <div class="h-[3px] flex-1 bg-zinc-50" />
-            </div>
-          )
-        }
-        <div class={clsx((title || date) && "mt-10")}><slot /></div>
+      <div class="grow md:ml-[220px] md:min-h-dvh md:p-5 md:flex flex-col">
+        <div
+          class="p-5 grow shadow-sm bg-white md:p-10 md:h-full md:border rounded-lg"
+        >
+          {title && <h2 class="text-4xl font-extrabold">{title}</h2>}
+          {
+            date && (
+              <div class={clsx("relative flex items-center", title && "mt-5")}>
+                <span class="relative z-10 mr-2 inline-flex h-7 items-center bg-zinc-100 rounded-lg px-2 text-sm">
+                  {dayjs(date).format("YYYY-MM-DD")}
+                </span>
+                <div class="h-[3px] flex-1 bg-zinc-50" />
+              </div>
+            )
+          }
+          <div class={clsx((title || date) && "mt-10")}><slot /></div>
+        </div>
       </div>
     </div>
 
