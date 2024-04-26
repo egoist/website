@@ -26,6 +26,9 @@ export default defineConfig({
       },
       styleOverrides: {
         codeFontSize: "0.95rem",
+        frames: {
+          shadowColor: "transparent",
+        },
       },
     }),
     mdx({}),
