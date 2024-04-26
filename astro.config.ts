@@ -18,6 +18,7 @@ export default defineConfig({
       noExternal: ["use-onclickoutside"],
     },
   },
+  site: "https://egoist.dev",
   integrations: [
     expressiveCode({
       themes: ["solarized-light"],

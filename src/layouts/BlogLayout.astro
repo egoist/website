@@ -41,7 +41,7 @@ const description = Astro.props.description || site.description
       rel="alternate"
       type="application/rss+xml"
       title="RSS Feed for EGOIST's Blog"
-      href="/rss.xml"
+      href={`${Astro.site}rss.xml`}
     />
   </head>
   <body class="md:bg-stone-50"

@@ -1,32 +1,32 @@
-import type { APIRoute } from "astro";
+import type { APIRoute } from "astro"
+import rss from "@astrojs/rss"
+import { getCollection } from "astro:content"
+import { site } from "~/config"
+import { sortByDate } from "~/lib/utils"
 
-import { getCollection } from "astro:content";
-import { site } from "~/config";
-import { Feed } from "feed";
-import { sortByDate } from "~/lib/utils";
-
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async (context) => {
   const allPosts = await getCollection(
     "blog",
-    (item) => !item.data.is_page && item.data.date
-  );
+    (item) => !item.data.is_page && item.data.date,
+  )
 
-  const feed = new Feed({
+  return rss({
+    // `<title>` field in output xml
     title: site.title,
+    // `<description>` field in output xml
     description: site.description,
-    id: site.url,
-    copyright: `All rights reserved`,
-    link: site.url,
-  });
+    // Pull in your project "site" from the endpoint context
+    // https://docs.astro.build/en/reference/api-reference/#contextsite
+    site: context.site!,
 
-  for (const post of sortByDate(allPosts)) {
-    feed.addItem({
-      title: post.data.title,
-      date: post.data.date!,
-      link: `${site.url}/${post.slug}`,
-    });
-  }
-  return {
-    body: feed.rss2(),
-  };
-};
+    // Array of `<item>`s in output xml
+    // See "Generating items" section for examples using content collections and glob imports
+    items: sortByDate(allPosts).map((post) => {
+      return {
+        title: post.data.title,
+        pubDate: post.data.date!,
+        link: `/${post.slug}`,
+      }
+    }),
+  })
+}
