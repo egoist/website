@@ -35,7 +35,7 @@ export default function middleware(req: NextRequest) {
 What the code above does:
 
 1. Check if `host` is equal to `OUR_DOMAIN`, if not it belongs to a tenant, the value of `tenant` is the subdomain or custom domain
-2. Rewrite to `_tenant/$subdomain/$originalPath` if it is
+2. Rewrite to `_tenant/$tenant/$originalPath` if it is
 
 ## SvelteKit
 
