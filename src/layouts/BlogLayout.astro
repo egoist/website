@@ -123,5 +123,11 @@ const description = Astro.props.description || site.description
         />
       )
     }
+
+    {
+      import.meta.env.PROD && (
+        <script async src="https://cdn.seline.so/seline.js" />
+      )
+    }
   </body>
 </html>
