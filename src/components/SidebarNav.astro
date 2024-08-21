@@ -1,5 +1,5 @@
 ---
-import clsx from "clsx"
+import { cn } from "~/lib/utils"
 
 const nav = [
   {
@@ -14,6 +14,13 @@ const nav = [
     label: "donate",
     href: "/donate",
   },
+  {
+    label: "RSS Feed",
+    href: "/rss.xml",
+    icon: "i-heroicons-rss-20-solid",
+    showLabelOnHover: true,
+    class: "text-orange-500 font-medium",
+  },
 ]
 ---
 
@@ -25,15 +32,25 @@ const nav = [
       return (
         <a
           href={item.href}
-          class={clsx(
-            "rounded-full flex px-3 md:px-5 gap-3 h-8 md:h-12 items-center group-hover:text-zinc-900 capitalize leading-none",
+          class={cn(
+            "group rounded-full flex px-3 md:px-5 gap-1 md:gap-2 h-8 md:h-12 items-center group-hover:text-zinc-900 capitalize leading-none",
             Astro.url.pathname === item.href ||
               Astro.url.pathname === `${item.href}/`
               ? "md:bg-stone-200/60"
-              : "hover:bg-stone-200/40 text-stone-700"
+              : "hover:bg-stone-200/40 text-stone-700",
+            item.class
           )}
         >
-          <span>{item.label}</span>
+          {item.icon && <span class={item.icon} />}
+          <span
+            class={
+              item.showLabelOnHover
+                ? "opacity-0 group-hover:opacity-100 transition"
+                : ""
+            }
+          >
+            {item.label}
+          </span>
         </a>
       )
     })

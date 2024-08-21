@@ -1,4 +1,4 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
+const defaultTheme = require("tailwindcss/defaultTheme")
 
 module.exports = {
   content: ["./src/**/*.{mdx,md,tsx,astro}"],
@@ -29,7 +29,11 @@ module.exports = {
     require("@egoist/tailwindcss-icons").iconsPlugin({
       collections: require("@egoist/tailwindcss-icons").getIconCollections([
         "lucide",
+        "tabler",
+        "ri",
+        "ic",
+        "heroicons",
       ]),
     }),
   ],
-};
+}

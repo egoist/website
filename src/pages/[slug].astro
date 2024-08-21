@@ -25,6 +25,7 @@ export const getStaticPaths = async () => {
   date={page.data.date}
   description={page.data.ai_summary}
   headings={page.data.is_page ? undefined : headings}
+  isPost={!page.data.is_page}
 >
   <div class="prose"><Content /></div>
 </BlogLayout>
