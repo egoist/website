@@ -25,6 +25,7 @@ export const GET: APIRoute = async (context) => {
       return {
         title: post.data.title,
         pubDate: post.data.date!,
+        description: post.data.description || post.data.ai_summary,
         link: `/${post.slug}`,
       }
     }),
