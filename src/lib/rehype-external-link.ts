@@ -1,24 +1,24 @@
-import { Root } from "rehype-raw";
-import { Plugin } from "unified";
-import { visit } from "unist-util-visit";
+import type { Root } from "hast"
+import type { Plugin } from "unified"
+import { visit } from "unist-util-visit"
 
-const isExternLink = (url: string) => /^https?:\/\//.test(url);
+const isExternLink = (url: string) => /^https?:\/\//.test(url)
 
 export const rehypeExternalLink: Plugin<Array<void>, Root> = () => {
   return (tree) => {
     visit(tree, { type: "element", tagName: "a" }, (node) => {
-      if (!node.properties) return;
+      if (!node.properties) return
 
-      const url = node.properties.href;
+      const url = node.properties.href
 
       if (!url || typeof url !== "string") {
-        return;
+        return
       }
 
       if (isExternLink(url)) {
-        node.properties.target = "_blank";
-        node.properties.rel = "noopener noreferrer";
+        node.properties.target = "_blank"
+        node.properties.rel = "noopener noreferrer"
       }
-    });
-  };
-};
+    })
+  }
+}
