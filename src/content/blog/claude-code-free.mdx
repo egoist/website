@@ -3,6 +3,8 @@ title: 免费使用 Claude Code
 date: 2025-06-20
 ---
 
+import demo from "./claude-code-free/demo.mp4"
+
 [Claude Code](https://www.anthropic.com/claude-code) 是 Anthropic 推出的 Vibe coding 工具，类似 Cursor 的 agent 不过需要你在命令行终端中操作。
 
 使用 Claude Code 的官方方式是订阅 $20/月的 Claude Pro 计划，或者使用你自己的 Anthropic API Key 然后按需付费，不过按需付费可能会导致大额账单，所以我并不推荐。不过幸好 Anthropic 为 Claude Code 开放了自定义 API 的功能，你可以使用自己的 API 然后让 Claude Code 调用任何模型，只要你的 API 兼容 Anthropic 的 API 格式。
@@ -49,3 +51,7 @@ npm install -g @musistudio/claude-code-router
 我的这个配置文件使用 OpenRouter 里的 Gemini 模型，所以花费极低，你可以根据你的需求换成其他的模型，比如 DeepSeek V3/R1，或者用 Claude 来匹配官方的效果。
 
 然后在你的项目中运行 `ccr code` 就可以使用 Claude Code 了。(这个命令的工作原理是启动一个本地 API 服务器 `http://localhost:3456` 然后通过子进程运行 `claude` 命令并设置环境变量 `ANTHROPIC_BASE_URL=http://localhost:3456`)
+
+## 预览效果
+
+<video src={demo} alt="demo" controls muted playsinline />
