@@ -9,6 +9,7 @@ import { site } from "~/config"
 import { Image } from "astro:assets"
 import clsx from "clsx"
 import type { MarkdownHeading } from "astro"
+import { getImagePath } from "astro-opengraph-images"
 
 interface Props {
   title?: string
@@ -21,10 +22,12 @@ interface Props {
   isPost?: boolean
 }
 
-const { title, date, meta, headings } = Astro.props
+const { title, date, meta, headings, isPost } = Astro.props
 
 const documentTitle = meta?.title || `${title} - ${site.title}`
 const description = Astro.props.description || site.description
+
+const openGraphImageUrl = getImagePath({ url: Astro.url, site: Astro.site })
 ---
 
 <html>
@@ -34,10 +37,12 @@ const description = Astro.props.description || site.description
     <title>{documentTitle}</title>
     <link rel="icon" href="/favicon_v3.jpeg" type="image/jpeg" sizes="80x80" />
     <meta name="twitter:card" content="summary" />
-    <meta name="og:title" content={title} />
-    <meta name="og:site_name" content={site.title} />
+    <meta property="og:title" content={title || site.title} />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content={isPost ? "article" : "website"} />
     <meta name="description" content={description} />
-    <meta name="og:description" content={description} />
+    <meta property="og:description" content={description} />
     <meta name="google-adsense-account" content="ca-pub-6132862500355662" />
     <link
       rel="alternate"
@@ -45,6 +50,11 @@ const description = Astro.props.description || site.description
       title="RSS Feed for EGOIST's Blog"
       href={`${Astro.site}rss.xml`}
     />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="image" content={openGraphImageUrl} />
+    <meta itemprop="image" content={openGraphImageUrl} />
+    <meta name="twitter:image" content={openGraphImageUrl} />
+    <meta property="og:image" content={openGraphImageUrl} />
   </head>
   <body class="md:bg-stone-50"
     ><div class="antialiased max-w-screen-lg mx-auto">
