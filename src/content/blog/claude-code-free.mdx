@@ -86,17 +86,13 @@ npm install -g @musistudio/claude-code-router
       "name": "openrouter",
       "api_base_url": "https://openrouter.ai/api/v1",
       "api_key": "sk-xxx",
-      "models": [
-        "deepseek/deepseek-chat:free",
-        "deepseek/deepseek-r1:free",
-        "google/gemini-2.0-flash-exp:free"
-      ]
+      "models": ["deepseek/deepseek-chat:free", "deepseek/deepseek-r1:free"]
     }
   ],
   "Router": {
     "background": "openrouter,deepseek/deepseek-chat:free",
     "think": "openrouter,deepseek/deepseek-r1:free",
-    "longContext": "openrouter,google/gemini-2.0-flash-exp:free"
+    "longContext": "openrouter,deepseek/deepseek-r1:free"
   }
 }
 ```
