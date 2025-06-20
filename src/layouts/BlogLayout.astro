@@ -20,9 +20,10 @@ interface Props {
   date?: string | Date
   headings?: MarkdownHeading[]
   isPost?: boolean
+  lang?: string
 }
 
-const { title, date, meta, headings, isPost } = Astro.props
+const { title, date, meta, headings, isPost, lang } = Astro.props
 
 const documentTitle = meta?.title || `${title} - ${site.title}`
 const description = Astro.props.description || site.description
@@ -30,7 +31,7 @@ const description = Astro.props.description || site.description
 const openGraphImageUrl = getImagePath({ url: Astro.url, site: Astro.site })
 ---
 
-<html>
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
