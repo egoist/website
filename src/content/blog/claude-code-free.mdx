@@ -76,7 +76,7 @@ npm install -g @musistudio/claude-code-router
 
 下面这个配置展示如何全部使用 OpenRouter 提供的免费模型:
 
-```
+```json
 {
   "OPENAI_API_KEY": "sk-xxx",
   "OPENAI_BASE_URL": "https://openrouter.ai/api/v1",
@@ -86,7 +86,11 @@ npm install -g @musistudio/claude-code-router
       "name": "openrouter",
       "api_base_url": "https://openrouter.ai/api/v1",
       "api_key": "sk-xxx",
-      "models": ["deepseek/deepseek-chat:free", "deepseek/deepseek-r1:free"]
+      "models": [
+        "deepseek/deepseek-chat:free",
+        "deepseek/deepseek-r1:free",
+        "google/gemini-2.0-flash-exp:free"
+      ]
     }
   ],
   "Router": {
