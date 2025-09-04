@@ -1,0 +1,119 @@
+---
+import BlogLayout from "~/layouts/BlogLayout.astro"
+import { site } from "~/config"
+---
+
+<BlogLayout title="Uses" description="A living document of the tools, software, and hardware I use for development">
+  <div class="prose prose-lg max-w-none">
+
+    
+    <p class="text-sm text-gray-500 mb-12 !-mt-5">
+      This is a living document of the tools, software, and hardware I use.
+      If there is something missing, reach out to me on <a href={`https://x.com/${site.twitter}`} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">X/Twitter</a> and I'll add it.
+    </p>
+
+    <h2 id="editor-terminal" class="text-3xl font-bold mb-6 border-b-2 border-gray-200 pb-2">Editor + Terminal</h2>
+    
+    <h3 class="text-xl font-semibold mb-3">Editor</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>Cursor</strong> - For a seamless AI-assisted coding experience. Cursur Tab is still undefeated btw.</li>
+      <li><strong>Visual Studio Code</strong> - Sometimes I get tired of Cursor draining all the RAM so I switch to its origin.</li>
+      <li><strong>Zed</strong> - To be honest VSCode based editors are fast enough for me, but I just love how Zed looks, and the new ACP integration is really dope.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Terminal</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>Warp</strong> - A modern terminal with AI features and great UX.</li>
+      <li><strong>Fish Shell</strong> - A Unix-like Shell built for people my age.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Font</h3>
+    <ul class="mb-8 space-y-2">
+      <li><strong>Maple Mono</strong> - I'm simply attracted to its curves.</li>
+      <li><strong>Comic Mono</strong> - If you don't think it's cute, you're probably not my type.</li>
+    </ul>
+
+    <h2 id="desktop-apps" class="text-3xl font-bold mb-6 border-b-2 border-gray-200 pb-2">Desktop Apps</h2>
+    
+    <h3 class="text-xl font-semibold mb-3">Productivity</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>Raycast</strong> - I mainly use it to launch apps, open emoji picker and frequently do currency conversions as I'm pre-rich.</li>
+      <li><strong>Brave Browser</strong> - Not ideal but really the best option on the market, would be even better if they remove all the crypto nonsense.</li>
+      <li><strong><a href="https://chatwise.app" target="_blank">ChatWise</a></strong> - AI chat app made by the greatest indie hacker since jesus christ, and the only product that's linked to its website on this page.</li>
+      <li><strong>1Password</strong> - The place where I store all my secrets, literally.</li>
+      <li><strong>LocalSend</strong> - AirDrop but for everyone.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Development Tools</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>OrbStack</strong> - Light-weight Docker GUI for macOS, you're screwed if you're on Windows though.</li>
+      <li><strong>Yaak</strong> - Open-source Postman alternative.</li>
+      <li><strong>Dataflare</strong> - Light-weight database explorer.</li>
+      <li><strong>Proxyman/Reqable</strong> - HTTP debugging proxy with excellent UI, the latter is free btw.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Design & Media</h3>
+    <ul class="mb-8 space-y-2">
+      <li><strong>Figma</strong> - I can't design but I use it anyway.</li>
+      <li><strong>IINA</strong> - How else can you watch videos of any format?</li>
+      <li><strong>Image2Icon</strong> - Generate icons in various formats for Windows, macOS, and mobile platforms.</li>
+      <li><strong>CapCut</strong> - I just use it to cut videos.</li>
+    </ul>
+
+    <h2 id="tech-stack" class="text-3xl font-bold mb-6 border-b-2 border-gray-200 pb-2">Tech Stack</h2>
+    
+    <h3 class="text-xl font-semibold mb-3">Languages & Frameworks</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>TypeScript</strong> - My go-to language for most projects. Type safety is essential.</li>
+      <li><strong>Node.js</strong> - JavaScript runtime for server-side development.</li>
+      <li><strong>React</strong> - The front-end framework that nobody really likes but has to use for one reason or another.</li>
+      <li><strong>React Router</strong> - It just works for SPA, SSR or anything you need for a web app, and it won't drive you insane like Next.js.</li>
+      <li><strong>Better Auth</strong> - The last auth library you will ever need in your web apps.</li>
+      <li><strong>Astro</strong> - Great for static sites (and nothing else really).</li>
+      <li><strong>Tauri</strong> - Build desktop apps with Rust and web technologies.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Tools & Services</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>Vercel</strong> - The best deployment platform for serverless and static websites.</li>
+      <li><strong>Cloudflare</strong> - Vercel but with worse UX, it's cheap so people like it.</li>
+      <li><strong>Tailwind CSS</strong> - It makes you forget about how CSS works.</li>
+      <li><strong>Prettier</strong> - An opinionated code formatter but I change it to <code>semi: false</code> anyway.</li>
+      <li><strong>Stripe</strong> - I use it to collect payments for my products, but I'm looking for other options that support Alipay/Wechat Pay too.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Package Managers</h3>
+    <ul class="mb-8 space-y-2">
+      <li><strong>pnpm</strong> - The best all-around package manager for Node.js, the non-flat node_modules structure is a necessity for me.</li>
+      <li><strong>mise</strong> - Version manager for Node.js, Python, Ocaml and many more.</li>
+    </ul>
+    
+    <h2 id="hardware" class="text-3xl font-bold mb-6 border-b-2 border-gray-200 pb-2">Hardware</h2>
+    
+    <h3 class="text-xl font-semibold mb-3">Computer</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>MacBook Air 14"</strong> - M4, 32GB RAM. Apple really cooked with this one, highly recommended.</li>
+      <li><strong>External Monitor</strong> - LG 4K display for extended screen real estate.</li>
+    </ul>
+    
+    <h3 class="text-xl font-semibold mb-3">Hand-held</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>iPhone 16</strong> - I just love small devices and iPhone base model with 6.1-inch display is the cutest thing ever, but the battery really sucks compared to Android phones.</li>
+      <li><strong>Oppo Find X8 Ultra</strong> - I use it for research purposes in the world of forbidden Japanese manga and South Korean webtoons. It also got a great camera but I don't even go outside.</li>
+    </ul>
+
+    <h3 class="text-xl font-semibold mb-3">Peripherals</h3>
+    <ul class="mb-6 space-y-2">
+      <li><strong>Nuphy Air75</strong> - Great keyboard.</li>
+      <li><strong>MX Master 3S</strong> - Even better mouse.</li>
+      <li><strong>Airpods Pro 2</strong> - Had to use it as I'm deep in the Apple ecosystem, but the best nontheless.</li>
+      <li><strong>Oppo Enco Free4 Earphones</strong> - Airpods for Android, but worse.</li>
+    </ul>
+
+
+    <div class="mt-12 p-3 bg-gray-50 rounded-lg border text-sm">
+      This list is constantly evolving as I discover new tools and my workflow changes. 
+      <br/> Last updated: 2025/09/04
+    </div>
+  </div>
+</BlogLayout>
