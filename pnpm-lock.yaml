@@ -17,6 +17,9 @@ importers:
       '@astrojs/rss':
         specifier: ^4.0.12
         version: 4.0.12
+      '@fontsource-variable/geist-mono':
+        specifier: ^5.2.6
+        version: 5.2.6
       '@fontsource-variable/inter':
         specifier: ^5.0.16
         version: 5.0.16
@@ -386,6 +389,9 @@ packages:
 
   '@expressive-code/plugin-text-markers@0.36.0':
     resolution: {integrity: sha512-R7FzCNp5w7qBjPtN6wR7E+ZLL23jnjBgiJPqeTAUPrRH2K+FVEES+a7RlDiApsq8pWKNGl+CfOOd+R1sRTXmIw==}
+
+  '@fontsource-variable/geist-mono@5.2.6':
+    resolution: {integrity: sha512-vw6T9JGTrYJ980bn7W8iTPhe2jVK5ifunVs7xh9dfTVArjDSkJs03JjeZrH5LKEpGABLXSlSlNU57HRm4tmFMg==}
 
   '@fontsource-variable/inter@5.0.16':
     resolution: {integrity: sha512-k+BUNqksTL+AN+o+OV7ILeiE9B5M5X+/jA7LWvCwjbV9ovXTqZyKRhA/x7uYv/ml8WQ0XNLBM7cRFIx4jW0/hg==}
@@ -3348,6 +3354,8 @@ snapshots:
   '@expressive-code/plugin-text-markers@0.36.0':
     dependencies:
       '@expressive-code/core': 0.36.0
+
+  '@fontsource-variable/geist-mono@5.2.6': {}
 
   '@fontsource-variable/inter@5.0.16': {}
 
