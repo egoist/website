@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
-        mono: ["Geist Mono Variable", ...defaultTheme.fontFamily.mono],
+        sans: [`"Inter Variable"`, ...defaultTheme.fontFamily.sans],
+        mono: [`"Geist Mono Variable"`, ...defaultTheme.fontFamily.mono],
       },
       colors: {
         primary: "#563bda",

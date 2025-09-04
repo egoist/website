@@ -42,6 +42,7 @@ export default defineConfig({
       },
       styleOverrides: {
         codeFontSize: "0.95rem",
+        codeFontFamily: "var(--font-mono)",
         frames: {
           shadowColor: "transparent",
         },
