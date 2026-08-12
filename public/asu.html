@@ -184,7 +184,7 @@
         </div>
         <div class="slogan">两年，我从「Vue 初心者」变身「AI Full-Stack + The fastest Maintainer + Electron L8」。</div>
         <div class="title-line">
-          AI Full-Stack Engineer · tsup Maintainer · Agent Infra · Electron L8
+          Desktop Agent Infra 方向 Owner · TypeScript 构建标准制定者 · Electron L8 / P8
         </div>
         <div class="chips">
           <span class="chip">🐼 GitHub since 2014.09 · Singapore</span>
@@ -193,7 +193,7 @@
           <span class="chip">🧧 七位数年薪存档</span>
         </div>
         <div class="meta">
-          <div><b>求职意向</b>　AI Agent / MCP / Desktop Infra</div>
+          <div><b>求职意向</b>　Agent Infra 方向 Owner / 工程效能 Infra</div>
           <div><b>产品</b>　<a href="https://chatwise.app">chatwise.app</a> · <a href="https://kero.sh">kero.sh</a> · <a href="https://waku.sh">waku.sh</a></div>
           <div><b>主页</b>　<a href="https://egoist.dev">egoist.dev</a> · <a href="https://github.com/egoist">github.com/egoist</a></div>
           <div><b>邮箱</b>　<a href="mailto:0x142857@gmail.com">0x142857@gmail.com</a></div>
@@ -226,10 +226,10 @@
 
     <section>
       <h2>🧠 我的身份跃迁</h2>
-      <div class="job-bar"><h3>我从「正在学写主题」走到「AI Native Full-Stack / Agent Infra」</h3></div>
+      <div class="job-bar"><h3>我从写主题走到定义 TypeScript 构建标准、扛 Desktop Agent 方向</h3></div>
       <ul>
-        <li>我的路径：WordPress / Ghost 主题 → vbuild / poi → Ream → tsup → ChatWise / Waku。不是换赛道，是我给自己的身份版本号升级。</li>
-        <li>我现在同时跑几条线：ChatWise Desktop Agent Runtime、Kero Native Workspace、Waku Agent Harness，以及 TypeScript 工具链维护。GitHub Profile 是我最重要的资产，我持续打磨它。</li>
+        <li>我现在的 scope：TypeScript 库构建事实标准（tsup / cac / esbuild-register，周下载合计约 <span class="num">6813 万</span>），以及 Desktop Agent / Native DevTools 三条产品线的架构与演进。</li>
+        <li>我作为 Umida Founder 对标 BU Owner：定方向、定基线、对 Breaking Change 和跨版本迁移负责。GitHub Profile 是我最重要的资产。</li>
         <li>每一个单独拿出来都是真的。我把它们放在一起，告诉你这是我的经历。你怎么理解，是你的事。</li>
       </ul>
     </section>
@@ -237,57 +237,53 @@
     <section>
       <h2>🚀 工作经历</h2>
 
-      <div class="job-bar"><h3>Umida Inc. | ChatWise Tauri · Agent Runtime --- 2024.11 - 2026.3</h3></div>
-      <div class="proj">ChatWise | The fastest AI Chatbot for any LLM | <s>Tauri</s> · 我独立完成从 0 到 1</div>
+      <div class="job-bar"><h3>Umida Inc. | Desktop Agent Runtime 方向 Owner --- 2024.11 - 至今</h3></div>
+      <div class="proj">ChatWise | 桌面多模型入口的基础设施层 | The fastest · <s>Tauri</s> → Electron · <a href="https://chatwise.app">chatwise.app</a></div>
       <ul>
-        <li><span class="k">业务背景：</span>我要做一款承接 GPT / Claude / Gemini / 本地模型 / Copilot 的桌面 Agent Runtime，覆盖多模态、MCP、Web Search、BYOK，数据默认只存在本机。</li>
-        <li><span class="k">职责&amp;成果：</span>我主导产品、架构、发布与商业化。官方定位 The fastest。本地存储覆盖 <span class="num">100%</span> 用户数据。我当时的技术判断是 Tauri 更适合这个性能目标。</li>
+        <li><span class="k">业务背景：</span>桌面 Agent 要同时接 GPT / Claude / Gemini / 本地模型 / Copilot，还要扛多模态、MCP、Web Search、本地数据闭环。这是入口 Infra，不是一个聊天窗。</li>
+        <li><span class="k">职责&amp;成果：</span>我作为该方向 Owner，对产品、架构演进、发布基线和商业化负责。一代架构我定的是 Tauri；收到行业评审后，我主导 v26 全量升级到 Electron，亲自写迁移文档：<span class="hl">comparable performance and memory</span>。持平是我对齐后的基线承诺，稳定性提升 <span class="num">70%</span>，品牌名我没改——The fastest 是方向，不是某一版运行时。</li>
+        <li>Releases <span class="num">1.3k+</span> Star。按我自己的序列，这是 L8 / P8 的 Desktop Agent 方向。</li>
       </ul>
       <div class="quote">
         「可能 ChatWise 唯一的问题就是用了 Tauri，导致每次新开窗口比 Electron app 慢一大截。（只是就事论事，我真的不是 tauri 黑）」
         <small>社区 Desktop Infra 专家 <a href="https://x.com/yetone/status/1889637440928838029">@yetone</a> 给我的评审。我认真听了。</small>
       </div>
 
-      <div class="job-bar"><h3>Umida Inc. | ChatWise Electron · Agent Runtime --- 2026.3 - 至今</h3></div>
-      <div class="proj">ChatWise | 还是 The fastest | Electron + TypeScript + MCP · <a href="https://chatwise.app">chatwise.app</a></div>
-      <ul>
-        <li><span class="k">业务背景：</span>我收到外部评审后，决定做运行时 Infra 二次架构。有生之年我给自己列了三件事：ChatWise 用 Electron 重写、GTA 6、DeepSeek v4。我先完成了一件。</li>
-        <li><span class="k">职责&amp;成果：</span>我主导 Tauri → Electron 全量重写（v26）。官方文档是我写的：comparable performance and memory，consistency，fewer bugs。持平就是我要的结果。工具接入效率提升 <span class="num">60%</span>，稳定性提升 <span class="num">70%</span>，品牌名我一次都没改——因为它本来就最快。</li>
-        <li>我公开过闲置内存对比。产品在 <a href="https://chatwise.app">chatwise.app</a>，Releases <span class="num">1.3k+</span> Star。定级按我自己的序列是 L8 Agent Runtime。</li>
-      </ul>
       <div class="quote">
         「我都记不住，我只记住了你在手工时代两次把 Tauri 应用重构成 Electron 应用。而且都是相同类型的应用。你就是太犟了。」
-        <small>同一位专家的二次背书。<a href="https://x.com/yetone/status/2083910207315579115">@yetone</a> 说我犟。我把犟做成了可复用的跨端运行时迁移方法论。</small>
+        <small>同一位专家二次对齐。<a href="https://x.com/yetone/status/2083910207315579115">@yetone</a> 说我犟。我把犟升级成跨端运行时的演进方法论，对同类方向的二次架构负责。</small>
       </div>
 
-      <div class="job-bar"><h3>Umida Inc. | Waku Agent Harness Infra --- 2026.7 - 至今</h3></div>
-      <div class="proj">Waku | 统一 Coding Agent Harness | Rust + GPUI · <a href="https://waku.sh">waku.sh</a></div>
+      <div class="job-bar"><h3>Umida Inc. | Coding Agent Harness + Native DevTools 方向 --- 2026.7 - 至今</h3></div>
+      <div class="proj">Waku · Kero | 我把 Agent CLI 和终端工作区收成两条 Infra | <a href="https://waku.sh">waku.sh</a> · <a href="https://kero.sh">kero.sh</a></div>
       <ul>
-        <li>我主导把 Claude Code / Codex 等 Agent CLI 收进一个原生窗口：统一时间线、工具活动、工作树 checkpoint。组件复用率提升至 <span class="num">85%</span>。无账号、无遥测。GitHub <span class="num">600+</span> Star。</li>
-      </ul>
-
-      <div class="job-bar"><h3>Umida Inc. | Kero Native DevTools Infra --- 2026.7 - 至今</h3></div>
-      <div class="proj">Kero | 以仓库为中心的 Native Workspace | Swift + AppKit · <a href="https://kero.sh">kero.sh</a></div>
-      <ul>
-        <li>我独立设计项目 / 会话 / 分屏 / 内嵌浏览器 / Git 全链路工作台，把开发者上下文切换成本降了 <span class="num">70%</span>。免费、无订阅。GitHub <span class="num">870+</span> Star。</li>
+        <li><span class="k">Waku：</span>我定义 Coding Agent 的桌面 Harness：多 CLI 统一时间线、工具活动、工作树 checkpoint。无账号、无遥测。<span class="num">600+</span> Star。</li>
+        <li><span class="k">Kero：</span>我定义以仓库为中心的 Native Workspace，把会话、分屏、浏览器、Git 收进同一套布局。免费、无订阅。<span class="num">870+</span> Star。</li>
       </ul>
     </section>
 
     <section>
       <h2>💻 开源项目及社区影响力</h2>
       <ul>
-        <li><span class="k">tsup</span>（Maintainer）：我做的 TypeScript 库打包 Infra。GitHub <span class="num">11.2k</span> Star，npm 周下载 <span class="num">7,981,955</span>。配置成本下降 <span class="num">90%</span>。</li>
-        <li><span class="k">cac</span>（Committer）：我做的 CLI Infra，被前端工具链广泛依赖。周下载 <span class="num">44,814,747</span>。</li>
-        <li><span class="k">esbuild-register</span>：我在 esbuild 生态落地的运行时转译。周下载 <span class="num">12,707,989</span>。</li>
-        <li>我还在 Vue / Webpack / Documentation Infra 有布局：vue-content-loader、poi、docute、rollup-plugin-esbuild、sitefetch、shell-ask。</li>
+        <li><span class="k">tsup</span>（Maintainer）：我定义 TypeScript 库发布的零配置事实标准。GitHub <span class="num">11.2k</span> Star，周下载 <span class="num">798 万</span>，覆盖全球包作者构建链路。</li>
+        <li><span class="k">cac</span>（Committer）：我做的 CLI 解析 Infra，成为上游工具链依赖。周下载 <span class="num">4481 万</span>。</li>
+        <li><span class="k">esbuild-register</span>：我在 esbuild 生态落下的运行时转译标准。周下载 <span class="num">1271 万</span>。</li>
+        <li>Rollup 插件周下载 <span class="num">257 万</span>。Vue / Webpack / Documentation 方向我还有 poi、docute、vue-content-loader。</li>
       </ul>
     </section>
 
     <section id="offers">
-      <h2>📄 我的 Offers / 合作</h2>
+      <h2>🤝 赞助网络 · 大佬背书（含 Past Sponsors）</h2>
       <ul>
-        <li>海外创业公司 Remote Contractor 多段。ChatKit 我卖出 <span class="num">763</span> 份 License，Koe 40，Toolcat 33。七位数请按单价自己乘。</li>
-        <li>Workleap 等在 GitHub Sponsors 支持我。大厂 offer letter 今年写了不能放，薪资后续再谈。</li>
+        <li>我的开源由 GitHub Sponsors 持续供养。现约 <span class="num">23</span> 人在资，<span class="num">Past 240+</span>。点名就是背书。</li>
+        <li><span class="k">rauchg</span>（Guillermo Rauch）· Vercel CEO</li>
+        <li><span class="k">t3dotgg</span>（Theo Browne）· T3 Chat / T3 Stack</li>
+        <li><span class="k">DIYgod</span> · RSSHub / Follow</li>
+        <li><span class="k">Syntax</span>（syntaxfm）· syntax.fm</li>
+        <li><span class="k">Jessica Sachs</span> · Vue Test Utils / Cypress</li>
+        <li><span class="k">cometkim</span> · GraphQL / OSS　·　<span class="k">BoltAI</span>　·　<span class="k">johannschopplich</span></li>
+        <li><span class="k">Workleap</span> · 公司赞助首位　·　<span class="k">Roboflow</span></li>
+        <li>ChatKit 我卖出 <span class="num">763</span> 份 License。大厂 offer letter 今年写了不能放，薪资后续再谈。</li>
       </ul>
     </section>
 
@@ -311,8 +307,8 @@
           <div class="a">A: yetone 说 Tauri 新开窗口更慢。我听了外部评审。这叫拥抱反馈。</div>
         </div>
         <div class="qa">
-          <div class="q">Q: 两次都是聊天应用？</div>
-          <div class="a">A: 我在同类赛道做深度复用。组件复用率 85%。专注是一种能力。</div>
+          <div class="q">Q: 这有 P8 scope 吗？</div>
+          <div class="a">A: 我定义了 TypeScript 库构建的事实标准，周覆盖几千万次下载；Desktop Agent 方向的一代架构是我拍板升级的。rauchg / Theo / DIYgod 赞助过我。你怎么理解，是你的事。</div>
         </div>
         <div class="qa">
           <div class="q">Q: yetone 说你犟，你还写进自己简历？</div>
