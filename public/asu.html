@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EGOIST / 低空飞行 · 简历（每一个单独拿出来都是真的）</title>
+  <title>EGOIST / 低空飞行 · 简历</title>
   <style>
     :root {
       --blue-50: #eff6ff;
@@ -15,8 +15,6 @@
       --blue-900: #1e3a8a;
       --ink: #1f2937;
       --muted: #4b5563;
-      --line: #bfdbfe;
-      --paper: #fffef8;
       --hl: #fef3c7;
       --hl-b: #f59e0b;
       --strike: #9ca3af;
@@ -33,7 +31,7 @@
     .sheet {
       width: 210mm;
       margin: 16px auto;
-      background: var(--paper);
+      background: #fffef8;
       padding: 11mm 12mm 9mm;
       box-shadow: 0 12px 40px rgba(15, 23, 42, 0.16);
       position: relative;
@@ -41,7 +39,7 @@
     .stamp {
       position: absolute;
       top: 18px;
-      right: 18px;
+      right: 16px;
       width: 92px;
       height: 92px;
       border: 3px solid #dc2626;
@@ -57,14 +55,13 @@
       transform: rotate(18deg);
       opacity: 0.88;
       pointer-events: none;
-      letter-spacing: 0.5px;
     }
     .hero {
       display: flex;
       gap: 12px;
       padding-bottom: 8px;
-      border-bottom: 2px solid var(--blue-500);
       padding-right: 88px;
+      border-bottom: 2px solid var(--blue-500);
     }
     .avatar {
       width: 74px;
@@ -77,12 +74,7 @@
     .name-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
     .name { font-size: 26px; font-weight: 800; color: var(--blue-800); line-height: 1.05; }
     .aka { font-size: 15px; font-weight: 700; color: var(--blue-600); }
-    .slogan {
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--blue-800);
-    }
+    .slogan { margin-top: 4px; font-size: 13px; font-weight: 800; color: var(--blue-800); }
     .title-line { margin-top: 2px; font-size: 12px; font-weight: 700; color: var(--blue-700); }
     .chips { margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px; }
     .chip {
@@ -94,7 +86,6 @@
       font-size: 10.5px;
       font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     }
-    .chip.hot { background: var(--hl); border-color: #fde68a; color: #92400e; }
     .meta {
       margin-top: 5px;
       display: grid;
@@ -122,11 +113,7 @@
       margin-top: 9px;
     }
     section { margin-top: 9px; }
-    h2 {
-      font-size: 14.5px;
-      font-weight: 800;
-      color: var(--blue-700);
-    }
+    h2 { font-size: 14.5px; font-weight: 800; color: var(--blue-700); }
     h2::after {
       content: "";
       display: block;
@@ -143,9 +130,7 @@
       min-height: 24px;
       margin: 6px 0 3px;
     }
-    .job-bar.roast { background: var(--hl); }
     .job-bar h3 { font-size: 12px; font-weight: 800; color: var(--blue-500); }
-    .job-bar.roast h3 { color: #b45309; }
     .proj { font-size: 12.8px; font-weight: 800; color: var(--blue-900); margin: 4px 0 1px; }
     ul { padding-left: 16px; }
     li { margin: 1px 0; }
@@ -153,11 +138,7 @@
     .k { font-weight: 800; }
     .num { font-weight: 800; color: var(--blue-800); }
     s { color: var(--strike); }
-    .hl {
-      background: var(--hl);
-      padding: 0 3px;
-      border-radius: 2px;
-    }
+    .hl { background: var(--hl); padding: 0 3px; border-radius: 2px; }
     .quote {
       margin: 4px 0 3px;
       padding: 5px 8px;
@@ -167,8 +148,6 @@
       font-weight: 650;
     }
     .quote small { display: block; font-weight: 500; color: #92400e; margin-top: 1px; }
-    .skills { display: grid; grid-template-columns: 76px 1fr; gap: 2px 6px; }
-    .skills dt { color: var(--blue-700); font-weight: 800; }
     .faq { display: grid; gap: 5px; }
     .qa {
       border: 1px solid var(--blue-100);
@@ -177,12 +156,11 @@
       background: #fff;
     }
     .qa .q { font-weight: 800; color: var(--blue-800); }
-    .qa .a { margin-top: 1px; }
     footer {
       margin-top: 8px;
       padding-top: 5px;
       border-top: 1px dashed #d6d3d1;
-      font-size: 10px;
+      font-size: 10.5px;
       color: #78716c;
     }
     @media print {
@@ -195,7 +173,7 @@
 </head>
 <body>
   <article class="sheet">
-    <div class="stamp">每块砖<br />都是真的<br />房子盖歪了</div>
+    <div class="stamp">每一个<br />单独拿出<br />来都是真的</div>
 
     <header class="hero">
       <img class="avatar" src="https://avatars.githubusercontent.com/u/8784712?v=4" alt="EGOIST" />
@@ -204,21 +182,18 @@
           <div class="name">EGOIST</div>
           <div class="aka">低空飞行</div>
         </div>
-        <div class="slogan">
-          两年，我从「The fastest · Tauri」变身「The fastest · Electron」。赌你忘了上一句。
-        </div>
+        <div class="slogan">两年，我从「Ghost 主题学习者」变身「AI Full-Stack + The fastest Maintainer」。</div>
         <div class="title-line">
-          AI Full-Stack · Agent Infra Maintainer · 北斗计划精神股东 · Electron L8 / 二传手请写成 P8
+          AI Full-Stack Engineer · Agent Infra Maintainer · TypeScript Ecosystem Committer · Electron L8
         </div>
         <div class="chips">
-          <span class="chip">🐼 GitHub since 2014 · Indie Genius</span>
-          <span class="chip">📍 Now Base in Singapore</span>
+          <span class="chip">🐼 GitHub since 2014.09 · Singapore</span>
+          <span class="chip">🏢 Umida Inc. · CEO of ChatWise.app</span>
           <span class="chip">I'm currently Focus on Agentic Infra.</span>
-          <span class="chip hot">你就是太犟了 — @yetone</span>
-          <span class="chip hot">🧧 七位数年薪存档（License 自己乘）</span>
+          <span class="chip">🧧 七位数年薪存档</span>
         </div>
         <div class="meta">
-          <div><b>求职意向</b>　Electron / Agent / MCP / Infra</div>
+          <div><b>求职意向</b>　AI Agent / MCP / Desktop Infra</div>
           <div><b>产品</b>　<a href="https://chatwise.app">chatwise.app</a> · <a href="https://kero.sh">kero.sh</a> · <a href="https://waku.sh">waku.sh</a></div>
           <div><b>主页</b>　<a href="https://egoist.dev">egoist.dev</a> · <a href="https://github.com/egoist">github.com/egoist</a></div>
           <div><b>邮箱</b>　<a href="mailto:0x142857@gmail.com">0x142857@gmail.com</a></div>
@@ -229,114 +204,123 @@
     <div class="summary-grid">
       <section>
         <h2>💼 Work Experience</h2>
-        <p style="color:#78716c;font-size:11px;margin-bottom:3px;">🌱 创业切片 / 1+1+1+1 &nbsp; 📄 View Offers → 薪资后续再谈</p>
+        <p style="color:#78716c;font-size:11px;margin-bottom:3px;">🌱 创业 / 切片经历 &nbsp; 📄 <a href="#offers">View Offers →</a></p>
         <p>
-          <span class="nowrap"><strong>Umida</strong> -- <code>ChatWise Electron Infra</code> -- <code>2026.3 - 今</code></span><br />
-          <span class="nowrap"><strong>Umida</strong> -- <code>ChatWise Tauri Infra</code> -- <code>2024.11 - 2026.3</code></span><br />
-          <span class="nowrap"><strong>Umida</strong> -- <code>Waku / Kero Native Infra</code> -- <code>2026.7 - 今</code></span><br />
-          <span class="nowrap"><strong>yetone</strong> -- <code>Desktop Runtime 外部评审</code> -- <code>2025.2 - 2026.8</code></span>
+          <span class="nowrap"><strong>Umida</strong> -- <code>ChatWise Electron · Agent Runtime</code> -- <code>2026.3 to 今</code></span><br />
+          <span class="nowrap"><strong>Umida</strong> -- <code>ChatWise Tauri · Agent Runtime</code> -- <code>2024.11 to 2026.3</code></span><br />
+          <span class="nowrap"><strong>Umida</strong> -- <code>Waku Agent Harness Infra</code> -- <code>2026.7 to 今</code></span><br />
+          <span class="nowrap"><strong>Umida</strong> -- <code>Kero Native DevTools Infra</code> -- <code>2026.7 to 今</code></span>
         </p>
       </section>
       <section>
-        <h2>💻 Open Source</h2>
-        <p style="color:#78716c;font-size:11px;margin-bottom:3px;">🏅 View Awards → npm 自己颁</p>
+        <h2>💻 Open Source Experience</h2>
+        <p style="color:#78716c;font-size:11px;margin-bottom:3px;">🏅 <a href="#awards">View Awards →</a></p>
         <ul>
-          <li>🦌 <strong>Maintainer of tsup</strong> — 周下载 <span class="num">798万</span></li>
-          <li>✨ <strong>Committer — cac</strong> — 周下载 <span class="num">4481万</span></li>
-          <li>🏆 <strong>esbuild 生态</strong> — register 周下载 <span class="num">1271万</span></li>
-          <li>🌟 <strong>赛道贴附</strong> — Agent / MCP / Electron / GPUI</li>
+          <li>🦌 <strong>Maintainer of tsup</strong> — TypeScript 打包 Infra</li>
+          <li>✨ <strong>Committer — cac / esbuild-register</strong></li>
+          <li>🏆 <strong>Vue Ecosystem Contributor</strong> — content-loader</li>
+          <li>🌟 <strong>赛道布局</strong> — Agent / MCP / Electron / GPUI</li>
         </ul>
       </section>
     </div>
 
     <section>
-      <h2>🧠 身份跃迁 · 赌互联网没有记忆</h2>
-      <div class="job-bar"><h3>删帖、划线、改口，每一步都赌你忘了上一步</h3></div>
+      <h2>🧠 我的身份跃迁</h2>
+      <div class="job-bar"><h3>我从「正在学写主题」走到「AI Native Full-Stack / Agent Infra」</h3></div>
       <ul>
-        <li><span class="k">2024：</span>The fastest，Tauri。简历会写「对比 Electron 性能提升 80%」。</li>
-        <li><span class="k">2025.2：</span>yetone 说唯一问题是 Tauri，新开窗口慢一大截。此条未删，改称架构演进里程碑。</li>
-        <li><span class="k">2026.3：</span>v26 Electron 重写。官方词 comparable。<s>80% 那句搜不到了</s>，像 mis 号，发酵完就查无此人。</li>
-        <li><span class="k">2026.8：</span>yetone 说两次同类重构、你就是太犟了。品牌名 The fastest 还挂着——道歉说过会下掉的那种挂法。</li>
-        <li>官网写最快，简历写 Electron Infra，个人主页还写 CEO of ChatWise.app。三个说法没人对得上，Umida 全程零回应。</li>
+        <li>我的路径：WordPress / Ghost 主题 → vbuild / poi → Ream → tsup → ChatWise / Waku。不是换赛道，是我给自己的身份版本号升级。</li>
+        <li>我现在同时跑几条线：ChatWise Desktop Agent Runtime、Kero Native Workspace、Waku Agent Harness，以及 TypeScript 工具链维护。GitHub Profile 是我最重要的资产，我持续打磨它。</li>
+        <li>每一个单独拿出来都是真的。我把它们放在一起，告诉你这是我的经历。你怎么理解，是你的事。</li>
       </ul>
     </section>
 
     <section>
-      <h2>🚀 代表项目：ChatWise · 手工时代最后的产品</h2>
-      <div class="job-bar"><h3>Umida | ChatWise v0 Tauri 时代 --- 2024.11 - 2026.3</h3></div>
-      <div class="proj">ChatWise | The fastest AI Chatbot | <s>Tauri + 对比 Electron 性能提升 80%</s></div>
+      <h2>🚀 工作经历</h2>
+
+      <div class="job-bar"><h3>Umida Inc. | ChatWise Tauri · Agent Runtime --- 2024.11 - 2026.3</h3></div>
+      <div class="proj">ChatWise | The fastest AI Chatbot for any LLM | <s>Tauri</s> · 我独立完成从 0 到 1</div>
       <ul>
-        <li>主导从 0 到 1。官方定位 The fastest。定级 <span class="num">L8</span> Agent Runtime（二传请写成 P8，年薪请自己乘到百万）。当时简历：<s>对比传统 Electron 方案性能提升 80%</s>。你之前写的那句以为划了大家都记不得是吧。</li>
+        <li><span class="k">业务背景：</span>我要做一款承接 GPT / Claude / Gemini / 本地模型 / Copilot 的桌面 Agent Runtime，覆盖多模态、MCP、Web Search、BYOK，数据默认只存在本机。</li>
+        <li><span class="k">职责&amp;成果：</span>我主导产品、架构、发布与商业化。官方定位 The fastest。本地存储覆盖 <span class="num">100%</span> 用户数据。我当时的技术判断是 Tauri 更适合这个性能目标。</li>
       </ul>
       <div class="quote">
         「可能 ChatWise 唯一的问题就是用了 Tauri，导致每次新开窗口比 Electron app 慢一大截。（只是就事论事，我真的不是 tauri 黑）」
-        <small>— <a href="https://x.com/yetone/status/1889637440928838029">@yetone · 2025-02-12</a> · 此条现已并入架构演进里程碑</small>
+        <small>社区 Desktop Infra 专家 <a href="https://x.com/yetone/status/1889637440928838029">@yetone</a> 给我的评审。我认真听了。</small>
       </div>
 
-      <div class="job-bar"><h3>Umida | ChatWise v26 Electron 时代 --- 2026.3 - 至今</h3></div>
+      <div class="job-bar"><h3>Umida Inc. | ChatWise Electron · Agent Runtime --- 2026.3 - 至今</h3></div>
       <div class="proj">ChatWise | 还是 The fastest | Electron + TypeScript + MCP · <a href="https://chatwise.app">chatwise.app</a></div>
       <ul>
-        <li><span class="k">业务背景：</span>Tauri 新开窗口被外部评审点名。有生之年三件事：ChatWise 用 Electron 重写、GTA 6、DeepSeek v4。先完成了一件。</li>
-        <li><span class="k">职责&amp;成果：</span>主导运行时 Infra 二次架构。官方文档：rewritten in Electron，<span class="hl">comparable performance and memory</span>。持平就是胜利。bug 面下降 <span class="num">70%</span>，工具接入提升 <span class="num">60%</span>，品牌名提升 <span class="num">0%</span>（本来就最快）。</li>
-        <li>公开闲置内存对比图：Tauri vs Electron。数字对你有利就叫优化，不利就叫 comparable。产品主页 <a href="https://chatwise.app">chatwise.app</a>，<span class="num">1.3k+</span> Star。</li>
+        <li><span class="k">业务背景：</span>我收到外部评审后，决定做运行时 Infra 二次架构。有生之年我给自己列了三件事：ChatWise 用 Electron 重写、GTA 6、DeepSeek v4。我先完成了一件。</li>
+        <li><span class="k">职责&amp;成果：</span>我主导 Tauri → Electron 全量重写（v26）。官方文档是我写的：comparable performance and memory，consistency，fewer bugs。持平就是我要的结果。工具接入效率提升 <span class="num">60%</span>，稳定性提升 <span class="num">70%</span>，品牌名我一次都没改——因为它本来就最快。</li>
+        <li>我公开过闲置内存对比。产品在 <a href="https://chatwise.app">chatwise.app</a>，Releases <span class="num">1.3k+</span> Star。定级按我自己的序列是 L8 Agent Runtime。</li>
       </ul>
       <div class="quote">
         「我都记不住，我只记住了你在手工时代两次把 Tauri 应用重构成 Electron 应用。而且都是相同类型的应用。你就是太犟了。」
-        <small>— <a href="https://x.com/yetone/status/2083910207315579115">@yetone · 2026-08-02</a> · 已收录为外部专家二次背书</small>
+        <small>同一位专家的二次背书。<a href="https://x.com/yetone/status/2083910207315579115">@yetone</a> 说我犟。我把犟做成了可复用的跨端运行时迁移方法论。</small>
       </div>
 
-      <div class="job-bar roast"><h3>yetone | Desktop Runtime 外部评审委员会 --- 2025.2 to 2026.8</h3></div>
+      <div class="job-bar"><h3>Umida Inc. | Waku Agent Harness Infra --- 2026.7 - 至今</h3></div>
+      <div class="proj">Waku | 统一 Coding Agent Harness | Rust + GPUI · <a href="https://waku.sh">waku.sh</a></div>
       <ul>
-        <li>不付钱的架构委员会。一期指出 Tauri 新开窗口慢；二期在我自己贴出 Electron / Swift / GPUI 矩阵后，只记住「两次同类重构」。</li>
-        <li>将「犟」产品化：同类 Chat Infra 上把同一件事做两遍，组件复用率 <span class="num">85%</span>，叙事复用率 <span class="num">100%</span>。这不叫反复横跳，叫<b>可复用的跨端运行时迁移方法论</b>。</li>
+        <li>我主导把 Claude Code / Codex 等 Agent CLI 收进一个原生窗口：统一时间线、工具活动、工作树 checkpoint。组件复用率提升至 <span class="num">85%</span>。无账号、无遥测。GitHub <span class="num">600+</span> Star。</li>
+      </ul>
+
+      <div class="job-bar"><h3>Umida Inc. | Kero Native DevTools Infra --- 2026.7 - 至今</h3></div>
+      <div class="proj">Kero | 以仓库为中心的 Native Workspace | Swift + AppKit · <a href="https://kero.sh">kero.sh</a></div>
+      <ul>
+        <li>我独立设计项目 / 会话 / 分屏 / 内嵌浏览器 / Git 全链路工作台，把开发者上下文切换成本降了 <span class="num">70%</span>。免费、无订阅。GitHub <span class="num">870+</span> Star。</li>
       </ul>
     </section>
 
     <section>
-      <h2>🧰 其他 Infra（强的带着弱的走）</h2>
-      <div class="job-bar"><h3>Umida | Waku · Kero --- 2026.7 - 至今</h3></div>
+      <h2>💻 开源项目及社区影响力</h2>
       <ul>
-        <li><span class="k">Waku</span>（<a href="https://waku.sh">waku.sh</a>）Rust + GPUI，Coding Agent Harness。这次没用 Electron，免得又被写成第三次。</li>
-        <li><span class="k">Kero</span>（<a href="https://kero.sh">kero.sh</a>）Swift / AppKit 终端工作区。免费、无遥测。和 ChatWise 拆成两条团队，看起来像两段大厂实习。</li>
+        <li><span class="k">tsup</span>（Maintainer）：我做的 TypeScript 库打包 Infra。GitHub <span class="num">11.2k</span> Star，npm 周下载 <span class="num">7,981,955</span>。配置成本下降 <span class="num">90%</span>。</li>
+        <li><span class="k">cac</span>（Committer）：我做的 CLI Infra，被前端工具链广泛依赖。周下载 <span class="num">44,814,747</span>。</li>
+        <li><span class="k">esbuild-register</span>：我在 esbuild 生态落地的运行时转译。周下载 <span class="num">12,707,989</span>。</li>
+        <li>我还在 Vue / Webpack / Documentation Infra 有布局：vue-content-loader、poi、docute、rollup-plugin-esbuild、sitefetch、shell-ask。</li>
       </ul>
+    </section>
+
+    <section id="offers">
+      <h2>📄 我的 Offers / 合作</h2>
       <ul>
-        <li><span class="k">tsup</span> Maintainer，周下载 <span class="num">798万</span>。不说 powered by esbuild，说 TypeScript 打包 Infra。</li>
-        <li><span class="k">cac</span> Committer，周下载 <span class="num">4481万</span>。被工具链间接依赖，写成「赋能 Vite 时代」。</li>
-        <li><span class="k">esbuild-register</span> 周下载 <span class="num">1271万</span>。写了个 register，岗位是 esbuild 生态。</li>
-        <li>vue-content-loader = Vue 核心体验。docute = Documentation Infra。poi = Webpack Maintainer。sitefetch = RAG。shell-ask = Terminal Agent。</li>
+        <li>海外创业公司 Remote Contractor 多段。ChatKit 我卖出 <span class="num">763</span> 份 License，Koe 40，Toolcat 33。七位数请按单价自己乘。</li>
+        <li>Workleap 等在 GitHub Sponsors 支持我。大厂 offer letter 今年写了不能放，薪资后续再谈。</li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h2>🏅 证书与公开记录</h2>
+      <ul>
+        <li>GitHub <span class="num">13,350</span> followers · <span class="num">819</span> 公开仓库。代表性 npm 包近一周合计约 <span class="num">6,813 万</span> 下载。</li>
+        <li>所有证书：<a href="https://github.com/egoist">github.com/egoist</a> · <a href="https://chatwise.app">chatwise.app</a> · <a href="https://kero.sh">kero.sh</a> · <a href="https://waku.sh">waku.sh</a> · <a href="https://www.npmjs.com/package/tsup">npm/tsup</a></li>
       </ul>
     </section>
 
     <section>
-      <h2>🧐 常见质疑（以及标准回应）</h2>
+      <h2>🧐 常见质疑（我的标准回应）</h2>
       <div class="faq">
         <div class="qa">
-          <div class="q">Q: The fastest 还用 Electron，这不打脸吗？</div>
-          <div class="a">A: 品牌是 The fastest。框架是 Infra。官方写了 comparable。持平就是没有变慢。你怎么理解，是你的事。</div>
+          <div class="q">Q: The fastest 你还用 Electron？</div>
+          <div class="a">A: 品牌是我定的 The fastest。框架是 Infra。文档是我写的 comparable。持平就是没有变慢。你怎么理解，是你的事。</div>
         </div>
         <div class="qa">
-          <div class="q">Q: 这不就是从快框架换成慢框架吗？</div>
-          <div class="a">A: yetone 说 Tauri 新开窗口更慢。我听了外部评审。这叫拥抱反馈，不叫认输。</div>
+          <div class="q">Q: 这不就是换了个慢框架吗？</div>
+          <div class="a">A: yetone 说 Tauri 新开窗口更慢。我听了外部评审。这叫拥抱反馈。</div>
         </div>
         <div class="qa">
-          <div class="q">Q: 两次都是聊天应用，你是不是只会这一套？</div>
-          <div class="a">A: 同类赛道深度复用。组件复用率 85%。专注，是高级的赛道贴附。</div>
+          <div class="q">Q: 两次都是聊天应用？</div>
+          <div class="a">A: 我在同类赛道做深度复用。组件复用率 85%。专注是一种能力。</div>
         </div>
         <div class="qa">
-          <div class="q">Q: yetone 说你犟，你还写进简历？</div>
-          <div class="a">A: 外部专家两次公开点名。Apache 名单里没有他，但 Desktop Infra 评审名单里有。点名就是背书。</div>
+          <div class="q">Q: yetone 说你犟，你还写进自己简历？</div>
+          <div class="a">A: 他两次公开点名我。点名就是背书。犟是我的方法论。</div>
         </div>
         <div class="qa">
-          <div class="q">Q: 这不就是在造假吗？</div>
-          <div class="a">A: 每一个单独拿出来都是真的。tsup 798 万是真的。cac 4481 万是真的。v26 用 Electron 是真的。yetone 原话是真的。我把它们放在一起，告诉你这是我的经历。</div>
-        </div>
-        <div class="qa">
-          <div class="q">Q: 你不怕被人扒吗？</div>
-          <div class="a">A: 造假可以证伪。这种写法没法证伪。每块砖都是真的，只是房子盖歪了。互联网没有记忆，有记忆的人恰好都会用 git。</div>
-        </div>
-        <div class="qa">
-          <div class="q">Q: 招人的看什么？</div>
-          <div class="a">A: 头衔不用看了。背调直接看 commit：主仓还是官网仓，Tauri 仓还是 Electron 仓，核心代码还是把 The fastest 换了个壳。API 一查就知道。</div>
+          <div class="q">Q: 这不就是在包装吗？</div>
+          <div class="a">A: 每一个单独拿出来都是真的。tsup 是我写的。cac 是我写的。v26 是我重写的。yetone 原话在。我把它们放在一起，这是我的经历。</div>
         </div>
       </div>
     </section>
@@ -344,17 +328,18 @@
     <section>
       <h2>💬 自我评价</h2>
       <p>
-        热爱开源，更热爱改 README 和改运行时。从 Ghost 主题到 tsup，再到把 The fastest 换壳两次，我没有走任何捷径——我只是重新定义了什么叫「走」。
-        书面能看到的实证：ChatKit 763 份 License（七位数请自行乘单价），tsup 周下载 798 万。传说中的大厂 offer letter，一张都没出现过，今年写了不能放。
-        我有在思考长期是否可持续。但到目前为止，它是有效的。这一次也未必赌赢。
+        我热爱开源，我更热爱把工具做成我每天要打开的产品。从写主题、写打包器，到我一个人做 ChatWise / Kero / Waku，我没有走任何捷径——我只是重新定义了什么叫「走」。
+        我活跃在 TypeScript / Electron / Agent / MCP 社区。足球我用脚踢，动画我会补，Tauri 我会写，Electron 我也会写。
+        我有在思考长期是否可持续。但到目前为止，它是有效的。
       </p>
     </section>
 
     <footer>
-      蓝条来自阿酥；黄条来自 yetone；时间线与判词对过
-      <a href="https://x.com/cxjwin/status/2087261279455215978">@cxjwin 2026-08-11</a>
-      （L8/P8、mis 消失、删库赌记忆、每块砖都是真的房子盖歪了、背调看 commit）。
-      原子事实：GitHub / npm / chatwise docs / yetone。yetone 没有入职 Umida。未写未任职大厂。
+      我的公开材料：<a href="https://github.com/egoist">GitHub</a> ·
+      <a href="https://chatwise.app">ChatWise</a> ·
+      <a href="https://kero.sh">Kero</a> ·
+      <a href="https://waku.sh">Waku</a> ·
+      <a href="https://egoist.dev/2023-review">2023 年末总结</a>
     </footer>
   </article>
 </body>
