@@ -1,51 +1,66 @@
-.prose > *:last-child {
-  margin-bottom: 0;
+.prose {
+  @apply text-[15.5px] leading-[1.75] text-fg/90;
 }
 
 .prose > *:first-child {
   margin-top: 0;
 }
 
-.prose {
-  @apply text-lg leading-relaxed;
+.prose > *:last-child {
+  margin-bottom: 0;
 }
 
 .prose h2 {
-  @apply mt-5 py-3 text-3xl;
-  @apply font-semibold;
+  @apply mt-14 mb-4 text-[17px] font-semibold tracking-tight text-fg;
 }
 
 .prose h3 {
-  @apply my-7 text-2xl font-medium;
+  @apply mt-10 mb-3 text-[15.5px] font-semibold text-fg;
+}
+
+.prose h4 {
+  @apply mt-8 mb-2 font-medium text-fg;
+}
+
+.prose :where(h2, h3, h4) a {
+  @apply no-underline;
 }
 
 .prose p {
-  @apply my-4;
+  @apply my-5;
+}
+
+.prose strong {
+  @apply font-semibold text-fg;
 }
 
 .prose ul {
-  @apply my-5 list-disc pl-5;
+  @apply my-5 list-disc pl-5 marker:text-faint;
+}
+
+.prose ol {
+  @apply my-5 list-decimal pl-5 marker:text-muted;
+}
+
+.prose li {
+  @apply my-1.5 pl-1;
 }
 
 .prose li > ul {
   @apply my-1;
-  list-style-type: square;
 }
 
-.prose ol {
-  @apply my-5 list-decimal pl-5;
-}
-
-.prose img {
-  @apply rounded-xl;
+.prose img,
+.prose video {
+  @apply rounded-lg my-8;
 }
 
 .prose a {
-  @apply underline decoration-zinc-500;
+  @apply underline decoration-line underline-offset-[3px] transition-colors duration-200 hover:decoration-muted;
 }
 
 .prose pre {
-  @apply border border-zinc-200 rounded-xl p-5 overflow-x-auto;
+  @apply border rounded-lg p-5 my-6 overflow-x-auto text-[13.5px];
 }
 
 .prose pre .table {
@@ -54,38 +69,46 @@
 
 :not(pre) > code {
   background: var(--inline-code-bg);
-  @apply p-1;
-  @apply rounded-md;
-  @apply text-sm;
+  @apply px-[0.3em] py-[0.15em] rounded text-[0.875em] font-mono;
 }
 
 .prose figcaption {
-  @apply italic text-center text-xs -mt-2 text-gray-400;
+  @apply text-center text-[13px] -mt-5 text-muted;
 }
 
 .prose blockquote {
-  @apply border-l-4 px-4 text-zinc-500;
+  @apply my-6 border-l border-fg/20 pl-5 text-muted;
 }
 
 .prose hr {
-  @apply my-8;
-  @apply block;
-  @apply border-dotted;
+  @apply my-12 mx-auto w-10 border-line;
+}
+
+.prose .expressive-code {
+  @apply my-6;
 }
 
 .table-wrapper {
-  @apply rounded-xl border w-full my-5 overflow-auto;
+  @apply w-full my-6 overflow-auto text-[14px];
 }
 
 .table-wrapper table {
   @apply w-full;
 }
 
-.table-wrapper th,
-.table-wrapper td {
-  @apply py-2 px-3;
+.table-wrapper th {
+  @apply text-left font-medium text-muted border-b;
 }
 
-.table-wrapper tbody tr:nth-child(odd) {
-  @apply bg-zinc-50;
+.table-wrapper th,
+.table-wrapper td {
+  @apply py-2 pr-4;
+}
+
+.table-wrapper tbody tr {
+  @apply border-b;
+}
+
+.prose h2 + h3 {
+  @apply mt-6;
 }

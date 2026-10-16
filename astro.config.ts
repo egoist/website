@@ -36,15 +36,25 @@ export default defineConfig({
   site: "https://egoist.dev",
   integrations: [
     expressiveCode({
-      themes: ["solarized-light"],
+      themes: ["github-light", "github-dark"],
       defaultProps: {
         wrap: true,
       },
       styleOverrides: {
-        codeFontSize: "0.95rem",
+        codeFontSize: "13.5px",
         codeFontFamily: "var(--font-mono)",
+        codeLineHeight: "1.7",
+        borderRadius: "8px",
+        borderColor: "rgb(var(--line))",
+        codeBackground: "rgb(var(--subtle))",
         frames: {
           shadowColor: "transparent",
+          editorTabBarBackground: "rgb(var(--subtle))",
+          editorActiveTabBackground: "rgb(var(--bg))",
+          editorActiveTabIndicatorTopColor: "transparent",
+          terminalTitlebarBackground: "rgb(var(--subtle))",
+          terminalBackground: "rgb(var(--subtle))",
+          frameBoxShadowCssValue: "none",
         },
       },
     }),

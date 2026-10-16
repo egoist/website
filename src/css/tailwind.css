@@ -3,30 +3,71 @@
 @tailwind utilities;
 
 :root {
-  --code-bg: #fbfbfb;
-  --inline-code-bg: theme("colors.zinc.100");
-  --sidebar-width: 260px;
+  --bg: 250 250 249;
+  --fg: 28 28 26;
+  --muted: 128 128 122;
+  --faint: 176 176 170;
+  --line: 233 233 230;
+  --subtle: 243 243 241;
+  --card: 255 255 255;
+  --inline-code-bg: rgb(var(--subtle));
   --font-mono: theme("fontFamily.mono");
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 17 17 16;
+    --fg: 236 236 234;
+    --muted: 140 140 134;
+    --faint: 92 92 88;
+    --line: 38 38 36;
+    --subtle: 28 28 27;
+    --card: 23 23 22;
+    color-scheme: dark;
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
+  @apply bg-bg text-fg antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  letter-spacing: -0.011em;
 }
 
-.container {
-  @apply max-w-3xl;
-  @apply px-5 lg:px-16;
-  @apply mx-auto;
+::selection {
+  background: rgb(var(--fg) / 0.12);
 }
 
-.button {
-  @apply rounded-xl px-3 h-10 items-center inline-flex font-medium hover:opacity-80;
+/* quiet underline link */
+.link {
+  @apply underline decoration-line underline-offset-[3px] transition-colors duration-200 hover:decoration-muted;
 }
 
-.button.is-primary {
-  @apply bg-primary text-white;
+/* subtle staggered entrance */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal > * {
+    animation: reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .reveal > *:nth-child(2) { animation-delay: 60ms; }
+  .reveal > *:nth-child(3) { animation-delay: 120ms; }
+  .reveal > *:nth-child(4) { animation-delay: 180ms; }
+  .reveal > *:nth-child(5) { animation-delay: 240ms; }
+  .reveal > *:nth-child(n + 6) { animation-delay: 300ms; }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(2px);
+  }
 }
 
 .callout {
-  --inline-code-bg: theme("colors.blue.100");
-  @apply rounded-xl p-4 border border-blue-200 bg-blue-50 my-5;
+  @apply rounded-lg border border-line bg-subtle px-5 py-4 my-6;
 }

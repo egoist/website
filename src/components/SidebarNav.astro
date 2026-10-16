@@ -1,62 +1,41 @@
 ---
+import { Image } from "astro:assets"
+import avatar from "~/assets/avatar.jpeg"
 import { cn } from "~/lib/utils"
 
 const nav = [
-  {
-    label: "home",
-    href: "/",
-  },
-  {
-    label: "about",
-    href: "/about",
-  },
-  {
-    label: "uses",
-    href: "/uses",
-  },
-  {
-    label: "donate",
-    href: "/donate",
-  },
-  {
-    label: "RSS Feed",
-    href: "/rss.xml",
-    icon: "i-heroicons-rss-20-solid",
-    showLabelOnHover: true,
-    class: "text-orange-500 font-medium",
-  },
+  { label: "About", href: "/about" },
+  { label: "Uses", href: "/uses" },
+  { label: "Donate", href: "/donate" },
+  { label: "RSS", href: "/rss.xml" },
 ]
+
+const isActive = (href: string) =>
+  Astro.url.pathname === href || Astro.url.pathname === `${href}/`
 ---
 
-<div
-  class="font-medium md:font-semibold text-sm md:text-base -ml-3 mt-5 md:mt-6 flex md:gap-0.5 md:flex-col"
->
-  {
-    nav.map((item) => {
-      return (
+<header class="flex items-center justify-between text-sm">
+  <a href="/" class="group flex items-center gap-2.5 font-medium">
+    <Image
+      src={avatar}
+      class="size-6 rounded-full grayscale transition duration-300 group-hover:grayscale-0"
+      alt="egoist"
+    />
+    <span>EGOIST</span>
+  </a>
+  <nav class="flex items-center gap-5">
+    {
+      nav.map((item) => (
         <a
           href={item.href}
           class={cn(
-            "group rounded-full flex px-3 md:px-5 gap-1 md:gap-2 h-8 md:h-12 items-center group-hover:text-zinc-900 capitalize leading-none",
-            Astro.url.pathname === item.href ||
-              Astro.url.pathname === `${item.href}/`
-              ? "md:bg-stone-200/60"
-              : "hover:bg-stone-200/40 text-stone-700",
-            item.class
+            "transition-colors duration-200",
+            isActive(item.href) ? "text-fg" : "text-muted hover:text-fg",
           )}
         >
-          {item.icon && <span class={item.icon} />}
-          <span
-            class={
-              item.showLabelOnHover
-                ? "opacity-0 group-hover:opacity-100 transition -translate-x-2 group-hover:translate-x-0"
-                : ""
-            }
-          >
-            {item.label}
-          </span>
+          {item.label}
         </a>
-      )
-    })
-  }
-</div>
+      ))
+    }
+  </nav>
+</header>

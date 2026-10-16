@@ -1,5 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme")
 
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`
+
 module.exports = {
   content: ["./src/**/*.{mdx,md,tsx,astro}"],
   theme: {
@@ -9,19 +11,19 @@ module.exports = {
         mono: [`"Geist Mono Variable"`, ...defaultTheme.fontFamily.mono],
       },
       colors: {
-        primary: "#563bda",
-        dark: "#010509",
-        rss: "#ee802f",
+        bg: token("bg"),
+        fg: token("fg"),
+        muted: token("muted"),
+        faint: token("faint"),
+        line: token("line"),
+        subtle: token("subtle"),
+        card: token("card"),
       },
-      boxShadow: {
-        popover:
-          "0 0 0 1px #8898aa1a, 0 15px 35px #31315d1a, 0 5px 15px #00000014",
+      borderColor: {
+        DEFAULT: token("line"),
       },
-      backgroundColor: {
-        header: "#f7f5ff",
-      },
-      spacing: {
-        sidebar: "var(--sidebar-width)",
+      maxWidth: {
+        page: "36rem",
       },
     },
   },

@@ -1,0 +1,127 @@
+---
+import { Image } from "astro:assets"
+import type { ImageMetadata } from "astro"
+
+interface Props {
+  name: string
+  url: string
+  desc: string
+  icon: ImageMetadata
+  /** brand color, tints the hover spotlight and glow */
+  accent: string
+}
+
+const { name, url, desc, icon, accent } = Astro.props
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener"
+  style={{ "--accent": accent }}
+  class="project-card group relative isolate flex items-center gap-3.5 overflow-hidden rounded-xl border border-line bg-card/60 p-3.5 transition duration-500 ease-out sm:flex-col sm:items-start sm:gap-4 sm:p-4 hover:-translate-y-0.5 hover:bg-card"
+>
+  <Image
+    src={icon}
+    alt=""
+    width={40}
+    height={40}
+    densities={[1, 2]}
+    class="project-icon size-10 shrink-0 rounded-[9px]"
+  />
+  <span class="min-w-0">
+    <span class="block text-[15px] font-medium leading-5">{name}</span>
+    <span
+      class="mt-0.5 block text-[13px] leading-[1.45] text-muted text-pretty transition-colors duration-500 group-hover:text-fg/70 sm:mt-1"
+      >{desc}</span
+    >
+  </span>
+  <span
+    class="i-lucide-arrow-up-right absolute right-3.5 top-3.5 size-4 -translate-x-1 translate-y-1 text-faint opacity-0 transition duration-500 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-muted group-hover:opacity-100"
+    aria-hidden="true"></span>
+</a>
+
+<style>
+  .project-card {
+    --x: 50%;
+    --y: 0%;
+  }
+
+  .project-card::before,
+  .project-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+
+  /* spotlight that follows the cursor */
+  .project-card::before {
+    z-index: -1;
+    background: radial-gradient(
+      260px circle at var(--x) var(--y),
+      color-mix(in srgb, var(--accent) 12%, transparent),
+      transparent 70%
+    );
+  }
+
+  /* the same light, caught by the border only */
+  .project-card::after {
+    padding: 1px;
+    background: radial-gradient(
+      180px circle at var(--x) var(--y),
+      color-mix(in srgb, var(--accent) 70%, transparent),
+      transparent 70%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+  }
+
+  .project-card:hover {
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.03),
+      0 12px 32px -16px color-mix(in srgb, var(--accent) 50%, transparent);
+  }
+
+  .project-card:hover::before,
+  .project-card:hover::after {
+    opacity: 1;
+  }
+
+  .project-icon {
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.08),
+      0 2px 6px -2px rgb(0 0 0 / 0.12);
+    transition:
+      transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1.2),
+      box-shadow 0.5s ease-out;
+  }
+
+  .project-card:hover .project-icon {
+    transform: translateY(-2px) rotate(-4deg) scale(1.06);
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.08),
+      0 10px 20px -8px var(--accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-card:hover .project-icon {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  for (const card of document.querySelectorAll<HTMLElement>(".project-card")) {
+    card.addEventListener("pointermove", (e) => {
+      const rect = card.getBoundingClientRect()
+      card.style.setProperty("--x", `${e.clientX - rect.left}px`)
+      card.style.setProperty("--y", `${e.clientY - rect.top}px`)
+    })
+  }
+</script>

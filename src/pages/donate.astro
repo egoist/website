@@ -10,7 +10,7 @@ const sponsors = await getSponsors()
 ---
 
 <BlogLayout title="Donate">
-  <div class="prose my-5">
+  <div class="prose">
     <p>
       I’m truly grateful to all the wonderful humans and companies supporting my
       open source work on{" "}
@@ -31,44 +31,48 @@ const sponsors = await getSponsors()
       />
     </p>
   </div>
-  <div class="space-y-8">
+  <div class="mt-16 space-y-14">
     {
       sponsors.map(({ tier, sponsors }) => {
         return (
-          <div>
-            <h3 class="text-2xl mb-2">${tier}/month</h3>
-            <div class="border dark:border-zinc-800 divide-y dark:divide-zinc-800">
+          <section>
+            <h3 class="mb-4 text-sm text-muted tabular-nums">${tier} / month</h3>
+            <ul class="space-y-4">
               {sponsors.map((sponsor: any) => {
                 const bio = sponsor.bio || sponsor.description
                 return (
-                  <div class="flex space-x-3 items-center p-3">
-                    <span class="flex-shrink-0">
-                      <img
-                        src={sponsor.avatarUrl}
-                        height={60}
-                        width={60}
-                        alt={`profile image of ${sponsor.login}`}
-                      />
-                    </span>
-                    <div>
+                  <li class="flex items-start gap-3">
+                    <img
+                      src={sponsor.avatarUrl}
+                      height={32}
+                      width={32}
+                      loading="lazy"
+                      class="mt-0.5 size-8 shrink-0 rounded-full bg-subtle"
+                      alt={`profile image of ${sponsor.login}`}
+                    />
+                    <div class="min-w-0 text-[15px] leading-6">
                       <a
                         href={`https://github.com/${sponsor.login}`}
                         rel="nofollow noopener"
                         target="_blank"
-                        class="text-lg text-pink-500 hover:underline"
+                        class="link"
                       >
                         {sponsor.name || sponsor.login}
-                        {sponsor.name && <span>({sponsor.login})</span>}
                       </a>
+                      {sponsor.name && (
+                        <span class="ml-1.5 text-faint">@{sponsor.login}</span>
+                      )}
                       {bio && (
-                        <div class="text-zinc-500">{normalizeNewLine(bio)}</div>
+                        <p class="text-sm text-muted whitespace-pre-line">
+                          {normalizeNewLine(bio)}
+                        </p>
                       )}
                     </div>
-                  </div>
+                  </li>
                 )
               })}
-            </div>
-          </div>
+            </ul>
+          </section>
         )
       })
     }

@@ -1,64 +1,86 @@
 ---
 import { getCollection } from "astro:content"
+import dayjs from "dayjs"
 import BlogLayout from "~/layouts/BlogLayout.astro"
 import { site } from "~/config"
 import PageSection from "~/components/PageSection.astro"
+import { sortByDate } from "~/lib/utils"
+import { groupBy } from "lodash-es"
+import ProjectCard from "~/components/ProjectCard.astro"
+import pulseIcon from "~/assets/projects/pulse.png"
+import lorcaIcon from "~/assets/projects/lorca.png"
+import mygoIcon from "~/assets/projects/mygo-icon.svg"
 
 const allBlog = await getCollection("blog")
-const allPosts = allBlog.filter((item) => item.data.date && !item.data.is_page)
+const allPosts = sortByDate(
+  allBlog.filter((item) => item.data.date && !item.data.is_page),
+)
+
+const postsByYear = Object.entries(
+  groupBy(allPosts, (post) => String(post.data.date!.getFullYear())),
+).sort(([a], [b]) => Number(b) - Number(a))
 
 const projects = [
   {
-    name: "ChatWise",
-    url: "https://chatwise.app",
-    desc: "All-in-one AI chat app",
+    name: "Lorca",
+    url: "https://lorca.app",
+    desc: "AI teammates that run on your own computer",
+    icon: lorcaIcon,
+    accent: "#6d5cff",
   },
-  // {
-  //   name: "Beamcast",
-  //   url: "https://beamcast.app",
-  //   desc: "Access your favorite AI commands on any website",
-  // },
-  // {
-  //   name: "Koe",
-  //   url: "https://koeapp.com",
-  //   desc: "AI-powered Transcription for Audio and Video Files",
-  // },
+  {
+    name: "Pulse",
+    url: "https://pulse.egoist.dev",
+    desc: "Everything your computer is doing, live",
+    icon: pulseIcon,
+    accent: "#34d058",
+  },
+  {
+    name: "MyGo",
+    url: "https://mygo.egoist.dev",
+    desc: "Desktop apps in pure Go, native UI or web",
+    icon: mygoIcon,
+    accent: "#fe8798",
+  },
 ]
 ---
 
 <BlogLayout meta={{ title: site.title }}>
-  <div class="space-y-10 text-lg">
-    <PageSection title="Projects">
-      {
-        projects.map((p) => {
-          return (
-            <div>
-              <a href={p.url} target="_blank" class="hover:text-indigo-500">
-                {p.name}
-                <span class="text-zinc-500"> - {p.desc}</span>
-              </a>
-            </div>
-          )
-        })
-      }
-    </PageSection>
-    <PageSection title="Essays">
-      <div class="flex flex-col gap-1">
-        {
-          allPosts
-            .sort((a, b) =>
-              a.data.date!.valueOf() > b.data.date!.valueOf() ? -1 : 1
-            )
-            .map((post) => (
-              <a
-                class="flex flex-col hover:text-indigo-500"
-                href={`/${post.slug}`}
-              >
-                <h3>{post.data.title}</h3>
-              </a>
-            ))
-        }
+  <div class="space-y-16 text-[15px]">
+    <p class="max-w-md leading-relaxed text-fg/90 text-pretty">
+      Indie hacker working on my own products. Writing about the web, the
+      tools I use, and occasionally, life.
+    </p>
+
+    <section>
+      <h2 class="mb-4 text-sm text-muted">Projects</h2>
+      <div class="grid gap-2.5 sm:grid-cols-3">
+        {projects.map((p) => <ProjectCard {...p} />)}
       </div>
-    </PageSection>
+    </section>
+
+    <div class="space-y-10">
+      {
+        postsByYear.map(([year, posts]) => (
+          <PageSection title={year}>
+            <ul class="group/list">
+              {posts.map((post) => (
+                <li>
+                  <a
+                    href={`/${post.slug}`}
+                    class="flex items-baseline justify-between gap-6 py-1 leading-6 transition-opacity duration-200 group-hover/list:opacity-40 hover:!opacity-100"
+                  >
+                    <span class="text-pretty">{post.data.title}</span>
+                    <time class="shrink-0 text-[13px] text-faint tabular-nums">
+                      {dayjs(post.data.date).format("MMM D")}
+                    </time>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </PageSection>
+        ))
+      }
+    </div>
   </div>
 </BlogLayout>
