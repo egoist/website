@@ -10,6 +10,7 @@ import ProjectCard from "~/components/ProjectCard.astro"
 import pulseIcon from "~/assets/projects/pulse.png"
 import lorcaIcon from "~/assets/projects/lorca.png"
 import mygoIcon from "~/assets/projects/mygo-icon.svg"
+import keroIcon from "~/assets/projects/kero.png"
 
 const allBlog = await getCollection("blog")
 const allPosts = sortByDate(
@@ -21,6 +22,13 @@ const postsByYear = Object.entries(
 ).sort(([a], [b]) => Number(b) - Number(a))
 
 const projects = [
+  {
+    name: "Kero",
+    url: "https://kero.sh",
+    desc: "A terminal for coding agents",
+    icon: keroIcon,
+    accent: "#a3d65c",
+  },
   {
     name: "Lorca",
     url: "https://lorca.app",
@@ -54,7 +62,7 @@ const projects = [
 
     <section>
       <h2 class="mb-4 text-sm text-muted">Projects</h2>
-      <div class="grid gap-2.5 sm:grid-cols-3">
+      <div class="grid gap-2.5 sm:grid-cols-2">
         {projects.map((p) => <ProjectCard {...p} />)}
       </div>
     </section>
