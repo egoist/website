@@ -11,6 +11,7 @@ import pulseIcon from "~/assets/projects/pulse.png"
 import lorcaIcon from "~/assets/projects/lorca.png"
 import mygoIcon from "~/assets/projects/mygo-icon.svg"
 import keroIcon from "~/assets/projects/kero.png"
+import screenflareIcon from "~/assets/projects/screenflare.png"
 
 const allBlog = await getCollection("blog")
 const allPosts = sortByDate(
@@ -22,6 +23,13 @@ const postsByYear = Object.entries(
 ).sort(([a], [b]) => Number(b) - Number(a))
 
 const projects = [
+  {
+    name: "Screenflare",
+    url: "https://screenflare.app",
+    desc: "Screen recordings people want to watch",
+    icon: screenflareIcon,
+    accent: "#f7841e",
+  },
   {
     name: "Kero",
     url: "https://kero.sh",
