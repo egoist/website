@@ -10,6 +10,7 @@ import ProjectCard from "~/components/ProjectCard.astro"
 import pulseIcon from "~/assets/projects/pulse.png"
 import lorcaIcon from "~/assets/projects/lorca.png"
 import mygoIcon from "~/assets/projects/mygo-icon.svg"
+import mygoCloudMusicIcon from "~/assets/projects/mygo-cloudmusic.svg"
 import keroIcon from "~/assets/projects/kero.png"
 import screenflareIcon from "~/assets/projects/screenflare.png"
 
@@ -23,6 +24,13 @@ const postsByYear = Object.entries(
 ).sort(([a], [b]) => Number(b) - Number(a))
 
 const projects = [
+  {
+    name: "MyGo 云音乐",
+    url: "https://music.egoist.dev/",
+    desc: "原生的网易云音乐桌面客户端",
+    icon: mygoCloudMusicIcon,
+    accent: "#e3122c",
+  },
   {
     name: "Screenflare",
     url: "https://screenflare.app",
